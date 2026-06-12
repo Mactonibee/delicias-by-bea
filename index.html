@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delicias by Bea — Obrador artesanal · Barcelona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crema:#FBF6EE;
+    --crema-tostada:#F2E8D8;
+    --chocolate:#2E2018;
+    --chocolate-suave:#5C4636;
+    --amapola:#A6342B;
+    --dorado:#C99A5B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--crema);
+    color:var(--chocolate);
+    font-family:'Karla',sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:400}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,246,238,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(46,32,24,.08);
+  }
+  .header-inner{
+    max-width:1200px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;gap:16px;
+  }
+  .brand{font-family:'Fraunces',serif;font-size:1.35rem;letter-spacing:.01em}
+  .brand em{font-style:italic;color:var(--amapola)}
+  nav.main{display:flex;gap:28px;font-size:.92rem;letter-spacing:.04em}
+  nav.main a{position:relative;padding:4px 0}
+  nav.main a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:1.5px;
+    background:var(--amapola);transition:width .25s ease;
+  }
+  nav.main a:hover::after{width:100%}
+  .langs{display:flex;gap:4px;background:var(--crema-tostada);border-radius:999px;padding:4px}
+  .langs button{
+    border:none;background:transparent;cursor:pointer;
+    font-family:'Karla',sans-serif;font-weight:600;font-size:.75rem;
+    letter-spacing:.06em;padding:5px 10px;border-radius:999px;
+    color:var(--chocolate-suave);transition:all .2s;
+  }
+  .langs button.active{background:var(--amapola);color:#fff}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:1200px;margin:0 auto;padding:64px 24px 80px;
+    display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+  }
+  .hero-text .eyebrow{
+    font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--amapola);font-weight:600;margin-bottom:20px;
+  }
+  .hero-text h1{
+    font-size:clamp(2.4rem,5vw,3.9rem);
+    line-height:1.08;letter-spacing:-.01em;margin-bottom:24px;
+  }
+  .hero-text h1 em{font-style:italic;color:var(--amapola)}
+  .hero-text p{max-width:46ch;color:var(--chocolate-suave);margin-bottom:34px;font-size:1.05rem}
+  .btn{
+    display:inline-block;background:var(--chocolate);color:var(--crema);
+    padding:15px 34px;border-radius:999px;font-weight:600;font-size:.95rem;
+    letter-spacing:.03em;transition:background .25s, transform .25s;
+  }
+  .btn:hover{background:var(--amapola);transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--chocolate);border:1.5px solid var(--chocolate)}
+  .btn.ghost:hover{background:var(--chocolate);color:var(--crema)}
+  .hero-img{position:relative}
+  .hero-img img{
+    width:84%;margin:0 auto;aspect-ratio:4/5;object-fit:cover;object-position:top;
+    border-radius:260px 260px 16px 16px; /* arco de horno, limpio */
+  }
+
+  /* ---------- Valores ---------- */
+  .valores{background:var(--crema-tostada)}
+  .valores-inner{
+    max-width:1200px;margin:0 auto;padding:56px 24px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center;
+  }
+  .valores h3{font-size:1.25rem;margin-bottom:8px}
+  .valores p{font-size:.95rem;color:var(--chocolate-suave);max-width:30ch;margin:0 auto}
+  .valores .dot{
+    width:10px;height:10px;border-radius:50%;
+    background:var(--amapola);margin:0 auto 16px;
+  }
+
+  /* ---------- Tradición / Hoy (elemento firma) ---------- */
+  .tradhoy{max-width:1200px;margin:0 auto;padding:96px 24px}
+  .tradhoy-head{text-align:center;max-width:60ch;margin:0 auto 64px}
+  .tradhoy-head .eyebrow{
+    font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--amapola);font-weight:600;margin-bottom:14px;
+  }
+  .tradhoy-head h2{font-size:clamp(1.9rem,3.5vw,2.7rem);line-height:1.15}
+  .split{display:grid;grid-template-columns:1fr 1fr;position:relative}
+  .split::before{
+    content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+    background:repeating-linear-gradient(to bottom,var(--amapola) 0 6px,transparent 6px 14px);
+    opacity:.5;
+  }
+  .col{padding:0 48px}
+  .col h3{
+    font-size:1.6rem;margin-bottom:6px;
+  }
+  .col .sub{font-style:italic;font-family:'Fraunces',serif;color:var(--amapola);margin-bottom:28px;display:block}
+  .item{padding:18px 0;border-bottom:1px solid rgba(46,32,24,.1)}
+  .item:last-child{border-bottom:none}
+  .item h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.12rem;margin-bottom:3px}
+  .item p{font-size:.92rem;color:var(--chocolate-suave)}
+
+  /* ---------- Sobre Bea ---------- */
+  .sobre{background:var(--chocolate);color:var(--crema)}
+  .sobre-inner{
+    max-width:1200px;margin:0 auto;padding:96px 24px;
+    display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center;
+  }
+  .sobre img{border-radius:18px;aspect-ratio:1/1;object-fit:cover;width:100%}
+  .sobre .eyebrow{
+    font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--dorado);font-weight:600;margin-bottom:18px;
+  }
+  .sobre h2{font-size:clamp(1.9rem,3.5vw,2.6rem);line-height:1.18;margin-bottom:22px}
+  .sobre p{color:rgba(251,246,238,.82);margin-bottom:16px;max-width:56ch}
+  .sobre .firma{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--dorado);margin-top:10px}
+
+  /* ---------- Galería ---------- */
+  .galeria{max-width:1200px;margin:0 auto;padding:96px 24px}
+  .galeria-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:40px;gap:20px}
+  .galeria-head h2{font-size:clamp(1.9rem,3.5vw,2.6rem)}
+  .galeria-head a{font-weight:600;color:var(--amapola);font-size:.95rem;white-space:nowrap}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .tile{
+    aspect-ratio:1/1;border-radius:14px;overflow:hidden;position:relative;
+    background:var(--crema-tostada);
+  }
+  .tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .tile:hover img{transform:scale(1.05)}
+  .tile.placeholder{
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-style:italic;color:var(--chocolate-suave);
+    font-size:1rem;text-align:center;padding:16px;
+    border:1.5px dashed rgba(46,32,24,.25);
+  }
+
+  /* ---------- Horario + Contacto ---------- */
+  .contacto{background:var(--crema-tostada)}
+  .contacto-inner{
+    max-width:1200px;margin:0 auto;padding:96px 24px;
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;
+  }
+  .contacto h2{font-size:clamp(1.9rem,3.5vw,2.6rem);margin-bottom:26px}
+  table.horario{width:100%;border-collapse:collapse;font-size:.98rem}
+  table.horario td{padding:10px 0;border-bottom:1px solid rgba(46,32,24,.1)}
+  table.horario td:last-child{text-align:right;color:var(--chocolate-suave)}
+  td.cerrado{color:var(--amapola) !important;font-weight:600}
+  .contact-list{margin-top:30px;display:grid;gap:10px;font-size:1rem}
+  .contact-list strong{font-weight:600}
+  form{display:grid;gap:14px}
+  input,textarea{
+    font-family:'Karla',sans-serif;font-size:.98rem;
+    padding:14px 16px;border:1.5px solid rgba(46,32,24,.18);
+    border-radius:12px;background:var(--crema);color:var(--chocolate);
+    transition:border-color .2s;width:100%;
+  }
+  input:focus,textarea:focus{outline:none;border-color:var(--amapola)}
+  textarea{min-height:110px;resize:vertical}
+  form .btn{border:none;cursor:pointer;justify-self:start;font-family:'Karla',sans-serif}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--chocolate);color:rgba(251,246,238,.7)}
+  .footer-inner{
+    max-width:1200px;margin:0 auto;padding:36px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-size:.88rem;
+  }
+  footer .brand{color:var(--crema);font-size:1.1rem}
+  footer a{color:var(--dorado)}
+
+  /* ---------- Animaciones ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:900px){
+    nav.main{display:none}
+    .hero{grid-template-columns:1fr;padding-top:40px;gap:40px}
+    .hero-img img{aspect-ratio:4/3;border-radius:160px 160px 14px 14px}
+    .valores-inner{grid-template-columns:1fr;gap:32px}
+    .split{grid-template-columns:1fr}
+    .split::before{display:none}
+    .col{padding:0}
+    .col + .col{margin-top:48px;padding-top:40px;border-top:1px dashed rgba(166,52,43,.5)}
+    .sobre-inner,.contacto-inner{grid-template-columns:1fr;gap:40px}
+    .grid{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body id="top">
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="#top">delicias <em>by</em> bea</a>
+    <nav class="main">
+      <a href="#top" data-i18n="nav0">Inicio</a>
+      <a href="#tradhoy" data-i18n="nav1">El obrador</a>
+      <a href="#sobre" data-i18n="nav2">Quién soy</a>
+      <a href="#galeria" data-i18n="nav3">Galería</a>
+      <a href="#contacto" data-i18n="nav4">Encargos</a>
+    </nav>
+    <div class="langs">
+      <button class="active" onclick="setLang('es',this)">ES</button>
+      <button onclick="setLang('ca',this)">CA</button>
+      <button onclick="setLang('en',this)">EN</button>
+      <button onclick="setLang('pl',this)">PL</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text reveal">
+    <div class="eyebrow" data-i18n="eyebrow">Obrador artesanal · Les Corts, Barcelona</div>
+    <h1 data-i18n="h1">Sabores de Polonia, <em>horneados</em> en el corazón de Barcelona</h1>
+    <p data-i18n="hsub">Pastelería tradicional polaca y postres de hoy, horneados cada mañana con ingredientes de proximidad.</p>
+    <a class="btn" href="#contacto" data-i18n="cta">Haz tu encargo</a>
+  </div>
+  <div class="hero-img reveal">
+    <img src="https://static.wixstatic.com/media/fa60a2_e5b758d54d88482b8c3dfa0a94dc80cb~mv2.png/v1/crop/x_0,y_377,w_828,h_1109/fill/w_520,h_698,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4202.png" alt="Bea Michalak, pastelera de Delicias by Bea">
+  </div>
+</section>
+
+<section class="valores">
+  <div class="valores-inner">
+    <div class="reveal">
+      <div class="dot"></div>
+      <h3 data-i18n="v1t">Ingredientes de proximidad</h3>
+      <p data-i18n="v1p">Fruta fresca, mantequilla de verdad y nata montada en el momento.</p>
+    </div>
+    <div class="reveal">
+      <div class="dot"></div>
+      <h3 data-i18n="v2t">Horneado in situ</h3>
+      <p data-i18n="v2p">Todo sale de nuestro horno, sin productos semielaborados.</p>
+    </div>
+    <div class="reveal">
+      <div class="dot"></div>
+      <h3 data-i18n="v3t">A tu medida</h3>
+      <p data-i18n="v3p">Encargos personalizados para cualquier ocasión y cualquier deseo dulce.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tradhoy" id="tradhoy">
+  <div class="tradhoy-head reveal">
+    <div class="eyebrow" data-i18n="thEye">Dos mundos, un obrador</div>
+    <h2 data-i18n="thTitle">La tradición polaca y la pastelería de hoy, lado a lado</h2>
+  </div>
+  <div class="split">
+    <div class="col reveal">
+      <h3 data-i18n="tradT">Tradición</h3>
+      <span class="sub">Tradycja</span>
+      <div class="item">
+        <h4>Drożdżówki</h4>
+        <p data-i18n="i1">Bollos dulces de masa levada, como los de las panaderías de Polonia.</p>
+      </div>
+      <div class="item">
+        <h4>Sernik</h4>
+        <p data-i18n="i2">La tarta de queso polaca de siempre, cremosa y horneada lentamente.</p>
+      </div>
+      <div class="item">
+        <h4>Szarlotka</h4>
+        <p data-i18n="i3">Tarta de manzana con canela, receta de generaciones.</p>
+      </div>
+    </div>
+    <div class="col reveal">
+      <h3 data-i18n="hoyT">Hoy</h3>
+      <span class="sub" data-i18n="hoySub">De vitrina</span>
+      <div class="item">
+        <h4 data-i18n="i4t">Tartas de ceremonia</h4>
+        <p data-i18n="i4">Diseños actuales para bodas, cumpleaños y celebraciones.</p>
+      </div>
+      <div class="item">
+        <h4 data-i18n="i5t">Postres de autor</h4>
+        <p data-i18n="i5">Texturas y sabores de la pastelería contemporánea.</p>
+      </div>
+      <div class="item">
+        <h4 data-i18n="i6t">Temporada</h4>
+        <p data-i18n="i6">Creaciones que cambian con la fruta y las fiestas del calendario.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="sobre-inner">
+    <img class="reveal" src="https://static.wixstatic.com/media/fa60a2_37799ae99bde45938193f91fdd213f56~mv2.jpg/v1/fill/w_460,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/PhotoRoom_20210804_131006_edited.jpg" alt="Tarta de Delicias by Bea">
+    <div class="reveal">
+      <div class="eyebrow" data-i18n="sEye">Quién soy</div>
+      <h2 data-i18n="sTitle">Un sueño que empezó horneando con mi madre</h2>
+      <p data-i18n="sP1">De niña ya horneaba con mi madre los pasteles tradicionales de mi Polonia natal. De Namysłów a Berlín, donde perfeccioné mi técnica junto a chefs de reconocimiento, y de ahí a Barcelona.</p>
+      <p data-i18n="sP2">Desde 2023, en Delicias by Bea horneo cada día fusionando la pastelería tradicional polaca con las técnicas más actuales, con el mismo cariño con el que se hornea en casa.</p>
+      <div class="firma">— Bea Michalak</div>
+    </div>
+  </div>
+</section>
+
+<section class="galeria" id="galeria">
+  <div class="galeria-head reveal">
+    <h2 data-i18n="gTitle">Del horno a la vitrina</h2>
+    <a href="https://instagram.com/delicias_by_bea" target="_blank" rel="noopener" data-i18n="gIg">Sígueme en Instagram →</a>
+  </div>
+  <div class="grid">
+    <div class="tile reveal"><img src="https://static.wixstatic.com/media/fa60a2_1130c0fc75f04645a50fa96cfe6732d0~mv2.jpg/v1/crop/x_41,y_0,w_2959,h_1698/fill/w_927,h_532,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/_MG_6900%20(2)_edited.jpg" alt="Tarta de fresas"></div>
+    <div class="tile reveal"><img src="https://static.wixstatic.com/media/fa60a2_37799ae99bde45938193f91fdd213f56~mv2.jpg/v1/fill/w_460,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/PhotoRoom_20210804_131006_edited.jpg" alt="Tarta de celebración"></div>
+    <div class="tile placeholder reveal"><span data-i18n="ph1">Tu foto: Drożdżówki recién horneados</span></div>
+    <div class="tile placeholder reveal"><span data-i18n="ph2">Tu foto: el obrador en acción</span></div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="contacto-inner">
+    <div class="reveal">
+      <h2 data-i18n="cTitle">Horario y encargos</h2>
+      <table class="horario">
+        <tr><td data-i18n="d1">Lunes</td><td>8:30 – 15:00</td></tr>
+        <tr><td data-i18n="d2">Martes</td><td>8:30 – 15:00</td></tr>
+        <tr><td data-i18n="d3">Miércoles</td><td class="cerrado" data-i18n="closed">Cerrado</td></tr>
+        <tr><td data-i18n="d4">Jueves</td><td>8:30 – 15:00</td></tr>
+        <tr><td data-i18n="d5">Viernes</td><td>8:30 – 15:00</td></tr>
+        <tr><td data-i18n="d6">Sábado</td><td>10:00 – 14:00</td></tr>
+        <tr><td data-i18n="d7">Domingo</td><td>11:00 – 14:00</td></tr>
+      </table>
+      <div class="contact-list">
+        <div><strong data-i18n="tel">Teléfono:</strong> +34 722 117 695</div>
+        <div><strong>Email:</strong> deliciasbybea@gmail.com</div>
+        <div><strong>Instagram:</strong> @delicias_by_bea</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <h2 data-i18n="fTitle">¿Quieres un pedido?</h2>
+      <form onsubmit="event.preventDefault();alert(t('formOk'));">
+        <input type="text" data-i18n-ph="fName" placeholder="Nombre*" required>
+        <input type="email" placeholder="Email*" required>
+        <input type="tel" data-i18n-ph="fPhone" placeholder="Teléfono">
+        <textarea data-i18n-ph="fMsg" placeholder="Cuéntame qué dulce deseas y para cuándo*" required></textarea>
+        <button class="btn" type="submit" data-i18n="fBtn">Enviar encargo</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="brand">delicias <em>by</em> bea</div>
+    <div data-i18n="foot">©2026 Delicias by Bea · Les Corts, Barcelona</div>
+  </div>
+</footer>
+
+<script>
+const I = {
+  es:{nav0:"Inicio",nav1:"El obrador",nav2:"Quién soy",nav3:"Galería",nav4:"Encargos",
+    eyebrow:"Obrador artesanal · Les Corts, Barcelona",
+    h1:"Sabores de Polonia, <em>horneados</em> en el corazón de Barcelona",
+    hsub:"Pastelería tradicional polaca y postres de hoy, horneados cada mañana con ingredientes de proximidad.",
+    cta:"Haz tu encargo",
+    v1t:"Ingredientes de proximidad",v1p:"Fruta fresca, mantequilla de verdad y nata montada en el momento.",
+    v2t:"Horneado in situ",v2p:"Todo sale de nuestro horno, sin productos semielaborados.",
+    v3t:"A tu medida",v3p:"Encargos personalizados para cualquier ocasión y cualquier deseo dulce.",
+    thEye:"Dos mundos, un obrador",thTitle:"La tradición polaca y la pastelería de hoy, lado a lado",
+    tradT:"Tradición",hoyT:"Hoy",hoySub:"De vitrina",
+    i1:"Bollos dulces de masa levada, como los de las panaderías de Polonia.",
+    i2:"La tarta de queso polaca de siempre, cremosa y horneada lentamente.",
+    i3:"Tarta de manzana con canela, receta de generaciones.",
+    i4t:"Tartas de ceremonia",i4:"Diseños actuales para bodas, cumpleaños y celebraciones.",
+    i5t:"Postres de autor",i5:"Texturas y sabores de la pastelería contemporánea.",
+    i6t:"Temporada",i6:"Creaciones que cambian con la fruta y las fiestas del calendario.",
+    sEye:"Quién soy",sTitle:"Un sueño que empezó horneando con mi madre",
+    sP1:"De niña ya horneaba con mi madre los pasteles tradicionales de mi Polonia natal. De Namysłów a Berlín, donde perfeccioné mi técnica junto a chefs de reconocimiento, y de ahí a Barcelona.",
+    sP2:"Desde 2023, en Delicias by Bea horneo cada día fusionando la pastelería tradicional polaca con las técnicas más actuales, con el mismo cariño con el que se hornea en casa.",
+    gTitle:"Del horno a la vitrina",gIg:"Sígueme en Instagram →",
+    ph1:"Tu foto: Drożdżówki recién horneados",ph2:"Tu foto: el obrador en acción",
+    cTitle:"Horario y encargos",d1:"Lunes",d2:"Martes",d3:"Miércoles",d4:"Jueves",d5:"Viernes",d6:"Sábado",d7:"Domingo",closed:"Cerrado",tel:"Teléfono:",
+    fTitle:"¿Quieres un pedido?",fName:"Nombre*",fPhone:"Teléfono",fMsg:"Cuéntame qué dulce deseas y para cuándo*",fBtn:"Enviar encargo",
+    formOk:"¡Gracias! (Formulario de demostración — lo conectaremos al publicar la web)",
+    foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
+  ca:{nav0:"Inici",nav1:"L'obrador",nav2:"Qui sóc",nav3:"Galeria",nav4:"Encàrrecs",
+    eyebrow:"Obrador artesanal · Les Corts, Barcelona",
+    h1:"Sabors de Polònia, <em>enfornats</em> al cor de Barcelona",
+    hsub:"Pastisseria tradicional polonesa i postres d'avui, enfornats cada matí amb ingredients de proximitat.",
+    cta:"Fes el teu encàrrec",
+    v1t:"Ingredients de proximitat",v1p:"Fruita fresca, mantega de veritat i nata muntada al moment.",
+    v2t:"Enfornat in situ",v2p:"Tot surt del nostre forn, sense productes semielaborats.",
+    v3t:"A la teva mida",v3p:"Encàrrecs personalitzats per a qualsevol ocasió i qualsevol desig dolç.",
+    thEye:"Dos mons, un obrador",thTitle:"La tradició polonesa i la pastisseria d'avui, costat a costat",
+    tradT:"Tradició",hoyT:"Avui",hoySub:"De vitrina",
+    i1:"Brioixos dolços de massa llevada, com els dels forns de Polònia.",
+    i2:"El pastís de formatge polonès de sempre, cremós i enfornat lentament.",
+    i3:"Pastís de poma amb canyella, recepta de generacions.",
+    i4t:"Pastissos de cerimònia",i4:"Dissenys actuals per a casaments, aniversaris i celebracions.",
+    i5t:"Postres d'autor",i5:"Textures i sabors de la pastisseria contemporània.",
+    i6t:"Temporada",i6:"Creacions que canvien amb la fruita i les festes del calendari.",
+    sEye:"Qui sóc",sTitle:"Un somni que va començar enfornant amb la meva mare",
+    sP1:"De petita ja enfornava amb la meva mare els pastissos tradicionals de la meva Polònia natal. De Namysłów a Berlín, on vaig perfeccionar la tècnica amb xefs de renom, i d'allà a Barcelona.",
+    sP2:"Des del 2023, a Delicias by Bea enforno cada dia fusionant la pastisseria tradicional polonesa amb les tècniques més actuals, amb el mateix afecte amb què s'enforna a casa.",
+    gTitle:"Del forn a la vitrina",gIg:"Segueix-me a Instagram →",
+    ph1:"La teva foto: Drożdżówki acabats de fer",ph2:"La teva foto: l'obrador en acció",
+    cTitle:"Horari i encàrrecs",d1:"Dilluns",d2:"Dimarts",d3:"Dimecres",d4:"Dijous",d5:"Divendres",d6:"Dissabte",d7:"Diumenge",closed:"Tancat",tel:"Telèfon:",
+    fTitle:"Vols fer una comanda?",fName:"Nom*",fPhone:"Telèfon",fMsg:"Explica'm quin dolç desitges i per a quan*",fBtn:"Envia l'encàrrec",
+    formOk:"Gràcies! (Formulari de demostració — el connectarem en publicar la web)",
+    foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
+  en:{nav0:"Home",nav1:"The bakery",nav2:"About me",nav3:"Gallery",nav4:"Orders",
+    eyebrow:"Artisan bakery · Les Corts, Barcelona",
+    h1:"Flavors of Poland, <em>baked</em> in the heart of Barcelona",
+    hsub:"Traditional Polish pastry and today's desserts, baked fresh every morning with local ingredients.",
+    cta:"Place your order",
+    v1t:"Local ingredients",v1p:"Fresh fruit, real butter and cream whipped to order.",
+    v2t:"Baked in-house",v2p:"Everything comes from our own oven, no semi-finished products.",
+    v3t:"Made to measure",v3p:"Custom orders for any occasion and any sweet wish.",
+    thEye:"Two worlds, one bakery",thTitle:"Polish tradition and today's pastry, side by side",
+    tradT:"Tradition",hoyT:"Today",hoySub:"From the counter",
+    i1:"Sweet yeast buns, just like the bakeries of Poland.",
+    i2:"The classic Polish cheesecake, creamy and slowly baked.",
+    i3:"Apple pie with cinnamon, a recipe passed down generations.",
+    i4t:"Ceremony cakes",i4:"Modern designs for weddings, birthdays and celebrations.",
+    i5t:"Signature desserts",i5:"Textures and flavors of contemporary pastry.",
+    i6t:"Seasonal",i6:"Creations that change with the fruit and the calendar.",
+    sEye:"About me",sTitle:"A dream that began baking with my mother",
+    sP1:"As a child I was already baking the traditional cakes of my native Poland with my mother. From Namysłów to Berlin, where I refined my technique alongside renowned chefs, and from there to Barcelona.",
+    sP2:"Since 2023, at Delicias by Bea I bake every day, blending traditional Polish pastry with today's techniques — with the same love as baking at home.",
+    gTitle:"From the oven to the counter",gIg:"Follow me on Instagram →",
+    ph1:"Your photo: freshly baked Drożdżówki",ph2:"Your photo: the bakery at work",
+    cTitle:"Hours & orders",d1:"Monday",d2:"Tuesday",d3:"Wednesday",d4:"Thursday",d5:"Friday",d6:"Saturday",d7:"Sunday",closed:"Closed",tel:"Phone:",
+    fTitle:"Want to place an order?",fName:"Name*",fPhone:"Phone",fMsg:"Tell me what sweet you wish for and when*",fBtn:"Send order",
+    formOk:"Thank you! (Demo form — we'll connect it when the site goes live)",
+    foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
+  pl:{nav0:"Start",nav1:"Pracownia",nav2:"O mnie",nav3:"Galeria",nav4:"Zamówienia",
+    eyebrow:"Rzemieślnicza pracownia · Les Corts, Barcelona",
+    h1:"Smaki Polski, <em>wypiekane</em> w sercu Barcelony",
+    hsub:"Tradycyjne polskie wypieki i nowoczesne desery, przygotowywane każdego ranka z lokalnych składników.",
+    cta:"Złóż zamówienie",
+    v1t:"Lokalne składniki",v1p:"Świeże owoce, prawdziwe masło i śmietana ubijana na miejscu.",
+    v2t:"Wypiekane na miejscu",v2p:"Wszystko z naszego pieca, bez gotowych półproduktów.",
+    v3t:"Na zamówienie",v3p:"Personalizowane zamówienia na każdą okazję i każde słodkie życzenie.",
+    thEye:"Dwa światy, jedna pracownia",thTitle:"Polska tradycja i współczesne cukiernictwo, obok siebie",
+    tradT:"Tradycja",hoyT:"Dziś",hoySub:"Z witryny",
+    i1:"Słodkie bułki drożdżowe, jak z polskiej piekarni.",
+    i2:"Klasyczny polski sernik, kremowy i powoli pieczony.",
+    i3:"Szarlotka z cynamonem, przepis przekazywany z pokolenia na pokolenie.",
+    i4t:"Torty okolicznościowe",i4:"Nowoczesne projekty na śluby, urodziny i uroczystości.",
+    i5t:"Desery autorskie",i5:"Tekstury i smaki współczesnego cukiernictwa.",
+    i6t:"Sezonowe",i6:"Kreacje zmieniające się z owocami i kalendarzem.",
+    sEye:"O mnie",sTitle:"Marzenie, które zaczęło się od pieczenia z mamą",
+    sP1:"Już jako dziecko piekłam z mamą tradycyjne ciasta mojej rodzinnej Polski. Z Namysłowa do Berlina, gdzie szlifowałam technikę u uznanych szefów cukiernictwa, a stamtąd do Barcelony.",
+    sP2:"Od 2023 roku w Delicias by Bea piekę każdego dnia, łącząc tradycyjne polskie cukiernictwo z najnowszymi technikami — z taką samą miłością jak w domu.",
+    gTitle:"Z pieca do witryny",gIg:"Obserwuj mnie na Instagramie →",
+    ph1:"Twoje zdjęcie: świeże drożdżówki",ph2:"Twoje zdjęcie: pracownia przy pracy",
+    cTitle:"Godziny i zamówienia",d1:"Poniedziałek",d2:"Wtorek",d3:"Środa",d4:"Czwartek",d5:"Piątek",d6:"Sobota",d7:"Niedziela",closed:"Zamknięte",tel:"Telefon:",
+    fTitle:"Chcesz złożyć zamówienie?",fName:"Imię*",fPhone:"Telefon",fMsg:"Napisz, o jakim wypieku marzysz i na kiedy*",fBtn:"Wyślij zamówienie",
+    formOk:"Dziękuję! (Formularz demonstracyjny — podłączymy go przy publikacji strony)",
+    foot:"©2026 Delicias by Bea · Les Corts, Barcelona"}
+};
+let lang='es';
+function t(k){return (I[lang][k]||I.es[k]||'').replace(/<[^>]+>/g,'')}
+function setLang(l,btn){
+  lang=l;
+  document.documentElement.lang=l;
+  document.querySelectorAll('.langs button').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(I[l][k]!==undefined) el.innerHTML=I[l][k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const k=el.getAttribute('data-i18n-ph');
+    if(I[l][k]!==undefined) el.placeholder=I[l][k];
+  });
+}
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
