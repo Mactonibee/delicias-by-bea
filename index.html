@@ -357,11 +357,13 @@
     </div>
     <div class="reveal">
       <h2 data-i18n="fTitle">¿Quieres un pedido?</h2>
-      <form onsubmit="event.preventDefault();alert(t('formOk'));">
-        <input type="text" data-i18n-ph="fName" placeholder="Nombre*" required>
-        <input type="email" placeholder="Email*" required>
-        <input type="tel" data-i18n-ph="fPhone" placeholder="Teléfono">
-        <textarea data-i18n-ph="fMsg" placeholder="Cuéntame qué dulce deseas y para cuándo*" required></textarea>
+      <form name="encargo" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="form-encargo">
+        <input type="hidden" name="form-name" value="encargo">
+        <p style="display:none"><label>No rellenar: <input name="bot-field"></label></p>
+        <input type="text" name="nombre" data-i18n-ph="fName" placeholder="Nombre*" required>
+        <input type="email" name="email" placeholder="Email*" required>
+        <input type="tel" name="telefono" data-i18n-ph="fPhone" placeholder="Teléfono">
+        <textarea name="mensaje" data-i18n-ph="fMsg" placeholder="Cuéntame qué dulce deseas y para cuándo*" required></textarea>
         <button class="btn" type="submit" data-i18n="fBtn">Enviar encargo</button>
       </form>
     </div>
@@ -400,7 +402,7 @@ const I = {
     ph1:"Tu foto: Drożdżówki recién horneados",ph2:"Tu foto: el obrador en acción",
     cTitle:"Horario y encargos",d1:"Lunes",d2:"Martes",d3:"Miércoles",d4:"Jueves",d5:"Viernes",d6:"Sábado",d7:"Domingo",closed:"Cerrado",tel:"Teléfono:",
     fTitle:"¿Quieres un pedido?",fName:"Nombre*",fPhone:"Teléfono",fMsg:"Cuéntame qué dulce deseas y para cuándo*",fBtn:"Enviar encargo",
-    formOk:"¡Gracias! (Formulario de demostración — lo conectaremos al publicar la web)",
+    formOk:"¡Gracias! Hemos recibido tu encargo. Te responderemos muy pronto. 🍰",formErr:"Ups, algo ha fallado. Inténtalo de nuevo o escríbenos a deliciasbybea@gmail.com",
     foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
   ca:{nav0:"Inici",nav1:"L'obrador",nav2:"Qui sóc",nav3:"Galeria",nav4:"Encàrrecs",
     eyebrow:"Obrador artesanal · Les Corts, Barcelona",
@@ -425,7 +427,7 @@ const I = {
     ph1:"La teva foto: Drożdżówki acabats de fer",ph2:"La teva foto: l'obrador en acció",
     cTitle:"Horari i encàrrecs",d1:"Dilluns",d2:"Dimarts",d3:"Dimecres",d4:"Dijous",d5:"Divendres",d6:"Dissabte",d7:"Diumenge",closed:"Tancat",tel:"Telèfon:",
     fTitle:"Vols fer una comanda?",fName:"Nom*",fPhone:"Telèfon",fMsg:"Explica'm quin dolç desitges i per a quan*",fBtn:"Envia l'encàrrec",
-    formOk:"Gràcies! (Formulari de demostració — el connectarem en publicar la web)",
+    formOk:"Gràcies! Hem rebut el teu encàrrec. Et respondrem molt aviat. 🍰",formErr:"Ui, alguna cosa ha fallat. Torna-ho a provar o escriu-nos a deliciasbybea@gmail.com",
     foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
   en:{nav0:"Home",nav1:"The bakery",nav2:"About me",nav3:"Gallery",nav4:"Orders",
     eyebrow:"Artisan bakery · Les Corts, Barcelona",
@@ -450,7 +452,7 @@ const I = {
     ph1:"Your photo: freshly baked Drożdżówki",ph2:"Your photo: the bakery at work",
     cTitle:"Hours & orders",d1:"Monday",d2:"Tuesday",d3:"Wednesday",d4:"Thursday",d5:"Friday",d6:"Saturday",d7:"Sunday",closed:"Closed",tel:"Phone:",
     fTitle:"Want to place an order?",fName:"Name*",fPhone:"Phone",fMsg:"Tell me what sweet you wish for and when*",fBtn:"Send order",
-    formOk:"Thank you! (Demo form — we'll connect it when the site goes live)",
+    formOk:"Thank you! We've received your order. We'll get back to you very soon. 🍰",formErr:"Oops, something went wrong. Please try again or email us at deliciasbybea@gmail.com",
     foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
   pl:{nav0:"Start",nav1:"Pracownia",nav2:"O mnie",nav3:"Galeria",nav4:"Zamówienia",
     eyebrow:"Rzemieślnicza pracownia · Les Corts, Barcelona",
@@ -475,7 +477,7 @@ const I = {
     ph1:"Twoje zdjęcie: świeże drożdżówki",ph2:"Twoje zdjęcie: pracownia przy pracy",
     cTitle:"Godziny i zamówienia",d1:"Poniedziałek",d2:"Wtorek",d3:"Środa",d4:"Czwartek",d5:"Piątek",d6:"Sobota",d7:"Niedziela",closed:"Zamknięte",tel:"Telefon:",
     fTitle:"Chcesz złożyć zamówienie?",fName:"Imię*",fPhone:"Telefon",fMsg:"Napisz, o jakim wypieku marzysz i na kiedy*",fBtn:"Wyślij zamówienie",
-    formOk:"Dziękuję! (Formularz demonstracyjny — podłączymy go przy publikacji strony)",
+    formOk:"Dziękuję! Otrzymaliśmy Twoje zamówienie. Odpowiemy bardzo szybko. 🍰",formErr:"Ups, coś poszło nie tak. Spróbuj ponownie lub napisz na deliciasbybea@gmail.com",
     foot:"©2026 Delicias by Bea · Les Corts, Barcelona"}
 };
 let lang='es';
@@ -498,6 +500,25 @@ const io=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Envío del formulario a Netlify Forms sin recargar la página
+document.getElementById('form-encargo').addEventListener('submit', function(e){
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type=submit]');
+  btn.disabled = true;
+  fetch('/', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams(new FormData(form)).toString()
+  }).then(res => {
+    if(!res.ok) throw new Error('Netlify response ' + res.status);
+    alert(t('formOk'));
+    form.reset();
+  }).catch(() => {
+    alert(t('formErr'));
+  }).finally(() => { btn.disabled = false; });
+});
 </script>
 </body>
 </html>
