@@ -357,9 +357,9 @@
     </div>
     <div class="reveal">
       <h2 data-i18n="fTitle">¿Quieres un pedido?</h2>
-      <form name="encargo" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="form-encargo">
-        <input type="hidden" name="form-name" value="encargo">
-        <p style="display:none"><label>No rellenar: <input name="bot-field"></label></p>
+      <form action="https://formspree.io/f/mjgdanyn" method="POST" id="form-encargo">
+        <input type="hidden" name="_subject" value="🍰 Nuevo encargo desde la web">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <input type="text" name="nombre" data-i18n-ph="fName" placeholder="Nombre*" required>
         <input type="email" name="email" placeholder="Email*" required>
         <input type="tel" name="telefono" data-i18n-ph="fPhone" placeholder="Teléfono">
@@ -501,18 +501,18 @@ const io=new IntersectionObserver(es=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// Envío del formulario a Netlify Forms sin recargar la página
+// Envío del formulario a Formspree sin recargar la página
 document.getElementById('form-encargo').addEventListener('submit', function(e){
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button[type=submit]');
   btn.disabled = true;
-  fetch('/', {
+  fetch(form.action, {
     method: 'POST',
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: new URLSearchParams(new FormData(form)).toString()
+    headers: {'Accept': 'application/json'},
+    body: new FormData(form)
   }).then(res => {
-    if(!res.ok) throw new Error('Netlify response ' + res.status);
+    if(!res.ok) throw new Error('Formspree response ' + res.status);
     alert(t('formOk'));
     form.reset();
   }).catch(() => {
