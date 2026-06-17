@@ -177,30 +177,12 @@
     font-family:'Karla',sans-serif;font-size:.98rem;
     padding:14px 16px;border:1.5px solid rgba(46,32,24,.18);
     border-radius:12px;background:var(--crema);color:var(--chocolate);
-    transition:border-color .2s;width:100%;
+    transition:border-color .2s;width:100%;max-width:100%;box-sizing:border-box;
   }
+  input[type="date"]{-webkit-appearance:none;appearance:none;min-height:50px}
   input:focus,textarea:focus{outline:none;border-color:var(--amapola)}
   textarea{min-height:110px;resize:vertical}
   form .btn{border:none;cursor:pointer;justify-self:start;font-family:'Karla',sans-serif}
-  .form-msg{
-    display:none;
-    padding:16px 20px;border-radius:12px;
-    font-size:.98rem;line-height:1.5;
-    opacity:0;transform:translateY(6px);
-    transition:opacity .4s ease,transform .4s ease;
-  }
-  .form-msg.show{display:block;opacity:1;transform:none}
-  .form-msg.ok{
-    background:rgba(201,154,91,.16);
-    border:1.5px solid var(--dorado);
-    color:var(--chocolate);
-    font-family:'Fraunces',serif;font-style:italic;font-size:1.05rem;
-  }
-  .form-msg.err{
-    background:rgba(166,52,43,.08);
-    border:1.5px solid var(--amapola);
-    color:var(--amapola);
-  }
 
   /* ---------- Footer ---------- */
   footer{background:var(--chocolate);color:rgba(251,246,238,.7)}
@@ -211,6 +193,22 @@
   }
   footer .brand{color:var(--crema);font-size:1.1rem}
   footer a{color:var(--dorado)}
+
+  /* ---------- Selector de fecha ---------- */
+  select{
+    font-family:'Karla',sans-serif;font-size:.98rem;
+    padding:14px 40px 14px 16px;border:1.5px solid rgba(46,32,24,.18);
+    border-radius:12px;background:var(--crema);color:var(--chocolate);
+    width:100%;max-width:100%;box-sizing:border-box;cursor:pointer;
+    transition:border-color .2s;
+    -webkit-appearance:none;-moz-appearance:none;appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235C4636' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 16px center;
+  }
+  select:focus{outline:none;border-color:var(--amapola)}
+  .fecha-label{font-size:.88rem;color:var(--chocolate-suave);font-weight:600;margin-bottom:-6px}
+  .fecha-aviso{font-size:.82rem;color:var(--chocolate-suave);margin-top:-8px}
+  .fecha-aviso.alerta{color:var(--amapola);font-weight:600}
 
   /* ---------- Animaciones ---------- */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
@@ -264,7 +262,7 @@
     <a class="btn" href="#contacto" data-i18n="cta">Haz tu encargo</a>
   </div>
   <div class="hero-img reveal">
-    <img src="https://static.wixstatic.com/media/fa60a2_e5b758d54d88482b8c3dfa0a94dc80cb~mv2.png/v1/crop/x_0,y_377,w_828,h_1109/fill/w_520,h_698,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4202.png" alt="Bea Michalak, pastelera de Delicias by Bea">
+    <img src="images/bea-retrato.jpg" alt="Bea Michalak, pastelera de Delicias by Bea">
   </div>
 </section>
 
@@ -331,7 +329,7 @@
 
 <section class="sobre" id="sobre">
   <div class="sobre-inner">
-    <img class="reveal" src="https://static.wixstatic.com/media/fa60a2_37799ae99bde45938193f91fdd213f56~mv2.jpg/v1/fill/w_460,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/PhotoRoom_20210804_131006_edited.jpg" alt="Tarta de Delicias by Bea">
+    <img class="reveal" src="images/tarta-celebracion.jpg" alt="Tarta de Delicias by Bea">
     <div class="reveal">
       <div class="eyebrow" data-i18n="sEye">Quién soy</div>
       <h2 data-i18n="sTitle">Un sueño que empezó horneando con mi madre</h2>
@@ -348,8 +346,8 @@
     <a href="https://instagram.com/delicias_by_bea" target="_blank" rel="noopener" data-i18n="gIg">Sígueme en Instagram →</a>
   </div>
   <div class="grid">
-    <div class="tile reveal"><img src="https://static.wixstatic.com/media/fa60a2_1130c0fc75f04645a50fa96cfe6732d0~mv2.jpg/v1/crop/x_41,y_0,w_2959,h_1698/fill/w_927,h_532,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/_MG_6900%20(2)_edited.jpg" alt="Tarta de fresas"></div>
-    <div class="tile reveal"><img src="https://static.wixstatic.com/media/fa60a2_37799ae99bde45938193f91fdd213f56~mv2.jpg/v1/fill/w_460,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/PhotoRoom_20210804_131006_edited.jpg" alt="Tarta de celebración"></div>
+    <div class="tile reveal"><img src="images/tarta-fresas.jpg" alt="Tarta de fresas"></div>
+    <div class="tile reveal"><img src="images/tarta-celebracion.jpg" alt="Tarta de celebración"></div>
     <div class="tile placeholder reveal"><span data-i18n="ph1">Tu foto: Drożdżówki recién horneados</span></div>
     <div class="tile placeholder reveal"><span data-i18n="ph2">Tu foto: el obrador en acción</span></div>
   </div>
@@ -376,15 +374,23 @@
     </div>
     <div class="reveal">
       <h2 data-i18n="fTitle">¿Quieres un pedido?</h2>
-      <form action="https://formspree.io/f/mjgdanyn" method="POST" id="form-encargo">
-        <input type="hidden" name="_subject" value="🍰 Nuevo encargo desde la web">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <form onsubmit="event.preventDefault();handleDateAndSubmit(this);">
         <input type="text" name="nombre" data-i18n-ph="fName" placeholder="Nombre*" required>
         <input type="email" name="email" placeholder="Email*" required>
         <input type="tel" name="telefono" data-i18n-ph="fPhone" placeholder="Teléfono">
+
+        <select name="tipo" id="tipoEncargo" onchange="ajustarFechaMin()" required>
+          <option value="" data-i18n="fTypeDef">¿Qué tipo de encargo?*</option>
+          <option value="personalizada" data-i18n="fTypeCustom">Tarta personalizada (boda, cumpleaños…)</option>
+          <option value="reposteria" data-i18n="fTypeOther">Repostería tradicional / de vitrina</option>
+        </select>
+
+        <label class="fecha-label" data-i18n="fDateLbl" for="fechaRecogida">Fecha deseada de recogida*</label>
+        <input type="date" name="fecha" id="fechaRecogida" required>
+        <small class="fecha-aviso" id="fechaAviso" data-i18n="fDateHelp">Elige primero el tipo de encargo.</small>
+
         <textarea name="mensaje" data-i18n-ph="fMsg" placeholder="Cuéntame qué dulce deseas y para cuándo*" required></textarea>
         <button class="btn" type="submit" data-i18n="fBtn">Enviar encargo</button>
-        <div class="form-msg" id="form-msg" role="status" aria-live="polite"></div>
       </form>
     </div>
   </div>
@@ -422,7 +428,12 @@ const I = {
     ph1:"Tu foto: Drożdżówki recién horneados",ph2:"Tu foto: el obrador en acción",
     cTitle:"Horario y encargos",d1:"Lunes",d2:"Martes",d3:"Miércoles",d4:"Jueves",d5:"Viernes",d6:"Sábado",d7:"Domingo",closed:"Cerrado",tel:"Teléfono:",
     fTitle:"¿Quieres un pedido?",fName:"Nombre*",fPhone:"Teléfono",fMsg:"Cuéntame qué dulce deseas y para cuándo*",fBtn:"Enviar encargo",
-    formOk:"¡Gracias! Hemos recibido tu encargo. Te responderemos muy pronto. 🍰",formErr:"Ups, algo ha fallado. Inténtalo de nuevo o escríbenos a deliciasbybea@gmail.com",
+    fTypeDef:"¿Qué tipo de encargo?*",fTypeCustom:"Tarta personalizada (boda, cumpleaños…)",fTypeOther:"Repostería tradicional / de vitrina",
+    fDateLbl:"Fecha deseada de recogida*",fDateHelp:"Elige primero el tipo de encargo.",
+    fDate7:"Las tartas personalizadas se piden con 1 semana de antelación mínima.",
+    fDate2:"La repostería se pide con 2 días de antelación mínima.",
+    fDateWed:"Los miércoles cerramos — elige otro día, por favor.",
+    formOk:"¡Gracias! (Formulario de demostración — lo conectaremos al publicar la web)",
     foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
   ca:{nav0:"Inici",nav1:"L'obrador",nav2:"Qui sóc",nav3:"Galeria",nav4:"Encàrrecs",
     eyebrow:"Obrador artesanal · Les Corts, Barcelona",
@@ -447,7 +458,12 @@ const I = {
     ph1:"La teva foto: Drożdżówki acabats de fer",ph2:"La teva foto: l'obrador en acció",
     cTitle:"Horari i encàrrecs",d1:"Dilluns",d2:"Dimarts",d3:"Dimecres",d4:"Dijous",d5:"Divendres",d6:"Dissabte",d7:"Diumenge",closed:"Tancat",tel:"Telèfon:",
     fTitle:"Vols fer una comanda?",fName:"Nom*",fPhone:"Telèfon",fMsg:"Explica'm quin dolç desitges i per a quan*",fBtn:"Envia l'encàrrec",
-    formOk:"Gràcies! Hem rebut el teu encàrrec. Et respondrem molt aviat. 🍰",formErr:"Ui, alguna cosa ha fallat. Torna-ho a provar o escriu-nos a deliciasbybea@gmail.com",
+    fTypeDef:"Quin tipus d'encàrrec?*",fTypeCustom:"Pastís personalitzat (casament, aniversari…)",fTypeOther:"Pastisseria tradicional / de vitrina",
+    fDateLbl:"Data desitjada de recollida*",fDateHelp:"Tria primer el tipus d'encàrrec.",
+    fDate7:"Els pastissos personalitzats es demanen amb 1 setmana d'antelació mínima.",
+    fDate2:"La pastisseria es demana amb 2 dies d'antelació mínima.",
+    fDateWed:"Els dimecres tanquem — tria un altre dia, si us plau.",
+    formOk:"Gràcies! (Formulari de demostració — el connectarem en publicar la web)",
     foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
   en:{nav0:"Home",nav1:"The bakery",nav2:"About me",nav3:"Gallery",nav4:"Orders",
     eyebrow:"Artisan bakery · Les Corts, Barcelona",
@@ -472,7 +488,12 @@ const I = {
     ph1:"Your photo: freshly baked Drożdżówki",ph2:"Your photo: the bakery at work",
     cTitle:"Hours & orders",d1:"Monday",d2:"Tuesday",d3:"Wednesday",d4:"Thursday",d5:"Friday",d6:"Saturday",d7:"Sunday",closed:"Closed",tel:"Phone:",
     fTitle:"Want to place an order?",fName:"Name*",fPhone:"Phone",fMsg:"Tell me what sweet you wish for and when*",fBtn:"Send order",
-    formOk:"Thank you! We've received your order. We'll get back to you very soon. 🍰",formErr:"Oops, something went wrong. Please try again or email us at deliciasbybea@gmail.com",
+    fTypeDef:"What kind of order?*",fTypeCustom:"Custom cake (wedding, birthday…)",fTypeOther:"Traditional / counter pastry",
+    fDateLbl:"Preferred pickup date*",fDateHelp:"Choose the type of order first.",
+    fDate7:"Custom cakes must be ordered at least 1 week in advance.",
+    fDate2:"Pastries must be ordered at least 2 days in advance.",
+    fDateWed:"We're closed on Wednesdays — please choose another day.",
+    formOk:"Thank you! (Demo form — we'll connect it when the site goes live)",
     foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
   pl:{nav0:"Start",nav1:"Pracownia",nav2:"O mnie",nav3:"Galeria",nav4:"Zamówienia",
     eyebrow:"Rzemieślnicza pracownia · Les Corts, Barcelona",
@@ -497,7 +518,12 @@ const I = {
     ph1:"Twoje zdjęcie: świeże drożdżówki",ph2:"Twoje zdjęcie: pracownia przy pracy",
     cTitle:"Godziny i zamówienia",d1:"Poniedziałek",d2:"Wtorek",d3:"Środa",d4:"Czwartek",d5:"Piątek",d6:"Sobota",d7:"Niedziela",closed:"Zamknięte",tel:"Telefon:",
     fTitle:"Chcesz złożyć zamówienie?",fName:"Imię*",fPhone:"Telefon",fMsg:"Napisz, o jakim wypieku marzysz i na kiedy*",fBtn:"Wyślij zamówienie",
-    formOk:"Dziękuję! Otrzymaliśmy Twoje zamówienie. Odpowiemy bardzo szybko. 🍰",formErr:"Ups, coś poszło nie tak. Spróbuj ponownie lub napisz na deliciasbybea@gmail.com",
+    fTypeDef:"Jaki rodzaj zamówienia?*",fTypeCustom:"Tort personalizowany (ślub, urodziny…)",fTypeOther:"Tradycyjne wypieki / z witryny",
+    fDateLbl:"Preferowana data odbioru*",fDateHelp:"Najpierw wybierz rodzaj zamówienia.",
+    fDate7:"Torty personalizowane zamawiamy z min. tygodniowym wyprzedzeniem.",
+    fDate2:"Wypieki zamawiamy z min. 2-dniowym wyprzedzeniem.",
+    fDateWed:"W środy jest zamknięte — wybierz inny dzień.",
+    formOk:"Dziękuję! (Formularz demonstracyjny — podłączymy go przy publikacji strony)",
     foot:"©2026 Delicias by Bea · Les Corts, Barcelona"}
 };
 let lang='es';
@@ -521,32 +547,34 @@ const io=new IntersectionObserver(es=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// Envío del formulario a Formspree sin recargar la página
-const formMsg = document.getElementById('form-msg');
-function showFormMsg(type, text){
-  formMsg.className = 'form-msg';
-  formMsg.textContent = text;
-  // forzar reflow para que la transición se reproduzca siempre
-  void formMsg.offsetWidth;
-  formMsg.classList.add('show', type);
+function ajustarFechaMin(){
+  const tipo=document.getElementById('tipoEncargo').value;
+  const campo=document.getElementById('fechaRecogida');
+  const aviso=document.getElementById('fechaAviso');
+  const dias = tipo==='personalizada' ? 7 : tipo==='reposteria' ? 2 : 0;
+  aviso.classList.remove('alerta');
+  if(!dias){campo.removeAttribute('min');aviso.textContent=t('fDateHelp');return;}
+  const min=new Date();min.setDate(min.getDate()+dias);
+  campo.min=min.toISOString().split('T')[0];
+  if(campo.value && campo.value < campo.min) campo.value='';
+  aviso.textContent = dias===7 ? t('fDate7') : t('fDate2');
 }
-document.getElementById('form-encargo').addEventListener('submit', function(e){
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('button[type=submit]');
-  btn.disabled = true;
-  fetch(form.action, {
-    method: 'POST',
-    headers: {'Accept': 'application/json'},
-    body: new FormData(form)
-  }).then(res => {
-    if(!res.ok) throw new Error('Formspree response ' + res.status);
-    showFormMsg('ok', t('formOk'));
-    form.reset();
-  }).catch(() => {
-    showFormMsg('err', t('formErr'));
-  }).finally(() => { btn.disabled = false; });
-});
+
+function handleDateAndSubmit(form){
+  const campo=document.getElementById('fechaRecogida');
+  const aviso=document.getElementById('fechaAviso');
+  // miércoles = 3 (día de cierre de Bea)
+  const d=new Date(campo.value+'T12:00:00');
+  if(d.getDay()===3){
+    aviso.textContent=t('fDateWed');
+    aviso.classList.add('alerta');
+    campo.focus();
+    return;
+  }
+  // TODO: aquí irá el envío real a Formspree (endpoint mjgdanyn)
+  alert(t('formOk'));
+  // form.reset();
+}
 </script>
 </body>
 </html>
