@@ -6,6 +6,50 @@
 <title>Delicias by Bea — Obrador artesanal · Barcelona</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ===== SEO ===== -->
+<meta name="description" content="Obrador artesanal de pastelería polaca en Les Corts, Barcelona. Drożdżówki, sernik, szarlotka y tartas de celebración por encargo, horneadas cada mañana por Bea Michalak.">
+<link rel="canonical" href="https://www.deliciasbybea.com/">
+<meta name="theme-color" content="#FBF6EE">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FBF6EE'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='42' font-style='italic' text-anchor='middle' fill='%23A6342B'%3Eb%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph: tarjeta al compartir por WhatsApp / Instagram / redes -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Delicias by Bea">
+<meta property="og:title" content="Delicias by Bea — Obrador artesanal de pastelería polaca en Barcelona">
+<meta property="og:description" content="Tradición polaca y pastelería de hoy en Les Corts: drożdżówki, sernik, szarlotka y tartas de celebración por encargo.">
+<meta property="og:url" content="https://www.deliciasbybea.com/">
+<meta property="og:image" content="https://www.deliciasbybea.com/images/tarta-celebracion.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Datos estructurados: ficha de negocio local para Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Delicias by Bea",
+  "image": "https://www.deliciasbybea.com/images/tarta-celebracion.jpg",
+  "url": "https://www.deliciasbybea.com/",
+  "telephone": "+34722117695",
+  "email": "deliciasbybea@gmail.com",
+  "servesCuisine": "Pastelería polaca y contemporánea",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Travessera de les Corts 303",
+    "postalCode": "08029",
+    "addressLocality": "Barcelona",
+    "addressCountry": "ES"
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday","Friday"], "opens": "08:30", "closes": "15:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "14:00"}
+  ],
+  "sameAs": ["https://instagram.com/delicias_by_bea"]
+}
+</script>
 <style>
   :root{
     --crema:#FBF6EE;
@@ -16,7 +60,7 @@
     --dorado:#C99A5B;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{
     background:var(--crema);
     color:var(--chocolate);
@@ -24,6 +68,8 @@
     font-weight:400;
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    max-width:100vw;
   }
   h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:400}
   img{display:block;max-width:100%}
@@ -58,6 +104,16 @@
     color:var(--chocolate-suave);transition:all .2s;
   }
   .langs button.active{background:var(--amapola);color:#fff}
+  .header-right{display:flex;align-items:center;gap:14px}
+  .ig-link{
+    display:flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:50%;
+    color:var(--chocolate-suave);
+    transition:color .2s, background .2s, transform .2s;
+  }
+  .ig-link svg{width:21px;height:21px}
+  .ig-link:hover{color:var(--amapola);background:var(--crema-tostada);transform:translateY(-1px)}
+  .nav-ig{display:none}
 
   /* ---------- Hero ---------- */
   .hero{
@@ -96,10 +152,14 @@
   }
   .valores h3{font-size:1.25rem;margin-bottom:8px}
   .valores p{font-size:.95rem;color:var(--chocolate-suave);max-width:30ch;margin:0 auto}
-  .valores .dot{
-    width:10px;height:10px;border-radius:50%;
-    background:var(--amapola);margin:0 auto 16px;
+  .val-ico{
+    width:56px;height:56px;margin:0 auto 18px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--amapola);
+    background:var(--crema);border:1px solid rgba(166,52,43,.18);
+    border-radius:50%;
   }
+  .val-ico svg{width:30px;height:30px}
 
   /* ---------- Tradición / Hoy (elemento firma) ---------- */
   .tradhoy{max-width:1200px;margin:0 auto;padding:96px 24px}
@@ -124,6 +184,48 @@
   .item:last-child{border-bottom:none}
   .item h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.12rem;margin-bottom:3px}
   .item p{font-size:.92rem;color:var(--chocolate-suave)}
+  .trad-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:8px}
+  .dulce-card{display:flex;flex-direction:column}
+  .dulce-foto{
+    width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;
+    background:var(--crema-tostada);
+  }
+  .dulce-foto img{
+    width:100%;height:100%;object-fit:cover;cursor:zoom-in;
+    transition:transform .5s ease;
+  }
+  .dulce-foto img:hover{transform:scale(1.04)}
+  .dulce-ph{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:16px;
+    border:1.5px dashed rgba(46,32,24,.22);border-radius:14px;
+    font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;
+    color:var(--chocolate-suave);
+  }
+  .dulce-card figcaption{padding:14px 2px 0}
+  .dulce-card h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.18rem;margin-bottom:4px}
+  .dulce-card figcaption p{font-size:.92rem;color:var(--chocolate-suave);line-height:1.5;min-height:3em}
+
+  /* ---------- Lightbox ---------- */
+  .lightbox{
+    position:fixed;inset:0;z-index:200;
+    background:rgba(36,24,19,.92);
+    display:none;align-items:center;justify-content:center;
+    padding:32px;cursor:zoom-out;
+  }
+  .lightbox.abierto{display:flex}
+  .lightbox img{
+    max-width:92vw;max-height:90vh;border-radius:10px;
+    box-shadow:0 20px 60px rgba(0,0,0,.4);cursor:default;
+  }
+  .lightbox .cerrar{
+    position:absolute;top:22px;right:28px;
+    width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+    background:rgba(251,246,238,.14);color:var(--crema);
+    font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;
+    transition:background .2s;
+  }
+  .lightbox .cerrar:hover{background:rgba(251,246,238,.28)}
 
   /* ---------- Sobre Bea ---------- */
   .sobre{background:var(--chocolate);color:var(--crema)}
@@ -140,24 +242,51 @@
   .sobre p{color:rgba(251,246,238,.82);margin-bottom:16px;max-width:56ch}
   .sobre .firma{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--dorado);margin-top:10px}
 
-  /* ---------- Galería ---------- */
+  /* ---------- Galería (escaparate) ---------- */
   .galeria{max-width:1200px;margin:0 auto;padding:96px 24px}
-  .galeria-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:40px;gap:20px}
+  .galeria-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:8px;gap:20px}
   .galeria-head h2{font-size:clamp(1.9rem,3.5vw,2.6rem)}
   .galeria-head a{font-weight:600;color:var(--amapola);font-size:.95rem;white-space:nowrap}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .tile{
-    aspect-ratio:1/1;border-radius:14px;overflow:hidden;position:relative;
+  .galeria-intro{max-width:60ch;color:var(--chocolate-suave);font-size:1.02rem;margin-bottom:8px}
+
+  /* grupos por tipo */
+  .gal-grupo{margin-top:64px}
+  .gal-grupo-cab{display:flex;align-items:baseline;gap:18px;margin-bottom:32px}
+  .gal-grupo-cab h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.7rem;white-space:nowrap}
+  .gal-grupo-cab .linea{flex:1;height:1px;background:rgba(46,32,24,.14)}
+  .gal-grupo-cab .pl{
+    font-family:'Fraunces',serif;font-style:italic;font-size:.9rem;
+    letter-spacing:.06em;color:var(--dorado);white-space:nowrap;
+  }
+
+  /* rejilla de tarjetas */
+  .gal-rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:36px 28px}
+  .producto{display:flex;flex-direction:column}
+  .producto-foto{
+    position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;
     background:var(--crema-tostada);
   }
-  .tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-  .tile:hover img{transform:scale(1.05)}
-  .tile.placeholder{
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Fraunces',serif;font-style:italic;color:var(--chocolate-suave);
-    font-size:1rem;text-align:center;padding:16px;
+  .producto-foto img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .7s ease, opacity .4s ease;cursor:zoom-in;
+  }
+  .producto-foto img.hover{position:absolute;inset:0;opacity:0}
+  .producto:hover .producto-foto img.base{opacity:0}
+  .producto:hover .producto-foto img.hover{opacity:1}
+  .producto:hover .producto-foto img{transform:scale(1.04)}
+  .producto-foto .ph{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:16px;color:var(--chocolate-suave);
+    font-family:'Fraunces',serif;font-style:italic;font-size:.92rem;
     border:1.5px dashed rgba(46,32,24,.25);
   }
+  .producto-nombre{font-family:'Fraunces',serif;font-size:1.18rem;margin:18px 0 4px;letter-spacing:.01em}
+  .producto-precio{
+    font-size:.92rem;font-weight:600;letter-spacing:.05em;
+    color:var(--amapola);margin-bottom:8px;
+  }
+  .producto-precio span{font-weight:400;color:var(--chocolate-suave);font-size:.82rem;letter-spacing:.02em}
+  .producto-desc{font-size:.93rem;color:var(--chocolate-suave);line-height:1.55}
 
   /* ---------- Horario + Contacto ---------- */
   .contacto{background:var(--crema-tostada)}
@@ -183,6 +312,11 @@
   input:focus,textarea:focus{outline:none;border-color:var(--amapola)}
   textarea{min-height:110px;resize:vertical}
   form .btn{border:none;cursor:pointer;justify-self:start;font-family:'Karla',sans-serif}
+  .form-empresas{
+    font-size:.92rem;color:var(--chocolate-suave);
+    background:var(--crema);border:1px solid rgba(46,32,24,.1);
+    border-radius:10px;padding:12px 14px;margin-bottom:16px;line-height:1.5;
+  }
 
   /* ---------- Footer ---------- */
   footer{background:var(--chocolate);color:rgba(251,246,238,.7)}
@@ -207,8 +341,187 @@
   }
   select:focus{outline:none;border-color:var(--amapola)}
   .fecha-label{font-size:.88rem;color:var(--chocolate-suave);font-weight:600;margin-bottom:-6px}
-  .fecha-aviso{font-size:.82rem;color:var(--chocolate-suave);margin-top:-8px}
-  .fecha-aviso.alerta{color:var(--amapola);font-weight:600}
+  .fecha-aviso{
+    display:flex;align-items:flex-start;gap:10px;
+    font-size:.9rem;color:var(--chocolate-suave);
+    background:rgba(201,154,91,.14);
+    border:1px solid rgba(201,154,91,.4);
+    border-left:3px solid var(--dorado);
+    border-radius:10px;padding:11px 14px;margin-top:-4px;
+  }
+  .fecha-aviso svg{width:18px;height:18px;flex:0 0 18px;color:var(--dorado);margin-top:1px}
+  .fecha-aviso-txt{line-height:1.45}
+  .fecha-aviso.alerta{
+    background:rgba(166,52,43,.1);
+    border-color:rgba(166,52,43,.45);border-left-color:var(--amapola);
+    color:var(--amapola);font-weight:600;
+  }
+  .fecha-aviso.alerta svg{color:var(--amapola)}
+
+  /* ---------- Ingredientes ---------- */
+  .ingredientes{max-width:1200px;margin:0 auto;padding:96px 24px}
+  .ingredientes-head{text-align:center;max-width:60ch;margin:0 auto 56px}
+  .ingredientes-head .eyebrow{
+    font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--amapola);font-weight:600;margin-bottom:14px;
+  }
+  .ingredientes-head h2{font-size:clamp(1.9rem,3.5vw,2.7rem);line-height:1.15}
+  .ingredientes-intro{font-size:1.05rem;color:var(--chocolate-suave);max-width:58ch;margin:18px auto 0}
+  .ing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .ing-card{
+    background:var(--crema-tostada);border-radius:16px;padding:34px 30px;
+    border:1px solid rgba(46,32,24,.06);
+  }
+  .ing-card h3{font-size:1.25rem;margin-bottom:10px}
+  .ing-card h3 .mark{color:var(--amapola);font-style:italic}
+  .ing-card p{font-size:.96rem;color:var(--chocolate-suave)}
+
+  /* ---------- Por qué con antelación ---------- */
+  .antelacion{background:var(--crema-tostada)}
+  .antelacion-inner{
+    max-width:900px;margin:0 auto;padding:80px 24px;text-align:center;
+  }
+  .antelacion .eyebrow{
+    font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--amapola);font-weight:600;margin-bottom:14px;
+  }
+  .antelacion h2{font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.18;margin-bottom:20px}
+  .antelacion p{font-size:1.08rem;color:var(--chocolate-suave);max-width:60ch;margin:0 auto 16px}
+  .antelacion .firma-mini{
+    font-family:'Fraunces',serif;font-style:italic;color:var(--amapola);
+    font-size:1.15rem;margin-top:8px;
+  }
+
+  /* ---------- Intolerancias / alergias ---------- */
+  .alergias{max-width:1200px;margin:0 auto;padding:96px 24px}
+  .alergias-head{margin-bottom:32px;max-width:60ch}
+  .alergias-head .eyebrow{
+    font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--amapola);font-weight:600;margin-bottom:14px;
+  }
+  .alergias-head h2{font-size:clamp(1.9rem,3.5vw,2.6rem);line-height:1.15}
+  .alergias-intro{font-size:1.08rem;color:var(--chocolate-suave);max-width:62ch;margin-bottom:24px}
+  .alergias-puntos{list-style:none;display:grid;gap:18px;max-width:64ch}
+  .alergias-puntos li{
+    position:relative;padding-left:30px;font-size:1rem;color:var(--chocolate-suave);
+  }
+  .alergias-puntos li::before{
+    content:'';position:absolute;left:0;top:.5em;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--amapola);
+  }
+  .alergias-nota{
+    margin-top:32px;font-size:.95rem;color:var(--chocolate-suave);font-style:italic;
+  }
+  .alergias-nota a{color:var(--amapola);font-weight:600;font-style:normal}
+
+  /* ---------- Newsletter (footer) ---------- */
+  .newsletter{background:#241813;border-top:1px solid rgba(201,154,91,.18)}
+  .newsletter-inner{
+    max-width:760px;margin:0 auto;padding:64px 24px 56px;text-align:center;
+  }
+  .newsletter h3{
+    font-family:'Fraunces',serif;color:var(--crema);
+    font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:12px;
+  }
+  .newsletter p{color:rgba(251,246,238,.72);max-width:48ch;margin:0 auto 26px;font-size:1rem}
+  .newsletter form{
+    display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap;
+    justify-content:center;
+  }
+  .newsletter input{
+    flex:1;min-width:220px;font-family:'Karla',sans-serif;font-size:.98rem;
+    padding:14px 18px;border:1.5px solid rgba(251,246,238,.22);
+    border-radius:999px;background:rgba(251,246,238,.06);color:var(--crema);
+    transition:border-color .2s;
+  }
+  .newsletter input::placeholder{color:rgba(251,246,238,.5)}
+  .newsletter input:focus{outline:none;border-color:var(--dorado)}
+  .newsletter button{
+    border:none;cursor:pointer;background:var(--dorado);color:var(--chocolate);
+    font-family:'Karla',sans-serif;font-weight:600;font-size:.95rem;
+    padding:14px 30px;border-radius:999px;transition:transform .25s,background .25s;
+    white-space:nowrap;
+  }
+  .newsletter button:hover{background:var(--crema);transform:translateY(-2px)}
+  .newsletter .privacidad{
+    margin-top:16px;font-size:.8rem;color:rgba(251,246,238,.5);font-style:italic;
+  }
+  .newsletter .nl-ok{
+    margin-top:18px;color:var(--dorado);font-family:'Fraunces',serif;
+    font-style:italic;font-size:1.05rem;display:none;
+  }
+
+  /* ---------- Banda cinemática del obrador ---------- */
+  .cinematica{
+    position:relative;
+    height:78vh;min-height:460px;max-height:760px;
+    overflow:hidden;
+    background:var(--chocolate);
+  }
+  .cinematica-marco{position:absolute;inset:0;overflow:hidden}
+  /* La capa de imagen es más grande que el marco para dar margen al
+     travelling (Ken Burns) y al parallax sin mostrar bordes vacíos.
+     ➜ Pensada para una foto APAISADA (horizontal). */
+  .cinematica-img{
+    position:absolute;left:-8%;top:-12%;width:116%;height:128%;z-index:1;
+    background-size:cover;background-position:center 46%;
+    background-color:transparent;
+    will-change:transform;
+    transform:translateY(var(--par,0px)) scale(1.02);
+    animation:kenburns 26s ease-in-out infinite alternate;
+  }
+  /* Placeholder DEBAJO de la imagen: solo se ve si images/obrador.jpg no existe. */
+  .cinematica-ph{
+    position:absolute;inset:0;z-index:0;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    background:
+      radial-gradient(120% 90% at 30% 20%, rgba(201,154,91,.28), transparent 60%),
+      radial-gradient(120% 90% at 80% 90%, rgba(166,52,43,.30), transparent 55%),
+      linear-gradient(135deg,#3a2a1f 0%,#241813 100%);
+    color:rgba(251,246,238,.42);
+    font-family:'Fraunces',serif;font-style:italic;font-size:1rem;
+    letter-spacing:.04em;padding:24px;
+  }
+  @keyframes kenburns{
+    from{transform:translateY(var(--par,0px)) scale(1.0) translate3d(0,0,0)}
+    to{transform:translateY(var(--par,0px)) scale(1.08) translate3d(-2.5%,-1.5%,0)}
+  }
+  .cinematica-velo{
+    position:absolute;inset:0;
+    background:linear-gradient(to top,
+      rgba(36,24,19,.78) 0%,
+      rgba(36,24,19,.30) 42%,
+      rgba(36,24,19,.18) 100%);
+  }
+  .cinematica-texto{
+    position:absolute;inset:0;z-index:2;
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+    text-align:center;padding:0 24px 9vh;
+  }
+  .cinematica-texto .ce{
+    font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--dorado);font-weight:600;margin-bottom:14px;
+    opacity:0;transform:translateY(18px);
+    transition:opacity 1s ease .15s, transform 1s ease .15s;
+  }
+  .cinematica-texto h2{
+    font-family:'Fraunces',serif;font-weight:400;color:var(--crema);
+    font-size:clamp(1.7rem,4.2vw,3rem);line-height:1.12;max-width:18ch;
+    opacity:0;transform:translateY(26px);
+    transition:opacity 1.1s ease .35s, transform 1.1s ease .35s;
+    text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .cinematica.in .cinematica-texto .ce,
+  .cinematica.in .cinematica-texto h2{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .cinematica{height:62vh;min-height:380px}
+    .cinematica-texto{padding-bottom:7vh}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cinematica-img{animation:none;transform:scale(1.0)!important}
+  }
 
   /* ---------- Animaciones ---------- */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
@@ -216,11 +529,145 @@
   @media (prefers-reduced-motion: reduce){
     .reveal{opacity:1;transform:none;transition:none}
     html{scroll-behavior:auto}
+    .hero-text .eyebrow,.hero-text h1,.hero-text p,.hero-text .btn{opacity:1;transform:none;transition:none}
+    .hero-text h1 em::after{transform:scaleX(1);transition:none}
+    .marquee-track{animation:none}
+    .trad-grid .dulce-card,.gal-rejilla .producto{opacity:1;transform:none;transition:none}
+    .cta-flotante{transition:none}
+  }
+
+  /* ---------- Accesibilidad ---------- */
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+  a:focus-visible,button:focus-visible,input:focus-visible,
+  select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
+    outline:2px solid var(--amapola);outline-offset:3px;border-radius:4px;
+  }
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+  /* ---------- Menú móvil ---------- */
+  .menu-btn{
+    display:none;background:none;border:none;cursor:pointer;
+    width:38px;height:38px;align-items:center;justify-content:center;
+    color:var(--chocolate);border-radius:8px;
+  }
+  .menu-btn svg{width:24px;height:24px}
+
+  /* ---------- Separador wycinanki ---------- */
+  .wycinanki{display:flex;justify-content:center;padding:4px 24px}
+  .wycinanki svg{width:220px;height:26px;color:var(--amapola);opacity:.55}
+
+  /* ---------- Estado del formulario ---------- */
+  .form-status{display:none;margin-top:4px;padding:13px 16px;border-radius:12px;font-size:.95rem;line-height:1.5}
+  .form-status.ok{display:block;background:var(--crema);border-left:3px solid var(--dorado);color:var(--chocolate)}
+  .form-status.err{display:block;background:var(--crema);border-left:3px solid var(--amapola);color:var(--amapola)}
+  .maps-link{color:var(--amapola);font-weight:600}
+  .maps-link:hover{text-decoration:underline}
+
+  /* ---------- Grano artesanal (textura papel, muy sutil) ---------- */
+  body::after{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:150;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity:.05;mix-blend-mode:multiply;
+  }
+
+  /* ---------- Entrada coreografiada del hero ---------- */
+  .hero-text .eyebrow,.hero-text h1,.hero-text p,.hero-text .btn{
+    opacity:0;transform:translateY(18px);
+    transition:opacity .8s ease,transform .8s ease;
+  }
+  .hero-text.in .eyebrow{opacity:1;transform:none;transition-delay:.05s}
+  .hero-text.in h1{opacity:1;transform:none;transition-delay:.22s}
+  .hero-text.in p{opacity:1;transform:none;transition-delay:.42s}
+  .hero-text.in .btn{opacity:1;transform:none;transition-delay:.58s}
+  /* Subrayado dibujado a mano bajo la palabra en itálica */
+  .hero-text h1 em{position:relative;white-space:nowrap}
+  .hero-text h1 em::after{
+    content:'';position:absolute;left:0;right:0;bottom:-.08em;height:.16em;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q 30 2 60 6 T 118 4' fill='none' stroke='%23A6342B' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%;
+    transform:scaleX(0);transform-origin:left;
+    transition:transform .9s cubic-bezier(.77,0,.18,1) 1s;
+  }
+  .hero-text.in h1 em::after{transform:scaleX(1)}
+
+  /* ---------- Cinta deslizante (marquee) ---------- */
+  .marquee{
+    overflow:hidden;padding:30px 0;
+    border-top:1px solid rgba(46,32,24,.08);
+    border-bottom:1px solid rgba(46,32,24,.08);
+  }
+  .marquee-track{
+    display:flex;gap:44px;align-items:baseline;width:max-content;
+    animation:marquee 42s linear infinite;
+  }
+  .marquee-track span{
+    font-family:'Fraunces',serif;font-style:italic;white-space:nowrap;
+    font-size:clamp(1.5rem,3.2vw,2.4rem);color:var(--chocolate);
+  }
+  .marquee-track span.outline{
+    color:transparent;-webkit-text-stroke:1.2px var(--amapola);
+  }
+  .marquee-track i{color:var(--dorado);font-style:normal;font-size:1.1rem;align-self:center}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+
+  /* ---------- Reveals escalonados ---------- */
+  .valores-inner .reveal:nth-child(2){transition-delay:.12s}
+  .valores-inner .reveal:nth-child(3){transition-delay:.24s}
+  .ing-grid .ing-card:nth-child(2){transition-delay:.12s}
+  .ing-grid .ing-card:nth-child(3){transition-delay:.24s}
+  .alergias-puntos li.reveal:nth-child(2){transition-delay:.12s}
+  .trad-grid .dulce-card{
+    opacity:0;transform:translateY(20px);
+    transition:opacity .7s ease,transform .7s ease;
+  }
+  .col.in .dulce-card{opacity:1;transform:none}
+  .col.in .dulce-card:nth-child(2){transition-delay:.12s}
+  .col.in .dulce-card:nth-child(3){transition-delay:.24s}
+  .gal-rejilla .producto{
+    opacity:0;transform:translateY(20px);
+    transition:opacity .7s ease,transform .7s ease;
+  }
+  .gal-grupo.in .producto{opacity:1;transform:none}
+  .gal-grupo.in .producto:nth-child(2){transition-delay:.1s}
+  .gal-grupo.in .producto:nth-child(3){transition-delay:.2s}
+  .gal-grupo.in .producto:nth-child(4){transition-delay:.3s}
+
+  /* ---------- CTA flotante (solo móvil) ---------- */
+  .cta-flotante{display:none}
+  @media(max-width:900px){
+    .cta-flotante{
+      display:inline-block;position:fixed;left:50%;bottom:18px;z-index:90;
+      transform:translate(-50%,90px);opacity:0;pointer-events:none;
+      background:var(--amapola);color:#fff;
+      padding:14px 30px;border-radius:999px;
+      font-weight:600;font-size:.95rem;letter-spacing:.03em;
+      box-shadow:0 12px 30px -8px rgba(166,52,43,.55);
+      transition:transform .4s ease,opacity .4s ease;
+    }
+    .cta-flotante.vis{opacity:1;transform:translate(-50%,0);pointer-events:auto}
   }
 
   /* ---------- Responsive ---------- */
   @media(max-width:900px){
-    nav.main{display:none}
+    .menu-btn{display:flex}
+    .header-inner{padding:12px 16px;gap:10px}
+    .brand{font-size:1.12rem}
+    .langs{gap:2px;padding:3px}
+    .langs button{padding:4px 7px;font-size:.68rem}
+    .ig-link{display:none}
+    .nav-ig{display:flex;align-items:center;gap:8px;color:var(--amapola);font-weight:600}
+    nav.main{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      background:var(--crema);flex-direction:column;gap:0;
+      padding:6px 24px 14px;border-bottom:1px solid rgba(46,32,24,.08);
+      box-shadow:0 14px 28px -14px rgba(46,32,24,.18);
+    }
+    nav.main.open{display:flex}
+    nav.main a{padding:13px 0;font-size:1rem;border-bottom:1px solid rgba(46,32,24,.06)}
+    nav.main a:last-child{border-bottom:none}
+    nav.main a::after{display:none}
     .hero{grid-template-columns:1fr;padding-top:40px;gap:40px}
     .hero-img img{aspect-ratio:4/3;border-radius:160px 160px 14px 14px}
     .valores-inner{grid-template-columns:1fr;gap:32px}
@@ -229,7 +676,15 @@
     .col{padding:0}
     .col + .col{margin-top:48px;padding-top:40px;border-top:1px dashed rgba(166,52,43,.5)}
     .sobre-inner,.contacto-inner{grid-template-columns:1fr;gap:40px}
-    .grid{grid-template-columns:repeat(2,1fr)}
+    .gal-rejilla{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:28px 16px}
+    .ing-grid{grid-template-columns:1fr;gap:18px}
+    .newsletter form{flex-direction:column}
+    .newsletter input,.newsletter button{width:100%}
+  }
+  @media(max-width:380px){
+    .header-inner{padding:10px 12px;gap:6px}
+    .brand{font-size:1rem}
+    .langs button{padding:3px 6px;font-size:.62rem}
   }
 </style>
 </head>
@@ -238,18 +693,41 @@
 <header>
   <div class="header-inner">
     <a class="brand" href="#top">delicias <em>by</em> bea</a>
-    <nav class="main">
+    <nav class="main" id="mainNav">
       <a href="#top" data-i18n="nav0">Inicio</a>
       <a href="#tradhoy" data-i18n="nav1">El obrador</a>
       <a href="#sobre" data-i18n="nav2">Quién soy</a>
       <a href="#galeria" data-i18n="nav3">Galería</a>
       <a href="#contacto" data-i18n="nav4">Encargos</a>
+      <a class="nav-ig" href="https://instagram.com/delicias_by_bea" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
+        </svg>
+        Instagram
+      </a>
     </nav>
-    <div class="langs">
-      <button class="active" onclick="setLang('es',this)">ES</button>
-      <button onclick="setLang('ca',this)">CA</button>
-      <button onclick="setLang('en',this)">EN</button>
-      <button onclick="setLang('pl',this)">PL</button>
+    <div class="header-right">
+      <a class="ig-link" href="https://instagram.com/delicias_by_bea" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
+        </svg>
+      </a>
+      <div class="langs">
+        <button data-lang="ca" lang="ca" aria-pressed="false" onclick="setLang('ca')">CA</button>
+        <button data-lang="es" lang="es" aria-pressed="true" class="active" onclick="setLang('es')">ES</button>
+        <button data-lang="pl" lang="pl" aria-pressed="false" onclick="setLang('pl')">PL</button>
+        <button data-lang="en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
+        <button data-lang="de" lang="de" aria-pressed="false" onclick="setLang('de')">DE</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav" aria-label="Menú" onclick="toggleMenu()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
     </div>
   </div>
 </header>
@@ -262,29 +740,121 @@
     <a class="btn" href="#contacto" data-i18n="cta">Haz tu encargo</a>
   </div>
   <div class="hero-img reveal">
-    <img src="images/tarta-celebracion.jpg" alt="Bea Michalak, pastelera de Delicias by Bea">
+    <!-- ⚠️ Si esta imagen pasa a ser el retrato de Bea (concepto original), actualiza src Y alt a la vez -->
+    <img src="images/tarta-celebracion.jpg" alt="Tarta de celebración artesanal de Delicias by Bea" fetchpriority="high" decoding="async">
+  </div>
+</section>
+
+<!-- ============================================================
+     BANDA CINEMÁTICA DEL OBRADOR
+     ➜ Pon tu foto en  images/obrador.jpg  (APAISADA / horizontal, ~1600px+ ancho).
+       OJO: la foto de ejemplo actual es vertical y se recorta a una franja.
+       Para que se aprecie el conjunto (mostrador incluido), usa una HORIZONTAL.
+     Efecto: Ken Burns (zoom + travelling lento) + parallax al hacer scroll.
+     ============================================================ -->
+<section class="cinematica" id="cinematica" aria-label="El obrador">
+  <div class="cinematica-marco">
+    <div class="cinematica-img" id="cineImg"
+         style="background-image:url('images/obrador.jpg')"></div>
+    <div class="cinematica-ph" data-i18n="cinePh">Tu foto: el obrador en acción</div>
+    <div class="cinematica-velo"></div>
+  </div>
+  <div class="cinematica-texto">
+    <div class="ce" data-i18n="cineEye">Del horno a tus manos</div>
+    <h2 data-i18n="cineTitle">Cada mañana empieza aquí</h2>
   </div>
 </section>
 
 <section class="valores">
   <div class="valores-inner">
     <div class="reveal">
-      <div class="dot"></div>
-      <h3 data-i18n="v1t">Ingredientes de proximidad</h3>
-      <p data-i18n="v1p">Fruta fresca, mantequilla de verdad y nata montada en el momento.</p>
-    </div>
-    <div class="reveal">
-      <div class="dot"></div>
+      <div class="val-ico" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 22a14 14 0 0 1 28 0v2H10v-2Z"/>
+          <path d="M7 24h34"/>
+          <path d="M12 28h24v8a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3v-8Z"/>
+          <path d="M18 11c0-2 2-2 2-4M24 10c0-2 2-2 2-4M30 11c0-2 2-2 2-4"/>
+        </svg>
+      </div>
       <h3 data-i18n="v2t">Horneado in situ</h3>
       <p data-i18n="v2p">Todo sale de nuestro horno, sin productos semielaborados.</p>
     </div>
     <div class="reveal">
-      <div class="dot"></div>
+      <div class="val-ico" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6v6"/>
+          <path d="M14 12h20l-2 9H16l-2-9Z"/>
+          <path d="M16 21l-3 18h22l-3-18"/>
+          <path d="M18 30h12"/>
+        </svg>
+      </div>
       <h3 data-i18n="v3t">A tu medida</h3>
-      <p data-i18n="v3p">Encargos personalizados para cualquier ocasión y cualquier deseo dulce.</p>
+      <p data-i18n="v3p">Tartas nupciales, cumpleaños, eventos y catering: cada encargo, pensado para tu ocasión.</p>
+    </div>
+    <div class="reveal">
+      <div class="val-ico" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="26" r="14"/>
+          <path d="M24 26V16"/>
+          <path d="M24 26l7 4"/>
+          <path d="M20 6h8"/>
+        </svg>
+      </div>
+      <h3 data-i18n="v4t">Recién hecho cada día</h3>
+      <p data-i18n="v4p">Horneamos cada mañana, para que todo llegue fresco a tu mesa.</p>
     </div>
   </div>
 </section>
+
+<!-- ============================================================
+     INGREDIENTES
+     ============================================================ -->
+<section class="ingredientes" id="ingredientes">
+  <div class="ingredientes-head reveal">
+    <div class="eyebrow" data-i18n="ingEye">De dónde viene cada bocado</div>
+    <h2 data-i18n="ingTitle">Ingredientes con nombre y apellidos</h2>
+    <p class="ingredientes-intro" data-i18n="ingIntro">Crecí viendo a mi madre elegir cada ingrediente con cuidado, y esa manía buena se me quedó. Por eso compro cerca, de temporada, y no escondo nada detrás de un atajo industrial: lo bueno se nota en el primer bocado.</p>
+  </div>
+  <div class="ing-grid">
+    <div class="ing-card reveal">
+      <h3 data-i18n="ing1t">Mantequilla y lácteos</h3>
+      <p data-i18n="ing1p">Mantequilla y derivados de la leche de verdad: naturales, sin aditivos ni variantes.</p>
+    </div>
+    <div class="ing-card reveal">
+      <h3 data-i18n="ing2t">Fruta de temporada</h3>
+      <p data-i18n="ing2p">Comprada en el comercio local, según la estación y la disponibilidad de cada momento.</p>
+    </div>
+    <div class="ing-card reveal">
+      <h3 data-i18n="ing3t">Harinas y huevos</h3>
+      <p data-i18n="ing3p">Harinas y huevos camperos de primera calidad, la base de cada receta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Separador wycinanki: guiño al arte popular polaco de papel recortado -->
+<div class="wycinanki" aria-hidden="true">
+  <svg viewBox="0 0 240 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="8" cy="13" r="2"/>
+    <rect x="16" y="12.4" width="58" height="1.2" rx=".6"/>
+    <ellipse cx="84" cy="13" rx="7" ry="2.6" transform="rotate(-18 84 13)"/>
+    <ellipse cx="100" cy="13" rx="7" ry="2.6" transform="rotate(18 100 13)"/>
+    <g transform="translate(120 13)">
+      <circle r="2.6"/>
+      <ellipse rx="2.2" ry="6.2" cy="-7.6"/>
+      <ellipse rx="2.2" ry="6.2" cy="7.6"/>
+      <ellipse rx="6.2" ry="2.2" cx="-7.6"/>
+      <ellipse rx="6.2" ry="2.2" cx="7.6"/>
+      <circle cx="-6.4" cy="-6.4" r="1.4"/>
+      <circle cx="6.4" cy="-6.4" r="1.4"/>
+      <circle cx="-6.4" cy="6.4" r="1.4"/>
+      <circle cx="6.4" cy="6.4" r="1.4"/>
+    </g>
+    <ellipse cx="140" cy="13" rx="7" ry="2.6" transform="rotate(-18 140 13)"/>
+    <ellipse cx="156" cy="13" rx="7" ry="2.6" transform="rotate(18 156 13)"/>
+    <rect x="166" y="12.4" width="58" height="1.2" rx=".6"/>
+    <circle cx="232" cy="13" r="2"/>
+  </svg>
+</div>
 
 <section class="tradhoy" id="tradhoy">
   <div class="tradhoy-head reveal">
@@ -295,33 +865,73 @@
     <div class="col reveal">
       <h3 data-i18n="tradT">Tradición</h3>
       <span class="sub">Tradycja</span>
-      <div class="item">
-        <h4>Drożdżówki</h4>
-        <p data-i18n="i1">Bollos dulces de masa levada, como los de las panaderías de Polonia.</p>
-      </div>
-      <div class="item">
-        <h4>Sernik</h4>
-        <p data-i18n="i2">La tarta de queso polaca de siempre, cremosa y horneada lentamente.</p>
-      </div>
-      <div class="item">
-        <h4>Szarlotka</h4>
-        <p data-i18n="i3">Tarta de manzana con canela, receta de generaciones.</p>
+      <div class="trad-grid">
+        <!-- CAJA 1 · Drożdżówki -->
+        <figure class="dulce-card">
+          <div class="dulce-foto">
+            <img src="images/droz.jpg" alt="Drożdżówki" loading="lazy" onclick="abrirZoom(this)">
+          </div>
+          <figcaption>
+            <h4>Drożdżówki</h4>
+            <p data-i18n="i1">Bollos dulces de masa levada, una receta tradicional de mi Polonia natal.</p>
+          </figcaption>
+        </figure>
+        <!-- CAJA 2 · Sernik -->
+        <figure class="dulce-card">
+          <div class="dulce-foto">
+            <img src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
+          </div>
+          <figcaption>
+            <h4>Sernik</h4>
+            <p data-i18n="i2">La tarta de queso polaca de siempre, cremosa y horneada lentamente.</p>
+          </figcaption>
+        </figure>
+        <!-- CAJA 3 · Szarlotka -->
+        <figure class="dulce-card">
+          <div class="dulce-foto">
+            <img src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
+          </div>
+          <figcaption>
+            <h4>Szarlotka</h4>
+            <p data-i18n="i3">Tarta de manzana con canela, receta de generaciones.</p>
+          </figcaption>
+        </figure>
       </div>
     </div>
     <div class="col reveal">
       <h3 data-i18n="hoyT">Hoy</h3>
       <span class="sub" data-i18n="hoySub">De vitrina</span>
-      <div class="item">
-        <h4 data-i18n="i4t">Tartas de ceremonia</h4>
-        <p data-i18n="i4">Diseños actuales para bodas, cumpleaños y celebraciones.</p>
-      </div>
-      <div class="item">
-        <h4 data-i18n="i5t">Postres de autor</h4>
-        <p data-i18n="i5">Texturas y sabores de la pastelería contemporánea.</p>
-      </div>
-      <div class="item">
-        <h4 data-i18n="i6t">Temporada</h4>
-        <p data-i18n="i6">Creaciones que cambian con la fruta y las fiestas del calendario.</p>
+      <div class="trad-grid">
+        <!-- CAJA 4 · Tartas de ceremonia -->
+        <figure class="dulce-card">
+          <div class="dulce-foto">
+            <img src="images/ceremonia.jpg" alt="Tartas de ceremonia" loading="lazy" onclick="abrirZoom(this)">
+          </div>
+          <figcaption>
+            <h4 data-i18n="i4t">Tartas de ceremonia</h4>
+            <p data-i18n="i4">Diseños actuales para bodas, cumpleaños y celebraciones.</p>
+          </figcaption>
+        </figure>
+        <!-- CAJA 5 · Postres de autor -->
+        <figure class="dulce-card">
+          <div class="dulce-foto">
+            <img src="images/autor.jpg" alt="Postres de autor" loading="lazy" onclick="abrirZoom(this)">
+          </div>
+          <figcaption>
+            <h4 data-i18n="i5t">Postres de autor</h4>
+            <p data-i18n="i5">Texturas y sabores de la pastelería contemporánea.</p>
+          </figcaption>
+        </figure>
+        <!-- CAJA 6 · Temporada -->
+        <figure class="dulce-card">
+          <div class="dulce-foto">
+            <img src="images/coca.jpg" alt="Temporada" loading="lazy" onclick="abrirZoom(this)">
+          </div>
+          <figcaption>
+            <h4 data-i18n="i6t">Temporada</h4>
+            <p data-i18n="i6">Creaciones que cambian con la fruta y las fiestas del calendario.</p>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -329,14 +939,38 @@
 
 <section class="sobre" id="sobre">
   <div class="sobre-inner">
-    <img class="reveal" src="images/tarta-fresas.jpg" alt="Tarta de Delicias by Bea">
+    <!-- ⚠️ CONFIRMAR: si rinek.jpg no es el rynek de Namysłów sino un retrato de Bea, ajusta este alt -->
+    <img class="reveal" src="images/rinek.jpg" alt="El rynek de Namysłów, la plaza del mercado de la ciudad natal de Bea" loading="lazy">
     <div class="reveal">
       <div class="eyebrow" data-i18n="sEye">Quién soy</div>
       <h2 data-i18n="sTitle">Un sueño que empezó horneando con mi madre</h2>
       <p data-i18n="sP1">De niña ya horneaba con mi madre los pasteles tradicionales de mi Polonia natal. De Namysłów a Berlín, donde perfeccioné mi técnica junto a chefs de reconocimiento, y de ahí a Barcelona.</p>
       <p data-i18n="sP2">Desde 2023, en Delicias by Bea horneo cada día fusionando la pastelería tradicional polaca con las técnicas más actuales, con el mismo cariño con el que se hornea en casa.</p>
+      <p data-i18n="sP3">Desde marzo de 2026 mi obrador forma parte de Les Corts, un barrio que siento ya como mi casa. Aquí me gusta el trato cercano y familiar con los vecinos: que entren a saludar, que me cuenten para qué es el dulce, que vuelvan. Esa cercanía es, para mí, parte de la receta.</p>
       <div class="firma">— Bea Michalak</div>
     </div>
+  </div>
+</section>
+
+<!-- Cinta deslizante: productos en polaco, guiño de identidad. Decorativa (aria-hidden). -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Sernik</span><i>✿</i><span class="outline">Szarlotka</span><i>✿</i><span>Drożdżówki</span><i>✿</i><span class="outline">Torty</span><i>✿</i><span>Delicias by Bea</span><i>✿</i>
+    <span>Sernik</span><i>✿</i><span class="outline">Szarlotka</span><i>✿</i><span>Drożdżówki</span><i>✿</i><span class="outline">Torty</span><i>✿</i><span>Delicias by Bea</span><i>✿</i>
+  </div>
+</div>
+
+<!-- ============================================================
+     POR QUÉ CON ANTELACIÓN / CERO DESPERDICIO
+     Texto definitivo (no requiere datos de Bea). Editable si quieres matizar.
+     ============================================================ -->
+<section class="antelacion">
+  <div class="antelacion-inner reveal">
+    <div class="eyebrow" data-i18n="antEye">Hecho para ti, no de stock</div>
+    <h2 data-i18n="antTitle">Por qué te pido tu encargo con antelación</h2>
+    <p data-i18n="antP1">Cada dulce se hornea expresamente para ti. No trabajo con producto congelado ni de stock: cuando recibo tu encargo, compro justo los ingredientes que necesito para él.</p>
+    <p data-i18n="antP2">Así me aseguro de que todo llega fresco a tu mesa y, de paso, mantengo un obrador sin desperdicio. Esa pequeña espera es la diferencia entre un dulce cualquiera y uno hecho para tu ocasión.</p>
+    <div class="firma-mini" data-i18n="antFirma">— Buen dulce, sin prisa</div>
   </div>
 </section>
 
@@ -345,12 +979,146 @@
     <h2 data-i18n="gTitle">Del horno a la vitrina</h2>
     <a href="https://instagram.com/delicias_by_bea" target="_blank" rel="noopener" data-i18n="gIg">Sígueme en Instagram →</a>
   </div>
-  <div class="grid">
-    <div class="tile reveal"><img src="images/tarta-fresas.jpg" alt="Tarta de fresas"></div>
-    <div class="tile reveal"><img src="images/bea-retrato.jpg" alt="Tarta de celebración"></div>
-    <div class="tile placeholder reveal"><span data-i18n="ph1">Tu foto: Drożdżówki recién horneados</span></div>
-    <div class="tile placeholder reveal"><span data-i18n="ph2">Tu foto: el obrador en acción</span></div>
+  <p class="galeria-intro reveal" data-i18n="gIntro">Recetas tradicionales polacas junto a postres de actualidad. Todo artesano, horneado en el obrador de Les Corts. Los precios son orientativos: el encargo se ajusta a tamaño y ocasión.</p>
+
+  <!-- ===== TARTAS ===== -->
+  <div class="gal-grupo reveal">
+    <div class="gal-grupo-cab">
+      <h3 data-i18n="gcTartas">Tartas</h3>
+      <span class="linea"></span>
+      <span class="pl">Torty</span>
+    </div>
+    <div class="gal-rejilla">
+
+      <article class="producto">
+        <div class="producto-foto">
+          <img class="base" src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
+        </div>
+        <h4 class="producto-nombre">Sernik</h4>
+        <div class="producto-precio">Desde 18&nbsp;€ <span data-i18n="pUnidPorcion">/ por porción o tarta</span></div>
+        <p class="producto-desc" data-i18n="gpSernik">Tarta de queso polaca, cremosa y densa, horneada al estilo tradicional.</p>
+      </article>
+
+      <article class="producto">
+        <div class="producto-foto">
+          <img class="base" src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
+        </div>
+        <h4 class="producto-nombre">Szarlotka</h4>
+        <div class="producto-precio">Desde 16&nbsp;€</div>
+        <p class="producto-desc" data-i18n="gpSzarlotka">Tarta de manzana con canela y masa quebrada, el clásico de la abuela.</p>
+      </article>
+
+      <article class="producto">
+        <div class="producto-foto">
+          <img class="base" src="images/queso.jpg" alt="Tarta de queso" loading="lazy" onclick="abrirZoom(this)">
+        </div>
+        <h4 class="producto-nombre" data-i18n="gnQueso">Tarta de queso</h4>
+        <div class="producto-precio">Desde 18&nbsp;€ <span data-i18n="pUnidPorcion">/ por porción o tarta</span></div>
+        <p class="producto-desc" data-i18n="gpQueso">Estilo La Viña: cremosa por dentro y con la superficie tostada al horno.</p>
+      </article>
+
+      <article class="producto">
+        <div class="producto-foto">
+          <img class="base" src="images/ceremonia2.jpg" alt="Tarta de ceremonia" loading="lazy" onclick="abrirZoom(this)">
+        </div>
+        <h4 class="producto-nombre" data-i18n="gnCeremonia">Tarta de ceremonia</h4>
+        <div class="producto-precio">Desde 45&nbsp;€ <span data-i18n="pUnidEncargo">/ por encargo</span></div>
+        <p class="producto-desc" data-i18n="gpCeremonia">Para bodas, comuniones y cumpleaños. Diseño y sabores personalizados.</p>
+      </article>
+
+    </div>
   </div>
+
+  <!-- ===== DULCES Y POSTRES ===== -->
+  <div class="gal-grupo reveal">
+    <div class="gal-grupo-cab">
+      <h3 data-i18n="gcDulces">Dulces y postres</h3>
+      <span class="linea"></span>
+      <span class="pl">Słodycze</span>
+    </div>
+    <div class="gal-rejilla">
+
+      <article class="producto">
+        <div class="producto-foto">
+          <img class="base" src="images/vitrina.jpg" alt="Postre de vitrina" loading="lazy" onclick="abrirZoom(this)">
+        </div>
+        <h4 class="producto-nombre" data-i18n="gnVitrina">Postre de vitrina</h4>
+        <div class="producto-precio">Desde 4,50&nbsp;€</div>
+        <p class="producto-desc" data-i18n="gpVitrina">Creaciones de actualidad que cambian con la temporada. Pregunta por las del día.</p>
+      </article>
+
+      <article class="producto">
+        <div class="producto-foto">
+          <img class="base" src="images/surtido.jpg" alt="Caja surtida" loading="lazy" onclick="abrirZoom(this)">
+        </div>
+        <h4 class="producto-nombre" data-i18n="gnSurtida">Caja surtida</h4>
+        <div class="producto-precio">Desde 12&nbsp;€ <span data-i18n="pUnidEncargo">/ por encargo</span></div>
+        <p class="producto-desc" data-i18n="gpSurtida">Una selección de nuestros dulces para llevar o regalar.</p>
+      </article>
+
+      <article class="producto">
+        <div class="producto-foto">
+          <img class="base" src="images/ruibarbo.jpg" alt="Postres de temporada" loading="lazy" onclick="abrirZoom(this)">
+        </div>
+        <h4 class="producto-nombre" data-i18n="gnTemporada">Postres de temporada</h4>
+        <div class="producto-precio" data-i18n="pConsultar">Según temporada</div>
+        <p class="producto-desc" data-i18n="gpTemporada">Especialidades del calendario, como la coca de Sant Joan. Pregunta por las de cada época.</p>
+      </article>
+
+      <article class="producto">
+        <div class="producto-foto">
+          <img class="base" src="images/catering.jpg" alt="Catering y Eventos" loading="lazy" onclick="abrirZoom(this)">
+        </div>
+        <h4 class="producto-nombre" data-i18n="gnCatering">Catering y Eventos</h4>
+        <div class="producto-precio" data-i18n="pPresupuesto">Precio a determinar</div>
+        <p class="producto-desc" data-i18n="gpCatering">Mesas dulces y surtidos para celebraciones, empresas y eventos. Cuéntame tu ocasión y lo preparamos a medida.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INTOLERANCIAS Y ALERGIAS  ·  ⚠️ TEXTO PROVISIONAL — CONFIRMAR CON BEA
+     ⚠️ IMPORTANTE: por seguridad alimentaria, NO publicar afirmaciones
+     ("apto embarazo", "vegetariano", "vegano") sin que Bea las confirme.
+     Borra o ajusta los puntos según lo que Bea confirme. Traducciones: claves alg*.
+     ============================================================ -->
+<div class="wycinanki" aria-hidden="true">
+  <svg viewBox="0 0 240 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="8" cy="13" r="2"/>
+    <rect x="16" y="12.4" width="58" height="1.2" rx=".6"/>
+    <ellipse cx="84" cy="13" rx="7" ry="2.6" transform="rotate(-18 84 13)"/>
+    <ellipse cx="100" cy="13" rx="7" ry="2.6" transform="rotate(18 100 13)"/>
+    <g transform="translate(120 13)">
+      <circle r="2.6"/>
+      <ellipse rx="2.2" ry="6.2" cy="-7.6"/>
+      <ellipse rx="2.2" ry="6.2" cy="7.6"/>
+      <ellipse rx="6.2" ry="2.2" cx="-7.6"/>
+      <ellipse rx="6.2" ry="2.2" cx="7.6"/>
+      <circle cx="-6.4" cy="-6.4" r="1.4"/>
+      <circle cx="6.4" cy="-6.4" r="1.4"/>
+      <circle cx="-6.4" cy="6.4" r="1.4"/>
+      <circle cx="6.4" cy="6.4" r="1.4"/>
+    </g>
+    <ellipse cx="140" cy="13" rx="7" ry="2.6" transform="rotate(-18 140 13)"/>
+    <ellipse cx="156" cy="13" rx="7" ry="2.6" transform="rotate(18 156 13)"/>
+    <rect x="166" y="12.4" width="58" height="1.2" rx=".6"/>
+    <circle cx="232" cy="13" r="2"/>
+  </svg>
+</div>
+
+<section class="alergias" id="alergias">
+  <div class="alergias-head reveal">
+    <div class="eyebrow" data-i18n="algEye">Para que disfrutes sin preocuparte</div>
+    <h2 data-i18n="algTitle">Intolerancias y embarazo</h2>
+  </div>
+  <p class="alergias-intro reveal" data-i18n="algIntro">Para mí es importante que puedas disfrutar de mis dulces sin preocupaciones. Por eso:</p>
+  <ul class="alergias-puntos">
+    <li class="reveal" data-i18n="algL1">En mi obrador trabajo con gluten y frutos secos, así que, por contaminación cruzada, puede haber trazas en cualquiera de mis dulces.</li>
+    <li class="reveal" data-i18n="algL2">Todos mis dulces son seguros durante el embarazo: utilizo productos pasteurizados en mis elaboraciones.</li>
+  </ul>
+  <p class="alergias-nota reveal" data-i18n="algNota">¿Tienes alguna necesidad específica? <a href="#contacto">Escríbeme</a> y lo vemos.</p>
 </section>
 
 <section class="contacto" id="contacto">
@@ -367,6 +1135,10 @@
         <tr><td data-i18n="d7">Domingo</td><td>11:00 – 14:00</td></tr>
       </table>
       <div class="contact-list">
+        <div>
+          <strong data-i18n="addrLbl">Dirección:</strong> Travessera de les Corts 303, 08029 Barcelona<br>
+          <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Delicias+by+Bea+Travessera+de+les+Corts+303+08029+Barcelona" target="_blank" rel="noopener" data-i18n="gMaps">Cómo llegar (Google Maps) →</a>
+        </div>
         <div><strong data-i18n="tel">Teléfono:</strong> +34 722 117 695</div>
         <div><strong>Email:</strong> deliciasbybea@gmail.com</div>
         <div><strong>Instagram:</strong> @delicias_by_bea</div>
@@ -374,34 +1146,77 @@
     </div>
     <div class="reveal">
       <h2 data-i18n="fTitle">¿Quieres un pedido?</h2>
+      <p class="form-empresas" data-i18n="fEmpresas">¿Eres una empresa? También preparo encargos para eventos, reuniones y celebraciones de empresa. Cuéntamelo y lo organizamos.</p>
       <form onsubmit="event.preventDefault();handleDateAndSubmit(this);">
-        <input type="text" name="nombre" data-i18n-ph="fName" placeholder="Nombre*" required>
-        <input type="email" name="email" placeholder="Email*" required>
-        <input type="tel" name="telefono" data-i18n-ph="fPhone" placeholder="Teléfono">
+        <label class="sr-only" for="fNombre" data-i18n="fName">Nombre*</label>
+        <input type="text" name="nombre" id="fNombre" data-i18n-ph="fName" placeholder="Nombre*" autocomplete="name" required>
+        <label class="sr-only" for="fEmail">Email*</label>
+        <input type="email" name="email" id="fEmail" placeholder="Email*" autocomplete="email" required>
+        <label class="sr-only" for="fTelefono" data-i18n="fPhone">Teléfono</label>
+        <input type="tel" name="telefono" id="fTelefono" data-i18n-ph="fPhone" placeholder="Teléfono" autocomplete="tel">
+        <!-- Honeypot antispam: los humanos no lo ven; si llega relleno, Formspree lo descarta -->
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
+        <label class="sr-only" for="tipoEncargo" data-i18n="fTypeDef">¿Qué tipo de encargo?*</label>
         <select name="tipo" id="tipoEncargo" onchange="ajustarFechaMin()" required>
-          <option value="" data-i18n="fTypeDef">¿Qué tipo de encargo?*</option>
+          <option value="" disabled selected data-i18n="fTypeDef">¿Qué tipo de encargo?*</option>
           <option value="personalizada" data-i18n="fTypeCustom">Tarta personalizada (boda, cumpleaños…)</option>
           <option value="reposteria" data-i18n="fTypeOther">Repostería tradicional / de vitrina</option>
+          <option value="empresa" data-i18n="fTypeBiz">Empresas / eventos</option>
         </select>
 
         <label class="fecha-label" data-i18n="fDateLbl" for="fechaRecogida">Fecha deseada de recogida*</label>
-        <input type="date" name="fecha" id="fechaRecogida" required>
-        <small class="fecha-aviso" id="fechaAviso" data-i18n="fDateHelp">Elige primero el tipo de encargo.</small>
+        <input type="date" name="fecha" id="fechaRecogida" onchange="validarFecha()" required>
+        <div class="fecha-aviso" id="fechaAviso">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span class="fecha-aviso-txt" data-i18n="fDateHelp">Elige primero el tipo de encargo.</span>
+        </div>
 
-        <textarea name="mensaje" data-i18n-ph="fMsg" placeholder="Cuéntame qué dulce deseas y para cuándo*" required></textarea>
+        <label class="sr-only" for="fMensaje" data-i18n="fMsg">Cuéntame qué dulce deseas y para cuándo*</label>
+        <textarea name="mensaje" id="fMensaje" data-i18n-ph="fMsg" placeholder="Cuéntame qué dulce deseas y para cuándo*" required></textarea>
         <button class="btn" type="submit" data-i18n="fBtn">Enviar encargo</button>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
       </form>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     NEWSLETTER  ·  Solo diseño — falta conectar el servicio de envío
+     ⚠️ CUANDO ELIJAS SERVICIO (Brevo, Mailchimp, etc.):
+        1. Pon su URL en el action del form (busca ACTION_NEWSLETTER)
+        2. Ajusta el name del input si el servicio lo exige (suele ser EMAIL o email)
+     De momento muestra un mensaje de confirmación local sin enviar nada.
+     ============================================================ -->
+<section class="newsletter">
+  <div class="newsletter-inner reveal">
+    <h3 data-i18n="nlTitle">Novedades del obrador</h3>
+    <p data-i18n="nlSub">Apúntate y recibe primero las especialidades de temporada, los dulces de fiesta polaca y cualquier novedad de Delicias by Bea.</p>
+    <form id="nlForm" action="ACTION_NEWSLETTER_PENDIENTE" method="POST" onsubmit="event.preventDefault();nlSubmit();">
+      <label class="sr-only" for="nlEmail" data-i18n="nlPh">Tu correo electrónico</label>
+      <input type="email" name="email" id="nlEmail" data-i18n-ph="nlPh" placeholder="Tu correo electrónico" autocomplete="email" required>
+      <button type="submit" data-i18n="nlBtn">Apuntarme</button>
+    </form>
+    <div class="privacidad" data-i18n="nlPriv">Respeto tu privacidad. Sin spam, solo dulces novedades.</div>
+    <div class="nl-ok" id="nlOk" data-i18n="nlOk">¡Gracias! Te avisaré de las próximas novedades.</div>
   </div>
 </section>
 
 <footer>
   <div class="footer-inner">
     <div class="brand">delicias <em>by</em> bea</div>
-    <div data-i18n="foot">©2026 Delicias by Bea · Les Corts, Barcelona</div>
+    <div data-i18n="foot">©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona</div>
   </div>
 </footer>
+
+<!-- CTA flotante en móvil: aparece tras el hero, se oculta al llegar a Encargos -->
+<a class="cta-flotante" id="ctaFlot" href="#contacto" data-i18n="cta">Haz tu encargo</a>
+
+<!-- Lightbox / zoom de imágenes -->
+<div class="lightbox" id="lightbox" onclick="cerrarZoom(event)">
+  <button class="cerrar" id="lbCerrar" aria-label="Cerrar" onclick="cerrarZoom(event)">×</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
 
 <script>
 const I = {
@@ -410,12 +1225,13 @@ const I = {
     h1:"Sabores de Polonia, <em>horneados</em> en el corazón de Barcelona",
     hsub:"Pastelería tradicional polaca y postres de hoy, horneados cada mañana con ingredientes de proximidad.",
     cta:"Haz tu encargo",
-    v1t:"Ingredientes de proximidad",v1p:"Fruta fresca, mantequilla de verdad y nata montada en el momento.",
     v2t:"Horneado in situ",v2p:"Todo sale de nuestro horno, sin productos semielaborados.",
-    v3t:"A tu medida",v3p:"Encargos personalizados para cualquier ocasión y cualquier deseo dulce.",
-    thEye:"Dos mundos, un obrador",thTitle:"La tradición polaca y la pastelería de hoy, lado a lado",
+    v3t:"A tu medida",v3p:"Tartas nupciales, cumpleaños, eventos y catering: cada encargo, pensado para tu ocasión.",
+    v4t:"Recién hecho cada día",v4p:"Horneamos cada mañana, para que todo llegue fresco a tu mesa.",
+    thEye:"Dos mundos, un obrador",
+    cineEye:"Del horno a tus manos",cineTitle:"Cada mañana empieza aquí",cinePh:"Tu foto: el obrador en acción",thTitle:"La tradición polaca y la pastelería de hoy, lado a lado",
     tradT:"Tradición",hoyT:"Hoy",hoySub:"De vitrina",
-    i1:"Bollos dulces de masa levada, como los de las panaderías de Polonia.",
+    i1:"Bollos dulces de masa levada, una receta tradicional de mi Polonia natal.",
     i2:"La tarta de queso polaca de siempre, cremosa y horneada lentamente.",
     i3:"Tarta de manzana con canela, receta de generaciones.",
     i4t:"Tartas de ceremonia",i4:"Diseños actuales para bodas, cumpleaños y celebraciones.",
@@ -424,28 +1240,58 @@ const I = {
     sEye:"Quién soy",sTitle:"Un sueño que empezó horneando con mi madre",
     sP1:"De niña ya horneaba con mi madre los pasteles tradicionales de mi Polonia natal. De Namysłów a Berlín, donde perfeccioné mi técnica junto a chefs de reconocimiento, y de ahí a Barcelona.",
     sP2:"Desde 2023, en Delicias by Bea horneo cada día fusionando la pastelería tradicional polaca con las técnicas más actuales, con el mismo cariño con el que se hornea en casa.",
+    sP3:"Desde marzo de 2026 mi obrador forma parte de Les Corts, un barrio que siento ya como mi casa. Aquí me gusta el trato cercano y familiar con los vecinos: que entren a saludar, que me cuenten para qué es el dulce, que vuelvan. Esa cercanía es, para mí, parte de la receta.",
     gTitle:"Del horno a la vitrina",gIg:"Sígueme en Instagram →",
-    ph1:"Tu foto: Drożdżówki recién horneados",ph2:"Tu foto: el obrador en acción",
-    cTitle:"Horario y encargos",d1:"Lunes",d2:"Martes",d3:"Miércoles",d4:"Jueves",d5:"Viernes",d6:"Sábado",d7:"Domingo",closed:"Cerrado",tel:"Teléfono:",
+    gIntro:"Recetas tradicionales polacas junto a postres de actualidad. Todo artesano, horneado en el obrador de Les Corts. Los precios son orientativos: el encargo se ajusta a tamaño y ocasión.",
+    gcTartas:"Tartas",gcDulces:"Dulces y postres",
+    pUnidPorcion:"/ por porción o tarta",pUnidEncargo:"/ por encargo",pConsultar:"Según temporada",
+    gnQueso:"Tarta de queso",gnCeremonia:"Tarta de ceremonia",gnVitrina:"Postre de vitrina",gnSurtida:"Caja surtida",gnTemporada:"Postres de temporada",gnCatering:"Catering y Eventos",
+    pPresupuesto:"Precio a determinar",
+    gpCatering:"Mesas dulces y surtidos para celebraciones, empresas y eventos. Cuéntame tu ocasión y lo preparamos a medida.",
+    gpSernik:"Tarta de queso polaca, cremosa y densa, horneada al estilo tradicional.",
+    gpSzarlotka:"Tarta de manzana con canela y masa quebrada, el clásico de la abuela.",
+    gpQueso:"Estilo La Viña: cremosa por dentro y con la superficie tostada al horno.",
+    gpCeremonia:"Para bodas, comuniones y cumpleaños. Diseño y sabores personalizados.",
+    gpVitrina:"Creaciones de actualidad que cambian con la temporada. Pregunta por las del día.",
+    gpSurtida:"Una selección de nuestros dulces para llevar o regalar.",
+    gpTemporada:"Especialidades del calendario, como la coca de Sant Joan. Pregunta por las de cada época.",
+    cTitle:"Horario y encargos",d1:"Lunes",d2:"Martes",d3:"Miércoles",d4:"Jueves",d5:"Viernes",d6:"Sábado",d7:"Domingo",closed:"Cerrado",tel:"Teléfono:",addrLbl:"Dirección:",gMaps:"Cómo llegar (Google Maps) →",
     fTitle:"¿Quieres un pedido?",fName:"Nombre*",fPhone:"Teléfono",fMsg:"Cuéntame qué dulce deseas y para cuándo*",fBtn:"Enviar encargo",
-    fTypeDef:"¿Qué tipo de encargo?*",fTypeCustom:"Tarta personalizada (boda, cumpleaños…)",fTypeOther:"Repostería tradicional / de vitrina",
+    fTypeDef:"¿Qué tipo de encargo?*",fTypeCustom:"Tarta personalizada (boda, cumpleaños…)",fTypeOther:"Repostería tradicional / de vitrina",fTypeBiz:"Empresas / eventos",fEmpresas:"¿Eres una empresa? También preparo encargos para eventos, reuniones y celebraciones de empresa. Cuéntamelo y lo organizamos.",
     fDateLbl:"Fecha deseada de recogida*",fDateHelp:"Elige primero el tipo de encargo.",
     fDate7:"Las tartas personalizadas se piden con 1 semana de antelación mínima.",
     fDate2:"La repostería se pide con 2 días de antelación mínima.",
     fDateWed:"Los miércoles cerramos — elige otro día, por favor.",
-    formOk:"¡Gracias! (Formulario de demostración — lo conectaremos al publicar la web)",
-    foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
+    formOk:"¡Gracias! He recibido tu encargo y te responderé muy pronto.",fSending:"Enviando…",fErr:"No se ha podido enviar. Inténtalo de nuevo o escríbeme a deliciasbybea@gmail.com.",
+    ingEye:"De dónde viene cada bocado",ingTitle:"Ingredientes con nombre y apellidos",
+    ingIntro:"Crecí viendo a mi madre elegir cada ingrediente con cuidado, y esa manía buena se me quedó. Por eso compro cerca, de temporada, y no escondo nada detrás de un atajo industrial: lo bueno se nota en el primer bocado.",
+    ing1t:"Mantequilla y lácteos",ing1p:"Mantequilla y derivados de la leche de verdad: naturales, sin aditivos ni variantes.",
+    ing2t:"Fruta de temporada",ing2p:"Comprada en el comercio local, según la estación y la disponibilidad de cada momento.",
+    ing3t:"Harinas y huevos",ing3p:"Harinas y huevos camperos de primera calidad, la base de cada receta.",
+    antEye:"Hecho para ti, no de stock",antTitle:"Por qué te pido tu encargo con antelación",
+    antP1:"Cada dulce se hornea expresamente para ti. No trabajo con producto congelado ni de stock: cuando recibo tu encargo, compro justo los ingredientes que necesito para él.",
+    antP2:"Así me aseguro de que todo llega fresco a tu mesa y, de paso, mantengo un obrador sin desperdicio. Esa pequeña espera es la diferencia entre un dulce cualquiera y uno hecho para tu ocasión.",
+    antFirma:"— Buen dulce, sin prisa",
+    algEye:"Para que disfrutes sin preocuparte",algTitle:"Intolerancias y embarazo",
+    algIntro:"Para mí es importante que puedas disfrutar de mis dulces sin preocupaciones. Por eso:",
+    algL1:"En mi obrador trabajo con gluten y frutos secos, así que, por contaminación cruzada, puede haber trazas en cualquiera de mis dulces.",
+    algL2:"Todos mis dulces son seguros durante el embarazo: utilizo productos pasteurizados en mis elaboraciones.",
+    algNota:"¿Tienes alguna necesidad específica? <a href=\"#contacto\">Escríbeme</a> y lo vemos.",
+    nlTitle:"Novedades del obrador",nlSub:"Apúntate y recibe primero las especialidades de temporada, los dulces de fiesta polaca y cualquier novedad de Delicias by Bea.",
+    nlPh:"Tu correo electrónico",nlBtn:"Apuntarme",nlPriv:"Respeto tu privacidad. Sin spam, solo dulces novedades.",nlOk:"¡Gracias! Te avisaré de las próximas novedades.",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"},
   ca:{nav0:"Inici",nav1:"L'obrador",nav2:"Qui sóc",nav3:"Galeria",nav4:"Encàrrecs",
     eyebrow:"Obrador artesanal · Les Corts, Barcelona",
     h1:"Sabors de Polònia, <em>enfornats</em> al cor de Barcelona",
     hsub:"Pastisseria tradicional polonesa i postres d'avui, enfornats cada matí amb ingredients de proximitat.",
     cta:"Fes el teu encàrrec",
-    v1t:"Ingredients de proximitat",v1p:"Fruita fresca, mantega de veritat i nata muntada al moment.",
     v2t:"Enfornat in situ",v2p:"Tot surt del nostre forn, sense productes semielaborats.",
-    v3t:"A la teva mida",v3p:"Encàrrecs personalitzats per a qualsevol ocasió i qualsevol desig dolç.",
-    thEye:"Dos mons, un obrador",thTitle:"La tradició polonesa i la pastisseria d'avui, costat a costat",
+    v3t:"A la teva mida",v3p:"Pastissos nupcials, aniversaris, esdeveniments i càtering: cada encàrrec, pensat per a la teva ocasió.",
+    v4t:"Acabat de fer cada dia",v4p:"Enfornem cada matí, perquè tot arribi fresc a la teva taula.",
+    thEye:"Dos mons, un obrador",
+    cineEye:"Del forn a les teves mans",cineTitle:"Cada matí comença aquí",cinePh:"La teva foto: l'obrador en acció",thTitle:"La tradició polonesa i la pastisseria d'avui, costat a costat",
     tradT:"Tradició",hoyT:"Avui",hoySub:"De vitrina",
-    i1:"Brioixos dolços de massa llevada, com els dels forns de Polònia.",
+    i1:"Brioixos dolços de massa llevada, una recepta tradicional de la meva Polònia natal.",
     i2:"El pastís de formatge polonès de sempre, cremós i enfornat lentament.",
     i3:"Pastís de poma amb canyella, recepta de generacions.",
     i4t:"Pastissos de cerimònia",i4:"Dissenys actuals per a casaments, aniversaris i celebracions.",
@@ -454,28 +1300,58 @@ const I = {
     sEye:"Qui sóc",sTitle:"Un somni que va començar enfornant amb la meva mare",
     sP1:"De petita ja enfornava amb la meva mare els pastissos tradicionals de la meva Polònia natal. De Namysłów a Berlín, on vaig perfeccionar la tècnica amb xefs de renom, i d'allà a Barcelona.",
     sP2:"Des del 2023, a Delicias by Bea enforno cada dia fusionant la pastisseria tradicional polonesa amb les tècniques més actuals, amb el mateix afecte amb què s'enforna a casa.",
+    sP3:"Des del març del 2026 el meu obrador forma part de Les Corts, un barri que ja sento com a casa. Aquí m'agrada el tracte proper i familiar amb els veïns: que entrin a saludar, que m'expliquin per a què és el dolç, que tornin. Aquesta proximitat és, per a mi, part de la recepta.",
     gTitle:"Del forn a la vitrina",gIg:"Segueix-me a Instagram →",
-    ph1:"La teva foto: Drożdżówki acabats de fer",ph2:"La teva foto: l'obrador en acció",
-    cTitle:"Horari i encàrrecs",d1:"Dilluns",d2:"Dimarts",d3:"Dimecres",d4:"Dijous",d5:"Divendres",d6:"Dissabte",d7:"Diumenge",closed:"Tancat",tel:"Telèfon:",
+    gIntro:"Receptes tradicionals poloneses al costat de postres d'actualitat. Tot artesà, fornejat a l'obrador de Les Corts. Els preus són orientatius: l'encàrrec s'ajusta a la mida i l'ocasió.",
+    gcTartas:"Pastissos",gcDulces:"Dolços i postres",
+    pUnidPorcion:"/ per porció o pastís",pUnidEncargo:"/ per encàrrec",pConsultar:"Segons temporada",
+    gnQueso:"Pastís de formatge",gnCeremonia:"Pastís de cerimònia",gnVitrina:"Postre de vitrina",gnSurtida:"Capsa assortida",gnTemporada:"Postres de temporada",gnCatering:"Càtering i Esdeveniments",
+    pPresupuesto:"Preu a determinar",
+    gpCatering:"Taules dolces i assortits per a celebracions, empreses i esdeveniments. Explica'm la teva ocasió i ho preparem a mida.",
+    gpSernik:"Pastís de formatge polonès, cremós i dens, fornejat a l'estil tradicional.",
+    gpSzarlotka:"Pastís de poma amb canyella i pasta trencada, el clàssic de l'àvia.",
+    gpQueso:"Estil La Viña: cremós per dins i amb la superfície torrada al forn.",
+    gpCeremonia:"Per a bodes, comunions i aniversaris. Disseny i sabors personalitzats.",
+    gpVitrina:"Creacions d'actualitat que canvien amb la temporada. Pregunta per les del dia.",
+    gpSurtida:"Una selecció dels nostres dolços per emportar o regalar.",
+    gpTemporada:"Especialitats del calendari, com la coca de Sant Joan. Pregunta per les de cada època.",
+    cTitle:"Horari i encàrrecs",d1:"Dilluns",d2:"Dimarts",d3:"Dimecres",d4:"Dijous",d5:"Divendres",d6:"Dissabte",d7:"Diumenge",closed:"Tancat",tel:"Telèfon:",addrLbl:"Adreça:",gMaps:"Com arribar-hi (Google Maps) →",
     fTitle:"Vols fer una comanda?",fName:"Nom*",fPhone:"Telèfon",fMsg:"Explica'm quin dolç desitges i per a quan*",fBtn:"Envia l'encàrrec",
-    fTypeDef:"Quin tipus d'encàrrec?*",fTypeCustom:"Pastís personalitzat (casament, aniversari…)",fTypeOther:"Pastisseria tradicional / de vitrina",
+    fTypeDef:"Quin tipus d'encàrrec?*",fTypeCustom:"Pastís personalitzat (casament, aniversari…)",fTypeOther:"Pastisseria tradicional / de vitrina",fTypeBiz:"Empreses / esdeveniments",fEmpresas:"Ets una empresa? També preparo encàrrecs per a esdeveniments, reunions i celebracions d'empresa. Explica'm i ho organitzem.",
     fDateLbl:"Data desitjada de recollida*",fDateHelp:"Tria primer el tipus d'encàrrec.",
     fDate7:"Els pastissos personalitzats es demanen amb 1 setmana d'antelació mínima.",
     fDate2:"La pastisseria es demana amb 2 dies d'antelació mínima.",
     fDateWed:"Els dimecres tanquem — tria un altre dia, si us plau.",
-    formOk:"Gràcies! (Formulari de demostració — el connectarem en publicar la web)",
-    foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
+    formOk:"Gràcies! He rebut el teu encàrrec i et respondré ben aviat.",fSending:"Enviant…",fErr:"No s'ha pogut enviar. Torna-ho a provar o escriu-me a deliciasbybea@gmail.com.",
+    ingEye:"D'on ve cada mos",ingTitle:"Ingredients amb nom i cognoms",
+    ingIntro:"Vaig créixer veient la meva mare triar cada ingredient amb cura, i aquesta bona mania se'm va quedar. Per això compro a prop, de temporada, i no amago res darrere d'una drecera industrial: el que és bo es nota a la primera mossegada.",
+    ing1t:"Mantega i lactis",ing1p:"Mantega i derivats de la llet de veritat: naturals, sense additius ni variants.",
+    ing2t:"Fruita de temporada",ing2p:"Comprada al comerç local, segons l'estació i la disponibilitat de cada moment.",
+    ing3t:"Farines i ous",ing3p:"Farines i ous de pagès de primera qualitat, la base de cada recepta.",
+    antEye:"Fet per a tu, no d'estoc",antTitle:"Per què et demano l'encàrrec amb antelació",
+    antP1:"Cada dolç s'enforna expressament per a tu. No treballo amb producte congelat ni d'estoc: quan rebo el teu encàrrec, compro just els ingredients que necessito.",
+    antP2:"Així m'asseguro que tot arriba fresc a la teva taula i, de pas, mantinc un obrador sense malbaratament. Aquesta petita espera és la diferència entre un dolç qualsevol i un fet per a la teva ocasió.",
+    antFirma:"— Bon dolç, sense pressa",
+    algEye:"Perquè gaudeixis sense preocupar-te",algTitle:"Intoleràncies i embaràs",
+    algIntro:"Per a mi és important que puguis gaudir dels meus dolços sense preocupacions. Per això:",
+    algL1:"Al meu obrador treballo amb gluten i fruits secs, així que, per contaminació creuada, hi pot haver traces en qualsevol dels meus dolços.",
+    algL2:"Tots els meus dolços són segurs durant l'embaràs: faig servir productes pasteuritzats en les meves elaboracions.",
+    algNota:"Tens alguna necessitat específica? <a href=\"#contacto\">Escriu-me</a> i ho veiem.",
+    nlTitle:"Novetats de l'obrador",nlSub:"Apunta't i rep primer les especialitats de temporada, els dolços de festa polonesa i qualsevol novetat de Delicias by Bea.",
+    nlPh:"El teu correu electrònic",nlBtn:"Apuntar-m'hi",nlPriv:"Respecto la teva privacitat. Sense spam, només dolces novetats.",nlOk:"Gràcies! T'avisaré de les pròximes novetats.",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"},
   en:{nav0:"Home",nav1:"The bakery",nav2:"About me",nav3:"Gallery",nav4:"Orders",
-    eyebrow:"Artisan bakery · Les Corts, Barcelona",
+    eyebrow:"Artisan pâtisserie · Les Corts, Barcelona",
     h1:"Flavors of Poland, <em>baked</em> in the heart of Barcelona",
     hsub:"Traditional Polish pastry and today's desserts, baked fresh every morning with local ingredients.",
     cta:"Place your order",
-    v1t:"Local ingredients",v1p:"Fresh fruit, real butter and cream whipped to order.",
     v2t:"Baked in-house",v2p:"Everything comes from our own oven, no semi-finished products.",
-    v3t:"Made to measure",v3p:"Custom orders for any occasion and any sweet wish.",
-    thEye:"Two worlds, one bakery",thTitle:"Polish tradition and today's pastry, side by side",
+    v3t:"Made to measure",v3p:"Wedding cakes, birthdays, events and catering: every order, made for your occasion.",
+    v4t:"Freshly made daily",v4p:"We bake every morning, so everything reaches your table fresh.",
+    thEye:"Two worlds, one bakery",
+    cineEye:"From the oven to your hands",cineTitle:"Every morning begins here",cinePh:"Your photo: the bakery at work",thTitle:"Polish tradition and today's pastry, side by side",
     tradT:"Tradition",hoyT:"Today",hoySub:"From the counter",
-    i1:"Sweet yeast buns, just like the bakeries of Poland.",
+    i1:"Sweet yeast buns, a traditional recipe from my native Poland.",
     i2:"The classic Polish cheesecake, creamy and slowly baked.",
     i3:"Apple pie with cinnamon, a recipe passed down generations.",
     i4t:"Ceremony cakes",i4:"Modern designs for weddings, birthdays and celebrations.",
@@ -484,28 +1360,58 @@ const I = {
     sEye:"About me",sTitle:"A dream that began baking with my mother",
     sP1:"As a child I was already baking the traditional cakes of my native Poland with my mother. From Namysłów to Berlin, where I refined my technique alongside renowned chefs, and from there to Barcelona.",
     sP2:"Since 2023, at Delicias by Bea I bake every day, blending traditional Polish pastry with today's techniques — with the same love as baking at home.",
+    sP3:"Since March 2026 my bakery has been part of Les Corts, a neighbourhood that already feels like home. I love the close, family-like relationship with my neighbours: that they pop in to say hello, tell me what the treat is for, and come back. That closeness is, for me, part of the recipe.",
     gTitle:"From the oven to the counter",gIg:"Follow me on Instagram →",
-    ph1:"Your photo: freshly baked Drożdżówki",ph2:"Your photo: the bakery at work",
-    cTitle:"Hours & orders",d1:"Monday",d2:"Tuesday",d3:"Wednesday",d4:"Thursday",d5:"Friday",d6:"Saturday",d7:"Sunday",closed:"Closed",tel:"Phone:",
+    gIntro:"Traditional Polish recipes alongside contemporary desserts. All handmade, baked in the Les Corts bakery. Prices are a guide: each order is tailored to size and occasion.",
+    gcTartas:"Cakes",gcDulces:"Treats & desserts",
+    pUnidPorcion:"/ per slice or cake",pUnidEncargo:"/ to order",pConsultar:"Seasonal",
+    gnQueso:"Cheesecake",gnCeremonia:"Celebration cake",gnVitrina:"Counter dessert",gnSurtida:"Assorted box",gnTemporada:"Seasonal desserts",gnCatering:"Catering & Events",
+    pPresupuesto:"Price on request",
+    gpCatering:"Dessert tables and assortments for celebrations, companies and events. Tell me about your occasion and we'll tailor it.",
+    gpSernik:"Polish cheesecake, creamy and dense, baked the traditional way.",
+    gpSzarlotka:"Apple cake with cinnamon and shortcrust pastry, grandma's classic.",
+    gpQueso:"La Viña style: creamy inside with a caramelised, oven-toasted top.",
+    gpCeremonia:"For weddings, communions and birthdays. Bespoke design and flavours.",
+    gpVitrina:"Contemporary creations that change with the season. Ask for today's.",
+    gpSurtida:"A selection of our treats to take away or gift.",
+    gpTemporada:"Calendar specialities, like the Sant Joan coca. Ask for each season's.",
+    cTitle:"Hours & orders",d1:"Monday",d2:"Tuesday",d3:"Wednesday",d4:"Thursday",d5:"Friday",d6:"Saturday",d7:"Sunday",closed:"Closed",tel:"Phone:",addrLbl:"Address:",gMaps:"Get directions (Google Maps) →",
     fTitle:"Want to place an order?",fName:"Name*",fPhone:"Phone",fMsg:"Tell me what sweet you wish for and when*",fBtn:"Send order",
-    fTypeDef:"What kind of order?*",fTypeCustom:"Custom cake (wedding, birthday…)",fTypeOther:"Traditional / counter pastry",
+    fTypeDef:"What kind of order?*",fTypeCustom:"Custom cake (wedding, birthday…)",fTypeOther:"Traditional / counter pastry",fTypeBiz:"Companies / events",fEmpresas:"Are you a company? I also prepare orders for events, meetings and corporate celebrations. Tell me about it and we'll organise it.",
     fDateLbl:"Preferred pickup date*",fDateHelp:"Choose the type of order first.",
     fDate7:"Custom cakes must be ordered at least 1 week in advance.",
     fDate2:"Pastries must be ordered at least 2 days in advance.",
     fDateWed:"We're closed on Wednesdays — please choose another day.",
-    formOk:"Thank you! (Demo form — we'll connect it when the site goes live)",
-    foot:"©2026 Delicias by Bea · Les Corts, Barcelona"},
+    formOk:"Thank you! I've received your order and will reply very soon.",fSending:"Sending…",fErr:"Something went wrong. Please try again or email me at deliciasbybea@gmail.com.",
+    ingEye:"Where every bite comes from",ingTitle:"Ingredients with a name and a story",
+    ingIntro:"I grew up watching my mother choose every ingredient with care, and that good habit stuck with me. That's why I buy locally, in season, and hide nothing behind an industrial shortcut: you can taste the difference in the first bite.",
+    ing1t:"Butter & dairy",ing1p:"Real butter and milk products: natural, with no additives or substitutes.",
+    ing2t:"Seasonal fruit",ing2p:"Bought from local shops, according to the season and what's available at the time.",
+    ing3t:"Flour & eggs",ing3p:"Top-quality flour and free-range eggs, the foundation of every recipe.",
+    antEye:"Made for you, not from stock",antTitle:"Why I ask you to order in advance",
+    antP1:"Every treat is baked especially for you. I don't work with frozen or stock products: when your order comes in, I buy exactly the ingredients it needs.",
+    antP2:"That way everything reaches your table fresh and I keep a zero-waste bakery. That little wait is the difference between an ordinary treat and one made for your occasion.",
+    antFirma:"— Good cake, no rush",
+    algEye:"So you can enjoy worry-free",algTitle:"Intolerances & pregnancy",
+    algIntro:"It's important to me that you can enjoy my treats worry-free. That's why:",
+    algL1:"In my kitchen I work with gluten and nuts, so due to cross-contamination there may be traces in any of my treats.",
+    algL2:"All my treats are pregnancy safe: I use pasteurised products in my bakes.",
+    algNota:"Have a specific requirement? <a href=\"#contacto\">Get in touch</a> and we'll sort it out.",
+    nlTitle:"News from the bakery",nlSub:"Sign up to be the first to hear about seasonal specials, Polish holiday treats and any news from Delicias by Bea.",
+    nlPh:"Your email address",nlBtn:"Sign me up",nlPriv:"I respect your privacy. No spam, just sweet news.",nlOk:"Thank you! I'll let you know about what's next.",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"},
   pl:{nav0:"Start",nav1:"Pracownia",nav2:"O mnie",nav3:"Galeria",nav4:"Zamówienia",
     eyebrow:"Rzemieślnicza pracownia · Les Corts, Barcelona",
     h1:"Smaki Polski, <em>wypiekane</em> w sercu Barcelony",
     hsub:"Tradycyjne polskie wypieki i nowoczesne desery, przygotowywane każdego ranka z lokalnych składników.",
     cta:"Złóż zamówienie",
-    v1t:"Lokalne składniki",v1p:"Świeże owoce, prawdziwe masło i śmietana ubijana na miejscu.",
     v2t:"Wypiekane na miejscu",v2p:"Wszystko z naszego pieca, bez gotowych półproduktów.",
-    v3t:"Na zamówienie",v3p:"Personalizowane zamówienia na każdą okazję i każde słodkie życzenie.",
-    thEye:"Dwa światy, jedna pracownia",thTitle:"Polska tradycja i współczesne cukiernictwo, obok siebie",
+    v3t:"Na zamówienie",v3p:"Torty weselne, urodziny, wydarzenia i catering: każde zamówienie tworzone na Twoją okazję.",
+    v4t:"Codziennie świeże",v4p:"Pieczemy każdego ranka, aby wszystko trafiało świeże na Twój stół.",
+    thEye:"Dwa światy, jedna pracownia",
+    cineEye:"Z pieca prosto do Ciebie",cineTitle:"Każdy poranek zaczyna się tutaj",cinePh:"Twoje zdjęcie: pracownia przy pracy",thTitle:"Polska tradycja i współczesne cukiernictwo, obok siebie",
     tradT:"Tradycja",hoyT:"Dziś",hoySub:"Z witryny",
-    i1:"Słodkie bułki drożdżowe, jak z polskiej piekarni.",
+    i1:"Słodkie bułki drożdżowe, tradycyjny przepis z mojej rodzinnej Polski.",
     i2:"Klasyczny polski sernik, kremowy i powoli pieczony.",
     i3:"Szarlotka z cynamonem, przepis przekazywany z pokolenia na pokolenie.",
     i4t:"Torty okolicznościowe",i4:"Nowoczesne projekty na śluby, urodziny i uroczystości.",
@@ -514,25 +1420,118 @@ const I = {
     sEye:"O mnie",sTitle:"Marzenie, które zaczęło się od pieczenia z mamą",
     sP1:"Już jako dziecko piekłam z mamą tradycyjne ciasta mojej rodzinnej Polski. Z Namysłowa do Berlina, gdzie szlifowałam technikę u uznanych szefów cukiernictwa, a stamtąd do Barcelony.",
     sP2:"Od 2023 roku w Delicias by Bea piekę każdego dnia, łącząc tradycyjne polskie cukiernictwo z najnowszymi technikami — z taką samą miłością jak w domu.",
+    sP3:"Od marca 2026 roku moja pracownia jest częścią Les Corts — dzielnicy, którą czuję już jak dom. Cenię bliskie, rodzinne relacje z sąsiadami: że wpadają się przywitać, opowiadają, na jaką okazję jest wypiek, i wracają. Ta bliskość jest dla mnie częścią przepisu.",
     gTitle:"Z pieca do witryny",gIg:"Obserwuj mnie na Instagramie →",
-    ph1:"Twoje zdjęcie: świeże drożdżówki",ph2:"Twoje zdjęcie: pracownia przy pracy",
-    cTitle:"Godziny i zamówienia",d1:"Poniedziałek",d2:"Wtorek",d3:"Środa",d4:"Czwartek",d5:"Piątek",d6:"Sobota",d7:"Niedziela",closed:"Zamknięte",tel:"Telefon:",
+    gIntro:"Tradycyjne polskie receptury obok nowoczesnych deserów. Wszystko rzemieślnicze, wypiekane w pracowni w Les Corts. Ceny są orientacyjne: każde zamówienie dostosowujemy do rozmiaru i okazji.",
+    gcTartas:"Torty",gcDulces:"Słodycze i desery",
+    pUnidPorcion:"/ za porcję lub tort",pUnidEncargo:"/ na zamówienie",pConsultar:"Sezonowo",
+    gnQueso:"Sernik baskijski",gnCeremonia:"Tort okolicznościowy",gnVitrina:"Deser z witryny",gnSurtida:"Pudełko mieszane",gnTemporada:"Desery sezonowe",gnCatering:"Catering i Eventy",
+    pPresupuesto:"Cena do ustalenia",
+    gpCatering:"Słodkie stoły i zestawy na uroczystości, firmy i eventy. Opowiedz mi o swojej okazji, a przygotujemy ją na miarę.",
+    gpSernik:"Polski sernik, kremowy i gęsty, pieczony w tradycyjny sposób.",
+    gpSzarlotka:"Szarlotka z cynamonem i kruchym ciastem, klasyka jak u babci.",
+    gpQueso:"W stylu La Viña: kremowy w środku, z przypieczonym wierzchem.",
+    gpCeremonia:"Na śluby, komunie i urodziny. Indywidualny projekt i smaki.",
+    gpVitrina:"Nowoczesne kreacje zmieniające się z porą roku. Zapytaj o dzisiejsze.",
+    gpSurtida:"Wybór naszych słodkości na wynos lub na prezent.",
+    gpTemporada:"Specjały z kalendarza, jak coca de Sant Joan. Zapytaj o sezonowe.",
+    cTitle:"Godziny i zamówienia",d1:"Poniedziałek",d2:"Wtorek",d3:"Środa",d4:"Czwartek",d5:"Piątek",d6:"Sobota",d7:"Niedziela",closed:"Zamknięte",tel:"Telefon:",addrLbl:"Adres:",gMaps:"Jak dojechać (Google Maps) →",
     fTitle:"Chcesz złożyć zamówienie?",fName:"Imię*",fPhone:"Telefon",fMsg:"Napisz, o jakim wypieku marzysz i na kiedy*",fBtn:"Wyślij zamówienie",
-    fTypeDef:"Jaki rodzaj zamówienia?*",fTypeCustom:"Tort personalizowany (ślub, urodziny…)",fTypeOther:"Tradycyjne wypieki / z witryny",
+    fTypeDef:"Jaki rodzaj zamówienia?*",fTypeCustom:"Tort personalizowany (ślub, urodziny…)",fTypeOther:"Tradycyjne wypieki / z witryny",fTypeBiz:"Firmy / wydarzenia",fEmpresas:"Reprezentujesz firmę? Przygotowuję też zamówienia na wydarzenia, spotkania i uroczystości firmowe. Napisz, a wszystko zorganizujemy.",
     fDateLbl:"Preferowana data odbioru*",fDateHelp:"Najpierw wybierz rodzaj zamówienia.",
     fDate7:"Torty personalizowane zamawiamy z min. tygodniowym wyprzedzeniem.",
     fDate2:"Wypieki zamawiamy z min. 2-dniowym wyprzedzeniem.",
     fDateWed:"W środy jest zamknięte — wybierz inny dzień.",
-    formOk:"Dziękuję! (Formularz demonstracyjny — podłączymy go przy publikacji strony)",
-    foot:"©2026 Delicias by Bea · Les Corts, Barcelona"}
+    formOk:"Dziękuję! Otrzymałam Twoje zamówienie i wkrótce odpowiem.",fSending:"Wysyłanie…",fErr:"Nie udało się wysłać. Spróbuj ponownie lub napisz na deliciasbybea@gmail.com.",
+    ingEye:"Skąd pochodzi każdy kęs",ingTitle:"Składniki z imieniem i nazwiskiem",
+    ingIntro:"Dorastałam, patrząc, jak mama starannie wybiera każdy składnik, i ten dobry nawyk został we mnie. Dlatego kupuję lokalnie, sezonowo i niczego nie ukrywam za przemysłowym skrótem: to, co dobre, czuć już przy pierwszym kęsie.",
+    ing1t:"Masło i nabiał",ing1p:"Prawdziwe masło i produkty mleczne: naturalne, bez dodatków i zamienników.",
+    ing2t:"Owoce sezonowe",ing2p:"Kupowane w lokalnych sklepach, zależnie od sezonu i bieżącej dostępności.",
+    ing3t:"Mąka i jaja",ing3p:"Mąka i jaja z wolnego wybiegu najwyższej jakości — podstawa każdego przepisu.",
+    antEye:"Robione dla Ciebie, nie z zapasów",antTitle:"Dlaczego proszę o zamówienie z wyprzedzeniem",
+    antP1:"Każdy wypiek powstaje specjalnie dla Ciebie. Nie pracuję z produktami mrożonymi ani z zapasu: gdy otrzymuję zamówienie, kupuję dokładnie te składniki, których potrzebuję.",
+    antP2:"Dzięki temu wszystko trafia na Twój stół świeże, a ja prowadzę pracownię bez marnowania. To krótkie oczekiwanie to różnica między zwykłym wypiekiem a takim zrobionym na Twoją okazję.",
+    antFirma:"— Dobre ciasto, bez pośpiechu",
+    algEye:"Abyś mógł cieszyć się bez obaw",algTitle:"Nietolerancje i ciąża",
+    algIntro:"Zależy mi, abyś mógł cieszyć się moimi wypiekami bez obaw. Dlatego:",
+    algL1:"W mojej pracowni pracuję z glutenem i orzechami, więc ze względu na zanieczyszczenie krzyżowe w każdym wypieku mogą znaleźć się ich ślady.",
+    algL2:"Wszystkie moje wypieki są bezpieczne w ciąży: w moich wyrobach używam produktów pasteryzowanych.",
+    algNota:"Masz szczególne wymagania? <a href=\"#contacto\">Napisz do mnie</a>, a coś wymyślimy.",
+    nlTitle:"Nowości z pracowni",nlSub:"Zapisz się i jako pierwszy poznawaj sezonowe specjały, polskie świąteczne wypieki i wszystkie nowości Delicias by Bea.",
+    nlPh:"Twój adres e-mail",nlBtn:"Zapisz mnie",nlPriv:"Szanuję Twoją prywatność. Bez spamu, tylko słodkie nowości.",nlOk:"Dziękuję! Dam znać o kolejnych nowościach.",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"},
+  de:{nav0:"Start",nav1:"Die Backstube",nav2:"Über mich",nav3:"Galerie",nav4:"Bestellungen",
+    eyebrow:"Handwerkskonditorei · Les Corts, Barcelona",
+    h1:"Polens Aromen, <em>gebacken</em> im Herzen Barcelonas",
+    hsub:"Traditionelles polnisches Gebäck und moderne Desserts, jeden Morgen frisch mit regionalen Zutaten gebacken.",
+    cta:"Jetzt bestellen",
+    v2t:"Hausgemacht",v2p:"Alles aus unserem eigenen Ofen, ohne Halbfertigprodukte.",
+    v3t:"Nach Maß",v3p:"Hochzeitstorten, Geburtstage, Events und Catering: jede Bestellung für Ihren Anlass gemacht.",
+    v4t:"Täglich frisch",v4p:"Wir backen jeden Morgen, damit alles frisch auf Ihren Tisch kommt.",
+    thEye:"Zwei Welten, eine Backstube",
+    cineEye:"Vom Ofen in Ihre Hände",cineTitle:"Jeder Morgen beginnt hier",cinePh:"Dein Foto: die Backstube bei der Arbeit",thTitle:"Polnische Tradition und moderne Konditorei, Seite an Seite",
+    tradT:"Tradition",hoyT:"Heute",hoySub:"Aus der Vitrine",
+    i1:"Süße Hefeteilchen, ein traditionelles Rezept aus meiner polnischen Heimat.",
+    i2:"Der klassische polnische Käsekuchen, cremig und langsam gebacken.",
+    i3:"Apfelkuchen mit Zimt, ein über Generationen weitergegebenes Rezept.",
+    i4t:"Anlasstorten",i4:"Moderne Designs für Hochzeiten, Geburtstage und Feiern.",
+    i5t:"Signature-Desserts",i5:"Texturen und Aromen der modernen Konditorei.",
+    i6t:"Saisonal",i6:"Kreationen, die mit den Früchten und dem Kalender wechseln.",
+    sEye:"Über mich",sTitle:"Ein Traum, der mit dem Backen mit meiner Mutter begann",
+    sP1:"Schon als Kind habe ich mit meiner Mutter die traditionellen Kuchen meiner polnischen Heimat gebacken. Von Namysłów nach Berlin, wo ich meine Technik bei renommierten Konditoren verfeinert habe, und von dort nach Barcelona.",
+    sP2:"Seit 2023 backe ich bei Delicias by Bea jeden Tag und verbinde traditionelle polnische Konditorei mit modernen Techniken — mit derselben Liebe wie zu Hause.",
+    sP3:"Seit März 2026 ist meine Backstube Teil von Les Corts, einem Viertel, das sich schon wie Zuhause anfühlt. Ich schätze die enge, familiäre Beziehung zu meinen Nachbarn: dass sie zum Hallo sagen vorbeikommen, mir erzählen, für welchen Anlass das Gebäck ist, und wiederkommen. Diese Nähe ist für mich Teil des Rezepts.",
+    gTitle:"Aus dem Ofen in die Vitrine",gIg:"Folge mir auf Instagram →",
+    gIntro:"Traditionelle polnische Rezepte neben modernen Desserts. Alles handgemacht, gebacken in der Backstube in Les Corts. Die Preise sind Richtwerte: jede Bestellung wird an Größe und Anlass angepasst.",
+    gcTartas:"Torten",gcDulces:"Süßes & Desserts",
+    pUnidPorcion:"/ pro Stück oder Torte",pUnidEncargo:"/ auf Bestellung",pConsultar:"Saisonal",
+    gnQueso:"Käsekuchen",gnCeremonia:"Anlasstorte",gnVitrina:"Dessert aus der Vitrine",gnSurtida:"Gemischte Box",gnTemporada:"Saisonale Desserts",gnCatering:"Catering & Events",
+    pPresupuesto:"Preis auf Anfrage",
+    gpCatering:"Süße Buffets und Sortimente für Feiern, Firmen und Events. Erzählen Sie mir von Ihrem Anlass und wir bereiten es maßgeschneidert vor.",
+    gpSernik:"Polnischer Käsekuchen, cremig und dicht, traditionell gebacken.",
+    gpSzarlotka:"Apfelkuchen mit Zimt und Mürbeteig, der Klassiker von der Oma.",
+    gpQueso:"Im La-Viña-Stil: innen cremig, mit karamellisierter, im Ofen gebräunter Oberfläche.",
+    gpCeremonia:"Für Hochzeiten, Kommunionen und Geburtstage. Individuelles Design und Aromen.",
+    gpVitrina:"Moderne Kreationen, die mit der Saison wechseln. Fragen Sie nach den heutigen.",
+    gpSurtida:"Eine Auswahl unserer Süßigkeiten zum Mitnehmen oder Verschenken.",
+    gpTemporada:"Spezialitäten aus dem Kalender, wie die Coca de Sant Joan. Fragen Sie nach den saisonalen.",
+    cTitle:"Öffnungszeiten & Bestellungen",d1:"Montag",d2:"Dienstag",d3:"Mittwoch",d4:"Donnerstag",d5:"Freitag",d6:"Samstag",d7:"Sonntag",closed:"Geschlossen",tel:"Telefon:",addrLbl:"Adresse:",gMaps:"Anfahrt (Google Maps) →",
+    fTitle:"Möchten Sie bestellen?",fName:"Name*",fPhone:"Telefon",fMsg:"Sagen Sie mir, welches Gebäck Sie sich wünschen und wann*",fBtn:"Bestellung senden",
+    fTypeDef:"Welche Art von Bestellung?*",fTypeCustom:"Individuelle Torte (Hochzeit, Geburtstag…)",fTypeOther:"Traditionelles Gebäck / aus der Vitrine",fTypeBiz:"Firmen / Events",fEmpresas:"Sie vertreten ein Unternehmen? Ich bereite auch Bestellungen für Events, Meetings und Firmenfeiern vor. Schreiben Sie mir und wir organisieren alles.",
+    fDateLbl:"Gewünschtes Abholdatum*",fDateHelp:"Wählen Sie zuerst die Art der Bestellung.",
+    fDate7:"Individuelle Torten mit mind. 1 Woche Vorlauf bestellen.",
+    fDate2:"Gebäck mit mind. 2 Tagen Vorlauf bestellen.",
+    fDateWed:"Mittwochs ist geschlossen — bitte wählen Sie einen anderen Tag.",
+    formOk:"Danke! Ich habe Ihre Bestellung erhalten und melde mich sehr bald.",fSending:"Wird gesendet…",fErr:"Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie an deliciasbybea@gmail.com.",
+    ingEye:"Woher jeder Bissen kommt",ingTitle:"Zutaten mit Namen und Herkunft",
+    ingIntro:"Ich bin damit aufgewachsen, meiner Mutter beim sorgfältigen Auswählen jeder Zutat zuzusehen, und diese gute Gewohnheit ist geblieben. Deshalb kaufe ich regional, saisonal und verstecke nichts hinter einer industriellen Abkürzung: man schmeckt es im ersten Bissen.",
+    ing1t:"Butter & Milchprodukte",ing1p:"Echte Butter und Milchprodukte: natürlich, ohne Zusätze oder Ersatzstoffe.",
+    ing2t:"Saisonales Obst",ing2p:"In lokalen Geschäften gekauft, je nach Saison und Verfügbarkeit.",
+    ing3t:"Mehl & Eier",ing3p:"Mehl und Freilandeier bester Qualität, die Grundlage jedes Rezepts.",
+    antEye:"Für Sie gemacht, nicht aus dem Lager",antTitle:"Warum ich um Vorbestellung bitte",
+    antP1:"Jedes Gebäck wird eigens für Sie gebacken. Ich arbeite nicht mit Tiefkühl- oder Lagerprodukten: Wenn Ihre Bestellung eingeht, kaufe ich genau die Zutaten, die sie braucht.",
+    antP2:"So kommt alles frisch auf Ihren Tisch und ich führe eine Backstube ohne Verschwendung. Diese kurze Wartezeit ist der Unterschied zwischen einem gewöhnlichen Gebäck und einem für Ihren Anlass gemachten.",
+    antFirma:"— Guter Kuchen, ohne Eile",
+    algEye:"Damit Sie unbeschwert genießen",algTitle:"Unverträglichkeiten & Schwangerschaft",
+    algIntro:"Mir ist wichtig, dass Sie mein Gebäck unbeschwert genießen können. Deshalb:",
+    algL1:"In meiner Backstube arbeite ich mit Gluten und Nüssen, daher kann es durch Kreuzkontamination in jedem Gebäck Spuren davon geben.",
+    algL2:"Mein gesamtes Gebäck ist in der Schwangerschaft unbedenklich: Ich verwende pasteurisierte Produkte in meinen Zubereitungen.",
+    algNota:"Haben Sie einen besonderen Bedarf? <a href=\"#contacto\">Schreiben Sie mir</a> und wir finden eine Lösung.",
+    nlTitle:"Neues aus der Backstube",nlSub:"Melden Sie sich an und erfahren Sie als Erste von saisonalen Spezialitäten, polnischem Festtagsgebäck und allen Neuigkeiten von Delicias by Bea.",
+    nlPh:"Ihre E-Mail-Adresse",nlBtn:"Anmelden",nlPriv:"Ich respektiere Ihre Privatsphäre. Kein Spam, nur süße Neuigkeiten.",nlOk:"Danke! Ich melde mich mit Neuigkeiten.",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"}
 };
 let lang='es';
 function t(k){return (I[lang][k]||I.es[k]||'').replace(/<[^>]+>/g,'')}
-function setLang(l,btn){
+function setLang(l){
+  if(!I[l]) l='es';
   lang=l;
   document.documentElement.lang=l;
-  document.querySelectorAll('.langs button').forEach(b=>b.classList.remove('active'));
-  if(btn)btn.classList.add('active');
+  document.querySelectorAll('.langs button').forEach(b=>{
+    const on=b.dataset.lang===l;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-pressed',on?'true':'false');
+  });
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const k=el.getAttribute('data-i18n');
     if(I[l][k]!==undefined) el.innerHTML=I[l][k];
@@ -541,40 +1540,179 @@ function setLang(l,btn){
     const k=el.getAttribute('data-i18n-ph');
     if(I[l][k]!==undefined) el.placeholder=I[l][k];
   });
+  try{localStorage.setItem('dbb-lang',l)}catch(e){}
 }
+
+/* Idioma inicial: el guardado o, en la primera visita, el del navegador */
+(function(){
+  let l=null;
+  try{l=localStorage.getItem('dbb-lang')}catch(e){}
+  if(!l){
+    const nav=(navigator.language||'es').slice(0,2).toLowerCase();
+    l=['es','ca','en','pl','de'].includes(nav)?nav:'es';
+  }
+  if(l!=='es') setLang(l);
+})();
+
+/* Menú móvil */
+function toggleMenu(){
+  const nav=document.getElementById('mainNav');
+  const btn=document.getElementById('menuBtn');
+  const open=nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open?'true':'false');
+}
+document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('mainNav').classList.remove('open');
+  document.getElementById('menuBtn').setAttribute('aria-expanded','false');
+}));
+
+/* Zoom accesible por teclado */
+document.querySelectorAll('img[onclick^="abrirZoom"]').forEach(img=>{
+  img.tabIndex=0;
+  img.setAttribute('role','button');
+  img.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();abrirZoom(img);}
+  });
+});
 const io=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+/* Banda cinemática: revelado del texto + parallax al hacer scroll */
+(function(){
+  const sec=document.getElementById('cinematica');
+  const img=document.getElementById('cineImg');
+  if(!sec||!img) return;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Revelar el texto cuando la sección entra en pantalla
+  const ioCine=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){sec.classList.add('in');ioCine.unobserve(e.target)}});
+  },{threshold:.25});
+  ioCine.observe(sec);
+  // Parallax: desplaza la capa de imagen según la posición de la sección
+  if(reduce) return;
+  let ticking=false;
+  function parallax(){
+    const r=sec.getBoundingClientRect();
+    const vh=window.innerHeight||document.documentElement.clientHeight;
+    if(r.bottom<0||r.top>vh){ticking=false;return;}
+    // progreso: -1 (entrando por abajo) .. 1 (saliendo por arriba)
+    const prog=(r.top+r.height/2-vh/2)/(vh/2+r.height/2);
+    img.style.setProperty('--par', (prog*40).toFixed(1)+'px');
+    ticking=false;
+  }
+  window.addEventListener('scroll',()=>{
+    if(!ticking){ticking=true;requestAnimationFrame(parallax);}
+  },{passive:true});
+  parallax();
+})();
+
+/* CTA flotante (móvil): visible tras pasar el hero, oculto al llegar a Encargos */
+(function(){
+  const cta=document.getElementById('ctaFlot');
+  const contacto=document.getElementById('contacto');
+  if(!cta||!contacto) return;
+  function updateCta(){
+    const r=contacto.getBoundingClientRect();
+    const vh=window.innerHeight||document.documentElement.clientHeight;
+    // mostrar: pasado el hero Y antes de que la sección de encargos asome
+    const show=window.scrollY>480 && r.top>vh*.85;
+    cta.classList.toggle('vis',show);
+  }
+  window.addEventListener('scroll',updateCta,{passive:true});
+  window.addEventListener('resize',updateCta,{passive:true});
+  updateCta();
+})();
+
 function ajustarFechaMin(){
   const tipo=document.getElementById('tipoEncargo').value;
   const campo=document.getElementById('fechaRecogida');
   const aviso=document.getElementById('fechaAviso');
-  const dias = tipo==='personalizada' ? 7 : tipo==='reposteria' ? 2 : 0;
+  const txt=aviso.querySelector('.fecha-aviso-txt');
+  const dias = tipo==='personalizada' ? 7 : (tipo==='reposteria'||tipo==='empresa') ? 2 : 0;
   aviso.classList.remove('alerta');
-  if(!dias){campo.removeAttribute('min');aviso.textContent=t('fDateHelp');return;}
+  if(!dias){campo.removeAttribute('min');txt.textContent=t('fDateHelp');return;}
   const min=new Date();min.setDate(min.getDate()+dias);
   campo.min=min.toISOString().split('T')[0];
   if(campo.value && campo.value < campo.min) campo.value='';
-  aviso.textContent = dias===7 ? t('fDate7') : t('fDate2');
+  txt.textContent = dias===7 ? t('fDate7') : t('fDate2');
 }
 
-function handleDateAndSubmit(form){
+/* Avisa del cierre de los miércoles en el momento de elegir la fecha */
+function validarFecha(){
   const campo=document.getElementById('fechaRecogida');
   const aviso=document.getElementById('fechaAviso');
-  // miércoles = 3 (día de cierre de Bea)
+  const txt=aviso.querySelector('.fecha-aviso-txt');
+  if(!campo.value) return true;
   const d=new Date(campo.value+'T12:00:00');
-  if(d.getDay()===3){
-    aviso.textContent=t('fDateWed');
+  if(d.getDay()===3){ // miércoles: día de cierre de Bea
+    txt.textContent=t('fDateWed');
     aviso.classList.add('alerta');
-    campo.focus();
-    return;
+    return false;
   }
-  // TODO: aquí irá el envío real a Formspree (endpoint mjgdanyn)
-  alert(t('formOk'));
-  // form.reset();
+  aviso.classList.remove('alerta');
+  ajustarFechaMin();
+  return true;
 }
+
+async function handleDateAndSubmit(form){
+  if(!validarFecha()){document.getElementById('fechaRecogida').focus();return;}
+  const btn=form.querySelector('button[type="submit"]');
+  const status=document.getElementById('formStatus');
+  status.className='form-status';status.textContent='';
+  btn.disabled=true;btn.textContent=t('fSending');
+  try{
+    const res=await fetch('https://formspree.io/f/mjgdanyn',{
+      method:'POST',
+      body:new FormData(form),
+      headers:{'Accept':'application/json'}
+    });
+    if(res.ok){
+      status.classList.add('ok');status.textContent=t('formOk');
+      form.reset();ajustarFechaMin();
+    }else{
+      status.classList.add('err');status.textContent=t('fErr');
+    }
+  }catch(e){
+    status.classList.add('err');status.textContent=t('fErr');
+  }
+  btn.disabled=false;btn.textContent=t('fBtn');
+}
+
+function nlSubmit(){
+  const form=document.getElementById('nlForm');
+  const ok=document.getElementById('nlOk');
+  const email=document.getElementById('nlEmail').value.trim();
+  if(!email) return;
+  // ⚠️ Cuando conectes el servicio (Brevo/Mailchimp), sustituye este bloque
+  //    por un fetch() al endpoint, o deja que el form haga POST a su 'action'.
+  //    De momento solo muestra confirmación local sin enviar nada.
+  form.style.display='none';
+  ok.style.display='block';
+}
+
+let zoomOrigen=null;
+function abrirZoom(img){
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lightbox-img');
+  zoomOrigen=img;
+  lbImg.src=img.src;
+  lbImg.alt=img.alt||'';
+  lb.classList.add('abierto');
+  document.body.style.overflow='hidden';
+  document.getElementById('lbCerrar').focus();
+}
+function cerrarZoom(e){
+  // no cerrar si se pulsa sobre la propia imagen ampliada
+  if(e && e.target && e.target.id==='lightbox-img') return;
+  document.getElementById('lightbox').classList.remove('abierto');
+  document.body.style.overflow='';
+  if(zoomOrigen){zoomOrigen.focus();zoomOrigen=null;}
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') cerrarZoom();
+});
 </script>
 </body>
 </html>
