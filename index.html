@@ -230,10 +230,8 @@
   /* ---------- Sobre Bea ---------- */
   .sobre{background:var(--chocolate);color:var(--crema)}
   .sobre-inner{
-    max-width:1200px;margin:0 auto;padding:96px 24px;
-    display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center;
+    max-width:760px;margin:0 auto;padding:96px 24px;
   }
-  .sobre img{border-radius:18px;aspect-ratio:1/1;object-fit:cover;width:100%}
   .sobre .eyebrow{
     font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
     color:var(--dorado);font-weight:600;margin-bottom:18px;
@@ -721,7 +719,6 @@
         <button data-lang="es" lang="es" aria-pressed="true" class="active" onclick="setLang('es')">ES</button>
         <button data-lang="pl" lang="pl" aria-pressed="false" onclick="setLang('pl')">PL</button>
         <button data-lang="en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
-        <button data-lang="de" lang="de" aria-pressed="false" onclick="setLang('de')">DE</button>
       </div>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav" aria-label="Menú" onclick="toggleMenu()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
@@ -939,8 +936,6 @@
 
 <section class="sobre" id="sobre">
   <div class="sobre-inner">
-    <!-- ⚠️ CONFIRMAR: si rinek.jpg no es el rynek de Namysłów sino un retrato de Bea, ajusta este alt -->
-    <img class="reveal" src="images/rinek.jpg" alt="El rynek de Namysłów, la plaza del mercado de la ciudad natal de Bea" loading="lazy">
     <div class="reveal">
       <div class="eyebrow" data-i18n="sEye">Quién soy</div>
       <h2 data-i18n="sTitle">Un sueño que empezó horneando con mi madre</h2>
@@ -995,7 +990,7 @@
           <img class="base" src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
         </div>
         <h4 class="producto-nombre">Sernik</h4>
-        <div class="producto-precio">Desde 18&nbsp;€ <span data-i18n="pUnidPorcion">/ por porción o tarta</span></div>
+        <div class="producto-precio">60&nbsp;€ <span data-i18n="pUnidBlaszka">/ por bandeja</span></div>
         <p class="producto-desc" data-i18n="gpSernik">Tarta de queso polaca, cremosa y densa, horneada al estilo tradicional.</p>
       </article>
 
@@ -1004,7 +999,7 @@
           <img class="base" src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
         </div>
         <h4 class="producto-nombre">Szarlotka</h4>
-        <div class="producto-precio">Desde 16&nbsp;€</div>
+        <div class="producto-precio">45&nbsp;€ <span data-i18n="pUnidTortownica">/ por molde</span></div>
         <p class="producto-desc" data-i18n="gpSzarlotka">Tarta de manzana con canela y masa quebrada, el clásico de la abuela.</p>
       </article>
 
@@ -1013,7 +1008,7 @@
           <img class="base" src="images/queso.jpg" alt="Tarta de queso" loading="lazy" onclick="abrirZoom(this)">
         </div>
         <h4 class="producto-nombre" data-i18n="gnQueso">Tarta de queso</h4>
-        <div class="producto-precio">Desde 18&nbsp;€ <span data-i18n="pUnidPorcion">/ por porción o tarta</span></div>
+        <div class="producto-precio">30&nbsp;€ <span data-i18n="pUnidTortownica">/ por molde</span></div>
         <p class="producto-desc" data-i18n="gpQueso">Estilo La Viña: cremosa por dentro y con la superficie tostada al horno.</p>
       </article>
 
@@ -1022,7 +1017,7 @@
           <img class="base" src="images/ceremonia2.jpg" alt="Tarta de ceremonia" loading="lazy" onclick="abrirZoom(this)">
         </div>
         <h4 class="producto-nombre" data-i18n="gnCeremonia">Tarta de ceremonia</h4>
-        <div class="producto-precio">Desde 45&nbsp;€ <span data-i18n="pUnidEncargo">/ por encargo</span></div>
+        <div class="producto-precio" data-i18n="pPresupuesto">Precio a determinar</div>
         <p class="producto-desc" data-i18n="gpCeremonia">Para bodas, comuniones y cumpleaños. Diseño y sabores personalizados.</p>
       </article>
 
@@ -1052,7 +1047,7 @@
           <img class="base" src="images/surtido.jpg" alt="Caja surtida" loading="lazy" onclick="abrirZoom(this)">
         </div>
         <h4 class="producto-nombre" data-i18n="gnSurtida">Caja surtida</h4>
-        <div class="producto-precio">Desde 12&nbsp;€ <span data-i18n="pUnidEncargo">/ por encargo</span></div>
+        <div class="producto-precio" data-i18n="pPresupuesto">Precio a determinar</div>
         <p class="producto-desc" data-i18n="gpSurtida">Una selección de nuestros dulces para llevar o regalar.</p>
       </article>
 
@@ -1182,12 +1177,11 @@
 </section>
 
 <!-- ============================================================
-     NEWSLETTER  ·  Solo diseño — falta conectar el servicio de envío
-     ⚠️ CUANDO ELIJAS SERVICIO (Brevo, Mailchimp, etc.):
-        1. Pon su URL en el action del form (busca ACTION_NEWSLETTER)
-        2. Ajusta el name del input si el servicio lo exige (suele ser EMAIL o email)
-     De momento muestra un mensaje de confirmación local sin enviar nada.
-     ============================================================ -->
+     NEWSLETTER  ·  OCULTA TEMPORALMENTE a petición de Toni (26/08/2026),
+     para publicar primero la web y activar la newsletter después con calma.
+     Para reactivarla: quita esta apertura de comentario y la de cierre de más abajo.
+     Pasos de conexión con Brevo: ver manual de gestión web, sección 6.
+     ============================================================
 <section class="newsletter">
   <div class="newsletter-inner reveal">
     <h3 data-i18n="nlTitle">Novedades del obrador</h3>
@@ -1201,6 +1195,7 @@
     <div class="nl-ok" id="nlOk" data-i18n="nlOk">¡Gracias! Te avisaré de las próximas novedades.</div>
   </div>
 </section>
+============================================================ -->
 
 <footer>
   <div class="footer-inner">
@@ -1244,7 +1239,7 @@ const I = {
     gTitle:"Del horno a la vitrina",gIg:"Sígueme en Instagram →",
     gIntro:"Recetas tradicionales polacas junto a postres de actualidad. Todo artesano, horneado en el obrador de Les Corts. Los precios son orientativos: el encargo se ajusta a tamaño y ocasión.",
     gcTartas:"Tartas",gcDulces:"Dulces y postres",
-    pUnidPorcion:"/ por porción o tarta",pUnidEncargo:"/ por encargo",pConsultar:"Según temporada",
+    pUnidPorcion:"/ por porción o tarta",pUnidEncargo:"/ por encargo",pConsultar:"Según temporada",pUnidBlaszka:"/ por bandeja",pUnidTortownica:"/ por molde",
     gnQueso:"Tarta de queso",gnCeremonia:"Tarta de ceremonia",gnVitrina:"Postre de vitrina",gnSurtida:"Caja surtida",gnTemporada:"Postres de temporada",gnCatering:"Catering y Eventos",
     pPresupuesto:"Precio a determinar",
     gpCatering:"Mesas dulces y surtidos para celebraciones, empresas y eventos. Cuéntame tu ocasión y lo preparamos a medida.",
@@ -1304,7 +1299,7 @@ const I = {
     gTitle:"Del forn a la vitrina",gIg:"Segueix-me a Instagram →",
     gIntro:"Receptes tradicionals poloneses al costat de postres d'actualitat. Tot artesà, fornejat a l'obrador de Les Corts. Els preus són orientatius: l'encàrrec s'ajusta a la mida i l'ocasió.",
     gcTartas:"Pastissos",gcDulces:"Dolços i postres",
-    pUnidPorcion:"/ per porció o pastís",pUnidEncargo:"/ per encàrrec",pConsultar:"Segons temporada",
+    pUnidPorcion:"/ per porció o pastís",pUnidEncargo:"/ per encàrrec",pConsultar:"Segons temporada",pUnidBlaszka:"/ per safata",pUnidTortownica:"/ per motlle",
     gnQueso:"Pastís de formatge",gnCeremonia:"Pastís de cerimònia",gnVitrina:"Postre de vitrina",gnSurtida:"Capsa assortida",gnTemporada:"Postres de temporada",gnCatering:"Càtering i Esdeveniments",
     pPresupuesto:"Preu a determinar",
     gpCatering:"Taules dolces i assortits per a celebracions, empreses i esdeveniments. Explica'm la teva ocasió i ho preparem a mida.",
@@ -1364,7 +1359,7 @@ const I = {
     gTitle:"From the oven to the counter",gIg:"Follow me on Instagram →",
     gIntro:"Traditional Polish recipes alongside contemporary desserts. All handmade, baked in the Les Corts bakery. Prices are a guide: each order is tailored to size and occasion.",
     gcTartas:"Cakes",gcDulces:"Treats & desserts",
-    pUnidPorcion:"/ per slice or cake",pUnidEncargo:"/ to order",pConsultar:"Seasonal",
+    pUnidPorcion:"/ per slice or cake",pUnidEncargo:"/ to order",pConsultar:"Seasonal",pUnidBlaszka:"/ per tray",pUnidTortownica:"/ per tin",
     gnQueso:"Cheesecake",gnCeremonia:"Celebration cake",gnVitrina:"Counter dessert",gnSurtida:"Assorted box",gnTemporada:"Seasonal desserts",gnCatering:"Catering & Events",
     pPresupuesto:"Price on request",
     gpCatering:"Dessert tables and assortments for celebrations, companies and events. Tell me about your occasion and we'll tailor it.",
@@ -1409,7 +1404,7 @@ const I = {
     v3t:"Na zamówienie",v3p:"Torty weselne, urodziny, wydarzenia i catering: każde zamówienie tworzone na Twoją okazję.",
     v4t:"Codziennie świeże",v4p:"Pieczemy każdego ranka, aby wszystko trafiało świeże na Twój stół.",
     thEye:"Dwa światy, jedna pracownia",
-    cineEye:"Z pieca prosto do Ciebie",cineTitle:"Każdy poranek zaczyna się tutaj",cinePh:"Twoje zdjęcie: pracownia przy pracy",thTitle:"Polska tradycja i współczesne cukiernictwo, obok siebie",
+    cineEye:"Z piekarnika prosto do Ciebie",cineTitle:"Każdy poranek zaczyna się tutaj",cinePh:"Twoje zdjęcie: pracownia przy pracy",thTitle:"Polska tradycja i współczesne cukiernictwo, obok siebie",
     tradT:"Tradycja",hoyT:"Dziś",hoySub:"Z witryny",
     i1:"Słodkie bułki drożdżowe, tradycyjny przepis z mojej rodzinnej Polski.",
     i2:"Klasyczny polski sernik, kremowy i powoli pieczony.",
@@ -1418,13 +1413,13 @@ const I = {
     i5t:"Desery autorskie",i5:"Tekstury i smaki współczesnego cukiernictwa.",
     i6t:"Sezonowe",i6:"Kreacje zmieniające się z owocami i kalendarzem.",
     sEye:"O mnie",sTitle:"Marzenie, które zaczęło się od pieczenia z mamą",
-    sP1:"Już jako dziecko piekłam z mamą tradycyjne ciasta mojej rodzinnej Polski. Z Namysłowa do Berlina, gdzie szlifowałam technikę u uznanych szefów cukiernictwa, a stamtąd do Barcelony.",
+    sP1:"Już jako dziecko piekłam z mamą tradycyjne ciasta mojej rodzinnej Polski. Moja kulinarna podróż wiodła z rodzinnego Namysłowa prosto do Berlina, gdzie pod okiem uznanych szefów cukiernictwa doskonaliłam swój warsztat, aż w końcu zaprowadziła mnie do słonecznej Barcelony.",
     sP2:"Od 2023 roku w Delicias by Bea piekę każdego dnia, łącząc tradycyjne polskie cukiernictwo z najnowszymi technikami — z taką samą miłością jak w domu.",
     sP3:"Od marca 2026 roku moja pracownia jest częścią Les Corts — dzielnicy, którą czuję już jak dom. Cenię bliskie, rodzinne relacje z sąsiadami: że wpadają się przywitać, opowiadają, na jaką okazję jest wypiek, i wracają. Ta bliskość jest dla mnie częścią przepisu.",
-    gTitle:"Z pieca do witryny",gIg:"Obserwuj mnie na Instagramie →",
+    gTitle:"Z piekarnika do witryny",gIg:"Obserwuj mnie na Instagramie →",
     gIntro:"Tradycyjne polskie receptury obok nowoczesnych deserów. Wszystko rzemieślnicze, wypiekane w pracowni w Les Corts. Ceny są orientacyjne: każde zamówienie dostosowujemy do rozmiaru i okazji.",
     gcTartas:"Torty",gcDulces:"Słodycze i desery",
-    pUnidPorcion:"/ za porcję lub tort",pUnidEncargo:"/ na zamówienie",pConsultar:"Sezonowo",
+    pUnidPorcion:"/ za porcję lub tort",pUnidEncargo:"/ na zamówienie",pConsultar:"Sezonowo",pUnidBlaszka:"/ blaszka",pUnidTortownica:"/ tortownica",
     gnQueso:"Sernik baskijski",gnCeremonia:"Tort okolicznościowy",gnVitrina:"Deser z witryny",gnSurtida:"Pudełko mieszane",gnTemporada:"Desery sezonowe",gnCatering:"Catering i Eventy",
     pPresupuesto:"Cena do ustalenia",
     gpCatering:"Słodkie stoły i zestawy na uroczystości, firmy i eventy. Opowiedz mi o swojej okazji, a przygotujemy ją na miarę.",
@@ -1443,7 +1438,7 @@ const I = {
     fDate2:"Wypieki zamawiamy z min. 2-dniowym wyprzedzeniem.",
     fDateWed:"W środy jest zamknięte — wybierz inny dzień.",
     formOk:"Dziękuję! Otrzymałam Twoje zamówienie i wkrótce odpowiem.",fSending:"Wysyłanie…",fErr:"Nie udało się wysłać. Spróbuj ponownie lub napisz na deliciasbybea@gmail.com.",
-    ingEye:"Skąd pochodzi każdy kęs",ingTitle:"Składniki z imieniem i nazwiskiem",
+    ingEye:"Skąd pochodzi każdy kęs",ingTitle:"Starannie wybrane składniki",
     ingIntro:"Dorastałam, patrząc, jak mama starannie wybiera każdy składnik, i ten dobry nawyk został we mnie. Dlatego kupuję lokalnie, sezonowo i niczego nie ukrywam za przemysłowym skrótem: to, co dobre, czuć już przy pierwszym kęsie.",
     ing1t:"Masło i nabiał",ing1p:"Prawdziwe masło i produkty mleczne: naturalne, bez dodatków i zamienników.",
     ing2t:"Owoce sezonowe",ing2p:"Kupowane w lokalnych sklepach, zależnie od sezonu i bieżącej dostępności.",
@@ -1455,70 +1450,10 @@ const I = {
     algEye:"Abyś mógł cieszyć się bez obaw",algTitle:"Nietolerancje i ciąża",
     algIntro:"Zależy mi, abyś mógł cieszyć się moimi wypiekami bez obaw. Dlatego:",
     algL1:"W mojej pracowni pracuję z glutenem i orzechami, więc ze względu na zanieczyszczenie krzyżowe w każdym wypieku mogą znaleźć się ich ślady.",
-    algL2:"Wszystkie moje wypieki są bezpieczne w ciąży: w moich wyrobach używam produktów pasteryzowanych.",
+    algL2:"Wszystkie moje wypieki są bezpieczne dla kobiet w ciąży: w moich wyrobach używam produktów pasteryzowanych.",
     algNota:"Masz szczególne wymagania? <a href=\"#contacto\">Napisz do mnie</a>, a coś wymyślimy.",
     nlTitle:"Nowości z pracowni",nlSub:"Zapisz się i jako pierwszy poznawaj sezonowe specjały, polskie świąteczne wypieki i wszystkie nowości Delicias by Bea.",
     nlPh:"Twój adres e-mail",nlBtn:"Zapisz mnie",nlPriv:"Szanuję Twoją prywatność. Bez spamu, tylko słodkie nowości.",nlOk:"Dziękuję! Dam znać o kolejnych nowościach.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"},
-  de:{nav0:"Start",nav1:"Die Backstube",nav2:"Über mich",nav3:"Galerie",nav4:"Bestellungen",
-    eyebrow:"Handwerkskonditorei · Les Corts, Barcelona",
-    h1:"Polens Aromen, <em>gebacken</em> im Herzen Barcelonas",
-    hsub:"Traditionelles polnisches Gebäck und moderne Desserts, jeden Morgen frisch mit regionalen Zutaten gebacken.",
-    cta:"Jetzt bestellen",
-    v2t:"Hausgemacht",v2p:"Alles aus unserem eigenen Ofen, ohne Halbfertigprodukte.",
-    v3t:"Nach Maß",v3p:"Hochzeitstorten, Geburtstage, Events und Catering: jede Bestellung für Ihren Anlass gemacht.",
-    v4t:"Täglich frisch",v4p:"Wir backen jeden Morgen, damit alles frisch auf Ihren Tisch kommt.",
-    thEye:"Zwei Welten, eine Backstube",
-    cineEye:"Vom Ofen in Ihre Hände",cineTitle:"Jeder Morgen beginnt hier",cinePh:"Dein Foto: die Backstube bei der Arbeit",thTitle:"Polnische Tradition und moderne Konditorei, Seite an Seite",
-    tradT:"Tradition",hoyT:"Heute",hoySub:"Aus der Vitrine",
-    i1:"Süße Hefeteilchen, ein traditionelles Rezept aus meiner polnischen Heimat.",
-    i2:"Der klassische polnische Käsekuchen, cremig und langsam gebacken.",
-    i3:"Apfelkuchen mit Zimt, ein über Generationen weitergegebenes Rezept.",
-    i4t:"Anlasstorten",i4:"Moderne Designs für Hochzeiten, Geburtstage und Feiern.",
-    i5t:"Signature-Desserts",i5:"Texturen und Aromen der modernen Konditorei.",
-    i6t:"Saisonal",i6:"Kreationen, die mit den Früchten und dem Kalender wechseln.",
-    sEye:"Über mich",sTitle:"Ein Traum, der mit dem Backen mit meiner Mutter begann",
-    sP1:"Schon als Kind habe ich mit meiner Mutter die traditionellen Kuchen meiner polnischen Heimat gebacken. Von Namysłów nach Berlin, wo ich meine Technik bei renommierten Konditoren verfeinert habe, und von dort nach Barcelona.",
-    sP2:"Seit 2023 backe ich bei Delicias by Bea jeden Tag und verbinde traditionelle polnische Konditorei mit modernen Techniken — mit derselben Liebe wie zu Hause.",
-    sP3:"Seit März 2026 ist meine Backstube Teil von Les Corts, einem Viertel, das sich schon wie Zuhause anfühlt. Ich schätze die enge, familiäre Beziehung zu meinen Nachbarn: dass sie zum Hallo sagen vorbeikommen, mir erzählen, für welchen Anlass das Gebäck ist, und wiederkommen. Diese Nähe ist für mich Teil des Rezepts.",
-    gTitle:"Aus dem Ofen in die Vitrine",gIg:"Folge mir auf Instagram →",
-    gIntro:"Traditionelle polnische Rezepte neben modernen Desserts. Alles handgemacht, gebacken in der Backstube in Les Corts. Die Preise sind Richtwerte: jede Bestellung wird an Größe und Anlass angepasst.",
-    gcTartas:"Torten",gcDulces:"Süßes & Desserts",
-    pUnidPorcion:"/ pro Stück oder Torte",pUnidEncargo:"/ auf Bestellung",pConsultar:"Saisonal",
-    gnQueso:"Käsekuchen",gnCeremonia:"Anlasstorte",gnVitrina:"Dessert aus der Vitrine",gnSurtida:"Gemischte Box",gnTemporada:"Saisonale Desserts",gnCatering:"Catering & Events",
-    pPresupuesto:"Preis auf Anfrage",
-    gpCatering:"Süße Buffets und Sortimente für Feiern, Firmen und Events. Erzählen Sie mir von Ihrem Anlass und wir bereiten es maßgeschneidert vor.",
-    gpSernik:"Polnischer Käsekuchen, cremig und dicht, traditionell gebacken.",
-    gpSzarlotka:"Apfelkuchen mit Zimt und Mürbeteig, der Klassiker von der Oma.",
-    gpQueso:"Im La-Viña-Stil: innen cremig, mit karamellisierter, im Ofen gebräunter Oberfläche.",
-    gpCeremonia:"Für Hochzeiten, Kommunionen und Geburtstage. Individuelles Design und Aromen.",
-    gpVitrina:"Moderne Kreationen, die mit der Saison wechseln. Fragen Sie nach den heutigen.",
-    gpSurtida:"Eine Auswahl unserer Süßigkeiten zum Mitnehmen oder Verschenken.",
-    gpTemporada:"Spezialitäten aus dem Kalender, wie die Coca de Sant Joan. Fragen Sie nach den saisonalen.",
-    cTitle:"Öffnungszeiten & Bestellungen",d1:"Montag",d2:"Dienstag",d3:"Mittwoch",d4:"Donnerstag",d5:"Freitag",d6:"Samstag",d7:"Sonntag",closed:"Geschlossen",tel:"Telefon:",addrLbl:"Adresse:",gMaps:"Anfahrt (Google Maps) →",
-    fTitle:"Möchten Sie bestellen?",fName:"Name*",fPhone:"Telefon",fMsg:"Sagen Sie mir, welches Gebäck Sie sich wünschen und wann*",fBtn:"Bestellung senden",
-    fTypeDef:"Welche Art von Bestellung?*",fTypeCustom:"Individuelle Torte (Hochzeit, Geburtstag…)",fTypeOther:"Traditionelles Gebäck / aus der Vitrine",fTypeBiz:"Firmen / Events",fEmpresas:"Sie vertreten ein Unternehmen? Ich bereite auch Bestellungen für Events, Meetings und Firmenfeiern vor. Schreiben Sie mir und wir organisieren alles.",
-    fDateLbl:"Gewünschtes Abholdatum*",fDateHelp:"Wählen Sie zuerst die Art der Bestellung.",
-    fDate7:"Individuelle Torten mit mind. 1 Woche Vorlauf bestellen.",
-    fDate2:"Gebäck mit mind. 2 Tagen Vorlauf bestellen.",
-    fDateWed:"Mittwochs ist geschlossen — bitte wählen Sie einen anderen Tag.",
-    formOk:"Danke! Ich habe Ihre Bestellung erhalten und melde mich sehr bald.",fSending:"Wird gesendet…",fErr:"Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie an deliciasbybea@gmail.com.",
-    ingEye:"Woher jeder Bissen kommt",ingTitle:"Zutaten mit Namen und Herkunft",
-    ingIntro:"Ich bin damit aufgewachsen, meiner Mutter beim sorgfältigen Auswählen jeder Zutat zuzusehen, und diese gute Gewohnheit ist geblieben. Deshalb kaufe ich regional, saisonal und verstecke nichts hinter einer industriellen Abkürzung: man schmeckt es im ersten Bissen.",
-    ing1t:"Butter & Milchprodukte",ing1p:"Echte Butter und Milchprodukte: natürlich, ohne Zusätze oder Ersatzstoffe.",
-    ing2t:"Saisonales Obst",ing2p:"In lokalen Geschäften gekauft, je nach Saison und Verfügbarkeit.",
-    ing3t:"Mehl & Eier",ing3p:"Mehl und Freilandeier bester Qualität, die Grundlage jedes Rezepts.",
-    antEye:"Für Sie gemacht, nicht aus dem Lager",antTitle:"Warum ich um Vorbestellung bitte",
-    antP1:"Jedes Gebäck wird eigens für Sie gebacken. Ich arbeite nicht mit Tiefkühl- oder Lagerprodukten: Wenn Ihre Bestellung eingeht, kaufe ich genau die Zutaten, die sie braucht.",
-    antP2:"So kommt alles frisch auf Ihren Tisch und ich führe eine Backstube ohne Verschwendung. Diese kurze Wartezeit ist der Unterschied zwischen einem gewöhnlichen Gebäck und einem für Ihren Anlass gemachten.",
-    antFirma:"— Guter Kuchen, ohne Eile",
-    algEye:"Damit Sie unbeschwert genießen",algTitle:"Unverträglichkeiten & Schwangerschaft",
-    algIntro:"Mir ist wichtig, dass Sie mein Gebäck unbeschwert genießen können. Deshalb:",
-    algL1:"In meiner Backstube arbeite ich mit Gluten und Nüssen, daher kann es durch Kreuzkontamination in jedem Gebäck Spuren davon geben.",
-    algL2:"Mein gesamtes Gebäck ist in der Schwangerschaft unbedenklich: Ich verwende pasteurisierte Produkte in meinen Zubereitungen.",
-    algNota:"Haben Sie einen besonderen Bedarf? <a href=\"#contacto\">Schreiben Sie mir</a> und wir finden eine Lösung.",
-    nlTitle:"Neues aus der Backstube",nlSub:"Melden Sie sich an und erfahren Sie als Erste von saisonalen Spezialitäten, polnischem Festtagsgebäck und allen Neuigkeiten von Delicias by Bea.",
-    nlPh:"Ihre E-Mail-Adresse",nlBtn:"Anmelden",nlPriv:"Ich respektiere Ihre Privatsphäre. Kein Spam, nur süße Neuigkeiten.",nlOk:"Danke! Ich melde mich mit Neuigkeiten.",
     foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"}
 };
 let lang='es';
@@ -1543,14 +1478,11 @@ function setLang(l){
   try{localStorage.setItem('dbb-lang',l)}catch(e){}
 }
 
-/* Idioma inicial: el guardado o, en la primera visita, el del navegador */
+/* Idioma inicial: por defecto siempre castellano; solo cambia si el visitante lo elige manualmente y queda guardado. */
 (function(){
   let l=null;
   try{l=localStorage.getItem('dbb-lang')}catch(e){}
-  if(!l){
-    const nav=(navigator.language||'es').slice(0,2).toLowerCase();
-    l=['es','ca','en','pl','de'].includes(nav)?nav:'es';
-  }
+  if(!l||!['es','ca','en','pl'].includes(l)) l='es';
   if(l!=='es') setLang(l);
 })();
 
