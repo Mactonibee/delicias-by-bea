@@ -1149,8 +1149,10 @@
         <input type="email" name="email" id="fEmail" placeholder="Email*" autocomplete="email" required>
         <label class="sr-only" for="fTelefono" data-i18n="fPhone">Teléfono</label>
         <input type="tel" name="telefono" id="fTelefono" data-i18n-ph="fPhone" placeholder="Teléfono" autocomplete="tel">
-        <!-- Honeypot antispam: los humanos no lo ven; si llega relleno, Formspree lo descarta -->
-        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <!-- Honeypot antispam: los humanos no lo ven; si llega relleno, Formspree lo descarta.
+             readonly evita que el autorrelleno del navegador o un gestor de contraseñas
+             lo rellene y tumbe encargos reales. Además se elimina en el envío (ver JS). -->
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" readonly>
 
         <label class="sr-only" for="tipoEncargo" data-i18n="fTypeDef">¿Qué tipo de encargo?*</label>
         <select name="tipo" id="tipoEncargo" onchange="ajustarFechaMin()" required>
@@ -1595,9 +1597,13 @@ async function handleDateAndSubmit(form){
   status.className='form-status';status.textContent='';
   btn.disabled=true;btn.textContent=t('fSending');
   try{
+    // El honeypot solo debe frenar bots que envían al endpoint sin pasar por aquí.
+    // Un envío hecho desde la web nunca debe caer por él, así que lo retiramos.
+    const datos=new FormData(form);
+    datos.delete('_gotcha');
     const res=await fetch('https://formspree.io/f/mjgdanyn',{
       method:'POST',
-      body:new FormData(form),
+      body:datos,
       headers:{'Accept':'application/json'}
     });
     if(res.ok){
