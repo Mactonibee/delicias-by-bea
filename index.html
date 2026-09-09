@@ -349,12 +349,12 @@
   }
   .fecha-aviso svg{width:18px;height:18px;flex:0 0 18px;color:var(--dorado);margin-top:1px}
   .fecha-aviso-txt{line-height:1.45}
-  .fecha-aviso.alerta{
-    background:rgba(166,52,43,.1);
-    border-color:rgba(166,52,43,.45);border-left-color:var(--amapola);
-    color:var(--amapola);font-weight:600;
+  /* Nota informativa (miércoles): destaca en amapola pero NO es un error */
+  .fecha-aviso.nota{
+    background:rgba(166,52,43,.08);
+    border-color:rgba(166,52,43,.35);border-left-color:var(--amapola);
   }
-  .fecha-aviso.alerta svg{color:var(--amapola)}
+  .fecha-aviso.nota svg{color:var(--amapola)}
 
   /* ---------- Ingredientes ---------- */
   .ingredientes{max-width:1200px;margin:0 auto;padding:96px 24px}
@@ -1149,10 +1149,8 @@
         <input type="email" name="email" id="fEmail" placeholder="Email*" autocomplete="email" required>
         <label class="sr-only" for="fTelefono" data-i18n="fPhone">Teléfono</label>
         <input type="tel" name="telefono" id="fTelefono" data-i18n-ph="fPhone" placeholder="Teléfono" autocomplete="tel">
-        <!-- Honeypot antispam: los humanos no lo ven; si llega relleno, Formspree lo descarta.
-             readonly evita que el autorrelleno del navegador o un gestor de contraseñas
-             lo rellene y tumbe encargos reales. Además se elimina en el envío (ver JS). -->
-        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" readonly>
+        <!-- Honeypot antispam: los humanos no lo ven; si llega relleno, Formspree lo descarta -->
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <label class="sr-only" for="tipoEncargo" data-i18n="fTypeDef">¿Qué tipo de encargo?*</label>
         <select name="tipo" id="tipoEncargo" onchange="ajustarFechaMin()" required>
@@ -1258,7 +1256,7 @@ const I = {
     fDateLbl:"Fecha deseada de recogida*",fDateHelp:"Elige primero el tipo de encargo.",
     fDate7:"Las tartas personalizadas se piden con 1 semana de antelación mínima.",
     fDate2:"La repostería se pide con 2 días de antelación mínima.",
-    fDateWed:"Los miércoles cerramos — elige otro día, por favor.",
+    fDateWed:"Los miércoles el obrador cierra. Puedes hacer igualmente tu encargo: te escribiré para acordar la recogida.",
     formOk:"¡Gracias! He recibido tu encargo y te responderé muy pronto.",fSending:"Enviando…",fErr:"No se ha podido enviar. Inténtalo de nuevo o escríbeme a deliciasbybea@gmail.com.",
     ingEye:"De dónde viene cada bocado",ingTitle:"Ingredientes con nombre y apellidos",
     ingIntro:"Crecí viendo a mi madre elegir cada ingrediente con cuidado, y esa manía buena se me quedó. Por eso compro cerca, de temporada, y no escondo nada detrás de un atajo industrial: lo bueno se nota en el primer bocado.",
@@ -1318,7 +1316,7 @@ const I = {
     fDateLbl:"Data desitjada de recollida*",fDateHelp:"Tria primer el tipus d'encàrrec.",
     fDate7:"Els pastissos personalitzats es demanen amb 1 setmana d'antelació mínima.",
     fDate2:"La pastisseria es demana amb 2 dies d'antelació mínima.",
-    fDateWed:"Els dimecres tanquem — tria un altre dia, si us plau.",
+    fDateWed:"Els dimecres l'obrador tanca. Pots fer igualment el teu encàrrec: t'escriuré per acordar la recollida.",
     formOk:"Gràcies! He rebut el teu encàrrec i et respondré ben aviat.",fSending:"Enviant…",fErr:"No s'ha pogut enviar. Torna-ho a provar o escriu-me a deliciasbybea@gmail.com.",
     ingEye:"D'on ve cada mos",ingTitle:"Ingredients amb nom i cognoms",
     ingIntro:"Vaig créixer veient la meva mare triar cada ingredient amb cura, i aquesta bona mania se'm va quedar. Per això compro a prop, de temporada, i no amago res darrere d'una drecera industrial: el que és bo es nota a la primera mossegada.",
@@ -1378,7 +1376,7 @@ const I = {
     fDateLbl:"Preferred pickup date*",fDateHelp:"Choose the type of order first.",
     fDate7:"Custom cakes must be ordered at least 1 week in advance.",
     fDate2:"Pastries must be ordered at least 2 days in advance.",
-    fDateWed:"We're closed on Wednesdays — please choose another day.",
+    fDateWed:"The bakery is closed on Wednesdays. You can still place your order — I'll write to arrange the pickup.",
     formOk:"Thank you! I've received your order and will reply very soon.",fSending:"Sending…",fErr:"Something went wrong. Please try again or email me at deliciasbybea@gmail.com.",
     ingEye:"Where every bite comes from",ingTitle:"Ingredients with a name and a story",
     ingIntro:"I grew up watching my mother choose every ingredient with care, and that good habit stuck with me. That's why I buy locally, in season, and hide nothing behind an industrial shortcut: you can taste the difference in the first bite.",
@@ -1438,7 +1436,7 @@ const I = {
     fDateLbl:"Preferowana data odbioru*",fDateHelp:"Najpierw wybierz rodzaj zamówienia.",
     fDate7:"Torty personalizowane zamawiamy z min. tygodniowym wyprzedzeniem.",
     fDate2:"Wypieki zamawiamy z min. 2-dniowym wyprzedzeniem.",
-    fDateWed:"W środy jest zamknięte — wybierz inny dzień.",
+    fDateWed:"W środy pracownia jest zamknięta. Możesz mimo to złożyć zamówienie — napiszę, aby ustalić odbiór.",
     formOk:"Dziękuję! Otrzymałam Twoje zamówienie i wkrótce odpowiem.",fSending:"Wysyłanie…",fErr:"Nie udało się wysłać. Spróbuj ponownie lub napisz na deliciasbybea@gmail.com.",
     ingEye:"Skąd pochodzi każdy kęs",ingTitle:"Starannie wybrane składniki",
     ingIntro:"Dorastałam, patrząc, jak mama starannie wybiera każdy składnik, i ten dobry nawyk został we mnie. Dlatego kupuję lokalnie, sezonowo i niczego nie ukrywam za przemysłowym skrótem: to, co dobre, czuć już przy pierwszym kęsie.",
@@ -1559,51 +1557,62 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   updateCta();
 })();
 
-function ajustarFechaMin(){
+/* Días de antelación mínima según el tipo de encargo */
+function diasAntelacion(){
   const tipo=document.getElementById('tipoEncargo').value;
-  const campo=document.getElementById('fechaRecogida');
-  const aviso=document.getElementById('fechaAviso');
-  const txt=aviso.querySelector('.fecha-aviso-txt');
-  const dias = tipo==='personalizada' ? 7 : (tipo==='reposteria'||tipo==='empresa') ? 2 : 0;
-  aviso.classList.remove('alerta');
-  if(!dias){campo.removeAttribute('min');txt.textContent=t('fDateHelp');return;}
-  const min=new Date();min.setDate(min.getDate()+dias);
-  campo.min=min.toISOString().split('T')[0];
-  if(campo.value && campo.value < campo.min) campo.value='';
-  txt.textContent = dias===7 ? t('fDate7') : t('fDate2');
+  return tipo==='personalizada' ? 7 : (tipo==='reposteria'||tipo==='empresa') ? 2 : 0;
 }
 
-/* Avisa del cierre de los miércoles en el momento de elegir la fecha */
-function validarFecha(){
+/* Fija la fecha mínima seleccionable según el tipo de encargo */
+function ajustarFechaMin(){
+  const campo=document.getElementById('fechaRecogida');
+  const dias=diasAntelacion();
+  if(!dias){
+    campo.removeAttribute('min');
+  }else{
+    const min=new Date();min.setDate(min.getDate()+dias);
+    campo.min=min.toISOString().split('T')[0];
+    if(campo.value && campo.value < campo.min) campo.value='';
+  }
+  actualizarAviso();
+}
+
+/* Texto del aviso bajo la fecha.
+   El miércoles NO se bloquea: se informa de que el obrador cierra y de que
+   la recogida se acuerda por contacto directo. */
+function actualizarAviso(){
   const campo=document.getElementById('fechaRecogida');
   const aviso=document.getElementById('fechaAviso');
   const txt=aviso.querySelector('.fecha-aviso-txt');
-  if(!campo.value) return true;
-  const d=new Date(campo.value+'T12:00:00');
-  if(d.getDay()===3){ // miércoles: día de cierre de Bea
-    txt.textContent=t('fDateWed');
-    aviso.classList.add('alerta');
-    return false;
+  if(campo.value){
+    const d=new Date(campo.value+'T12:00:00');
+    if(d.getDay()===3){ // miércoles: día de cierre de Bea
+      txt.textContent=t('fDateWed');
+      aviso.classList.add('nota');
+      return;
+    }
   }
-  aviso.classList.remove('alerta');
-  ajustarFechaMin();
+  aviso.classList.remove('nota');
+  const dias=diasAntelacion();
+  txt.textContent = dias===7 ? t('fDate7') : dias===2 ? t('fDate2') : t('fDateHelp');
+}
+
+/* Se mantiene el nombre por el onchange del campo de fecha. Nunca bloquea el envío. */
+function validarFecha(){
+  actualizarAviso();
   return true;
 }
 
 async function handleDateAndSubmit(form){
-  if(!validarFecha()){document.getElementById('fechaRecogida').focus();return;}
+  actualizarAviso();
   const btn=form.querySelector('button[type="submit"]');
   const status=document.getElementById('formStatus');
   status.className='form-status';status.textContent='';
   btn.disabled=true;btn.textContent=t('fSending');
   try{
-    // El honeypot solo debe frenar bots que envían al endpoint sin pasar por aquí.
-    // Un envío hecho desde la web nunca debe caer por él, así que lo retiramos.
-    const datos=new FormData(form);
-    datos.delete('_gotcha');
     const res=await fetch('https://formspree.io/f/mjgdanyn',{
       method:'POST',
-      body:datos,
+      body:new FormData(form),
       headers:{'Accept':'application/json'}
     });
     if(res.ok){
