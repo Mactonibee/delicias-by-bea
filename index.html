@@ -738,7 +738,10 @@
   </div>
   <div class="hero-img reveal">
     <!-- ⚠️ Si esta imagen pasa a ser el retrato de Bea (concepto original), actualiza src Y alt a la vez -->
-    <img src="images/tarta-celebracion.jpg" alt="Tarta de celebración artesanal de Delicias by Bea" fetchpriority="high" decoding="async">
+    <picture>
+      <source srcset="images/tarta-celebracion.webp" type="image/webp">
+      <img src="images/tarta-celebracion.jpg" alt="Tarta de celebración artesanal de Delicias by Bea" fetchpriority="high" decoding="async">
+    </picture>
   </div>
 </section>
 
@@ -752,7 +755,7 @@
 <section class="cinematica" id="cinematica" aria-label="El obrador">
   <div class="cinematica-marco">
     <div class="cinematica-img" id="cineImg"
-         style="background-image:url('images/obrador.jpg')"></div>
+         style="background-image:url('images/obrador.jpg');background-image:image-set(url('images/obrador.webp') type('image/webp'), url('images/obrador.jpg') type('image/jpeg'))"></div>
     <div class="cinematica-ph" data-i18n="cinePh">Tu foto: el obrador en acción</div>
     <div class="cinematica-velo"></div>
   </div>
@@ -866,7 +869,10 @@
         <!-- CAJA 1 · Drożdżówki -->
         <figure class="dulce-card">
           <div class="dulce-foto">
-            <img src="images/droz.jpg" alt="Drożdżówki" loading="lazy" onclick="abrirZoom(this)">
+            <picture>
+              <source srcset="images/droz.webp" type="image/webp">
+              <img src="images/droz.jpg" alt="Drożdżówki" loading="lazy" onclick="abrirZoom(this)">
+            </picture>
           </div>
           <figcaption>
             <h4>Drożdżówki</h4>
@@ -876,7 +882,10 @@
         <!-- CAJA 2 · Sernik -->
         <figure class="dulce-card">
           <div class="dulce-foto">
-            <img src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
+            <picture>
+              <source srcset="images/sernik.webp" type="image/webp">
+              <img src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
+            </picture>
           </div>
           <figcaption>
             <h4>Sernik</h4>
@@ -886,7 +895,10 @@
         <!-- CAJA 3 · Szarlotka -->
         <figure class="dulce-card">
           <div class="dulce-foto">
-            <img src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
+            <picture>
+              <source srcset="images/charlota.webp" type="image/webp">
+              <img src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
+            </picture>
           </div>
           <figcaption>
             <h4>Szarlotka</h4>
@@ -902,7 +914,10 @@
         <!-- CAJA 4 · Tartas de ceremonia -->
         <figure class="dulce-card">
           <div class="dulce-foto">
-            <img src="images/ceremonia.jpg" alt="Tartas de ceremonia" loading="lazy" onclick="abrirZoom(this)">
+            <picture>
+              <source srcset="images/ceremonia.webp" type="image/webp">
+              <img src="images/ceremonia.jpg" alt="Tartas de ceremonia" loading="lazy" onclick="abrirZoom(this)">
+            </picture>
           </div>
           <figcaption>
             <h4 data-i18n="i4t">Tartas de ceremonia</h4>
@@ -912,7 +927,10 @@
         <!-- CAJA 5 · Postres de autor -->
         <figure class="dulce-card">
           <div class="dulce-foto">
-            <img src="images/autor.jpg" alt="Postres de autor" loading="lazy" onclick="abrirZoom(this)">
+            <picture>
+              <source srcset="images/autor.webp" type="image/webp">
+              <img src="images/autor.jpg" alt="Postres de autor" loading="lazy" onclick="abrirZoom(this)">
+            </picture>
           </div>
           <figcaption>
             <h4 data-i18n="i5t">Postres de autor</h4>
@@ -922,7 +940,10 @@
         <!-- CAJA 6 · Temporada -->
         <figure class="dulce-card">
           <div class="dulce-foto">
-            <img src="images/coca.jpg" alt="Temporada" loading="lazy" onclick="abrirZoom(this)">
+            <picture>
+              <source srcset="images/coca.webp" type="image/webp">
+              <img src="images/coca.jpg" alt="Temporada" loading="lazy" onclick="abrirZoom(this)">
+            </picture>
           </div>
           <figcaption>
             <h4 data-i18n="i6t">Temporada</h4>
@@ -988,7 +1009,10 @@
 
       <article class="producto">
         <div class="producto-foto">
-          <img class="base" src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
+          <picture>
+            <source srcset="images/sernik.webp" type="image/webp">
+            <img class="base" src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
+          </picture>
         </div>
         <h4 class="producto-nombre">Sernik</h4>
         <p class="producto-desc" data-i18n="gpSernik">Tarta de queso polaca, cremosa y densa, horneada al estilo tradicional.</p>
@@ -996,7 +1020,10 @@
 
       <article class="producto">
         <div class="producto-foto">
-          <img class="base" src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
+          <picture>
+            <source srcset="images/charlota.webp" type="image/webp">
+            <img class="base" src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
+          </picture>
         </div>
         <h4 class="producto-nombre">Szarlotka</h4>
         <p class="producto-desc" data-i18n="gpSzarlotka">Tarta de manzana con canela y masa quebrada, el clásico de la abuela.</p>
@@ -1004,7 +1031,10 @@
 
       <article class="producto">
         <div class="producto-foto">
-          <img class="base" src="images/queso.jpg" alt="Tarta de queso" loading="lazy" onclick="abrirZoom(this)">
+          <picture>
+            <source srcset="images/queso.webp" type="image/webp">
+            <img class="base" src="images/queso.jpg" alt="Tarta de queso" loading="lazy" onclick="abrirZoom(this)">
+          </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnQueso">Tarta de queso</h4>
         <p class="producto-desc" data-i18n="gpQueso">Estilo La Viña: cremosa por dentro y con la superficie tostada al horno.</p>
@@ -1012,7 +1042,10 @@
 
       <article class="producto">
         <div class="producto-foto">
-          <img class="base" src="images/ceremonia2.jpg" alt="Tarta de ceremonia" loading="lazy" onclick="abrirZoom(this)">
+          <picture>
+            <source srcset="images/ceremonia2.webp" type="image/webp">
+            <img class="base" src="images/ceremonia2.jpg" alt="Tarta de ceremonia" loading="lazy" onclick="abrirZoom(this)">
+          </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnCeremonia">Tarta de ceremonia</h4>
         <p class="producto-desc" data-i18n="gpCeremonia">Para bodas, comuniones y cumpleaños. Diseño y sabores personalizados.</p>
@@ -1032,7 +1065,10 @@
 
       <article class="producto">
         <div class="producto-foto">
-          <img class="base" src="images/vitrina.jpg" alt="Postre de vitrina" loading="lazy" onclick="abrirZoom(this)">
+          <picture>
+            <source srcset="images/vitrina.webp" type="image/webp">
+            <img class="base" src="images/vitrina.jpg" alt="Postre de vitrina" loading="lazy" onclick="abrirZoom(this)">
+          </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnVitrina">Postre de vitrina</h4>
         <div class="producto-precio">Desde 4,50&nbsp;€</div>
@@ -1041,7 +1077,10 @@
 
       <article class="producto">
         <div class="producto-foto">
-          <img class="base" src="images/surtido.jpg" alt="Caja surtida" loading="lazy" onclick="abrirZoom(this)">
+          <picture>
+            <source srcset="images/surtido.webp" type="image/webp">
+            <img class="base" src="images/surtido.jpg" alt="Caja surtida" loading="lazy" onclick="abrirZoom(this)">
+          </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnSurtida">Caja surtida</h4>
         <div class="producto-precio" data-i18n="pPresupuesto">Precio a determinar</div>
@@ -1050,7 +1089,10 @@
 
       <article class="producto">
         <div class="producto-foto">
-          <img class="base" src="images/ruibarbo.jpg" alt="Postres de temporada" loading="lazy" onclick="abrirZoom(this)">
+          <picture>
+            <source srcset="images/ruibarbo.webp" type="image/webp">
+            <img class="base" src="images/ruibarbo.jpg" alt="Postres de temporada" loading="lazy" onclick="abrirZoom(this)">
+          </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnTemporada">Postres de temporada</h4>
         <div class="producto-precio" data-i18n="pConsultar">Según temporada</div>
@@ -1059,7 +1101,10 @@
 
       <article class="producto">
         <div class="producto-foto">
-          <img class="base" src="images/catering.jpg" alt="Catering y Eventos" loading="lazy" onclick="abrirZoom(this)">
+          <picture>
+            <source srcset="images/catering.webp" type="image/webp">
+            <img class="base" src="images/catering.jpg" alt="Catering y Eventos" loading="lazy" onclick="abrirZoom(this)">
+          </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnCatering">Catering y Eventos</h4>
         <div class="producto-precio" data-i18n="pPresupuesto">Precio a determinar</div>
