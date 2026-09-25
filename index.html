@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delicias by Bea — Obrador artesanal · Barcelona</title>
+<title>Delicias by Bea — Pastelería polaca artesanal en Les Corts, Barcelona</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600&display=swap"></noscript>
 
 <!-- ===== SEO ===== -->
 <meta name="description" content="Obrador artesanal de pastelería polaca en Les Corts, Barcelona. Drożdżówki, sernik, szarlotka y tartas de celebración por encargo, horneadas cada mañana por Bea Michalak.">
-<link rel="canonical" href="https://www.deliciasbybea.com/">
+<link rel="canonical" href="https://deliciasbybea.com/">
 <meta name="theme-color" content="#FBF6EE">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FBF6EE'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='42' font-style='italic' text-anchor='middle' fill='%23A6342B'%3Eb%3C/text%3E%3C/svg%3E">
 
@@ -18,8 +20,8 @@
 <meta property="og:site_name" content="Delicias by Bea">
 <meta property="og:title" content="Delicias by Bea — Obrador artesanal de pastelería polaca en Barcelona">
 <meta property="og:description" content="Tradición polaca y pastelería de hoy en Les Corts: drożdżówki, sernik, szarlotka y tartas de celebración por encargo.">
-<meta property="og:url" content="https://www.deliciasbybea.com/">
-<meta property="og:image" content="https://www.deliciasbybea.com/images/tarta-celebracion.jpg">
+<meta property="og:url" content="https://deliciasbybea.com/">
+<meta property="og:image" content="https://deliciasbybea.com/images/bea-obrador.jpg">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -29,8 +31,8 @@
   "@context": "https://schema.org",
   "@type": "Bakery",
   "name": "Delicias by Bea",
-  "image": "https://www.deliciasbybea.com/images/tarta-celebracion.jpg",
-  "url": "https://www.deliciasbybea.com/",
+  "image": "https://deliciasbybea.com/images/bea-obrador.jpg",
+  "url": "https://deliciasbybea.com/",
   "telephone": "+34722117695",
   "email": "deliciasbybea@gmail.com",
   "servesCuisine": "Pastelería polaca y contemporánea",
@@ -47,6 +49,8 @@
     {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00"},
     {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "14:00"}
   ],
+  "geo": {"@type": "GeoCoordinates", "latitude": 41.3875136, "longitude": 2.1359274},
+  "hasMap": "https://www.google.es/maps/place/Delicias+by+Bea/@41.3875176,2.1333525,17z/data=!3m1!4b1!4m6!3m5!1s0x12a499de5378ec7d:0x6f082e186fb05f5e!8m2!3d41.3875136!4d2.1359274!16s%2Fg%2F11yw4yp13d",
   "sameAs": ["https://instagram.com/delicias_by_bea"]
 }
 </script>
@@ -58,9 +62,10 @@
     --chocolate-suave:#5C4636;
     --amapola:#A6342B;
     --dorado:#C99A5B;
+    --dorado-texto:#8A6329; /* dorado oscuro para texto sobre fondos claros (contraste AA) */
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;overflow-x:hidden}
+  html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:72px}
   body{
     background:var(--crema);
     color:var(--chocolate);
@@ -87,7 +92,7 @@
     display:flex;align-items:center;justify-content:space-between;
     padding:14px 24px;gap:16px;
   }
-  .brand{font-family:'Fraunces',serif;font-size:1.35rem;letter-spacing:.01em}
+  .brand{font-family:'Fraunces',serif;font-size:1.35rem;letter-spacing:.01em;white-space:nowrap}
   .brand em{font-style:italic;color:var(--amapola)}
   nav.main{display:flex;gap:28px;font-size:.92rem;letter-spacing:.04em}
   nav.main a{position:relative;padding:4px 0}
@@ -100,11 +105,11 @@
   .langs button{
     border:none;background:transparent;cursor:pointer;
     font-family:'Karla',sans-serif;font-weight:600;font-size:.75rem;
-    letter-spacing:.06em;padding:5px 10px;border-radius:999px;
+    letter-spacing:.06em;padding:0 10px;min-height:32px;min-width:34px;border-radius:999px;
     color:var(--chocolate-suave);transition:all .2s;
   }
   .langs button.active{background:var(--amapola);color:#fff}
-  .header-right{display:flex;align-items:center;gap:14px}
+  .header-right{display:flex;align-items:center;gap:14px;flex:0 0 auto}
   .ig-link{
     display:flex;align-items:center;justify-content:center;
     width:34px;height:34px;border-radius:50%;
@@ -254,7 +259,7 @@
   .gal-grupo-cab .linea{flex:1;height:1px;background:rgba(46,32,24,.14)}
   .gal-grupo-cab .pl{
     font-family:'Fraunces',serif;font-style:italic;font-size:.9rem;
-    letter-spacing:.06em;color:var(--dorado);white-space:nowrap;
+    letter-spacing:.06em;color:var(--dorado-texto);white-space:nowrap;
   }
 
   /* rejilla de tarjetas */
@@ -547,11 +552,14 @@
 
   /* ---------- Menú móvil ---------- */
   .menu-btn{
-    display:none;background:none;border:none;cursor:pointer;
-    width:38px;height:38px;align-items:center;justify-content:center;
+    display:none;background:none;border:none;cursor:pointer;flex:0 0 auto;
+    width:44px;height:44px;align-items:center;justify-content:center;
     color:var(--chocolate);border-radius:8px;
   }
   .menu-btn svg{width:24px;height:24px}
+  .menu-btn .ico-x{display:none}
+  .menu-btn.is-open .ico-x{display:block}
+  .menu-btn.is-open .ico-burger{display:none}
 
   /* ---------- Separador wycinanki ---------- */
   .wycinanki{display:flex;justify-content:center;padding:4px 24px}
@@ -647,13 +655,36 @@
     .cta-flotante.vis{opacity:1;transform:translate(-50%,0);pointer-events:auto}
   }
 
+
+  /* ---------- Reseñas (línea discreta) y WhatsApp flotante ---------- */
+  .resenas-linea{margin-top:4px;font-size:.92rem;color:var(--chocolate-suave)}
+  .resenas-linea .estrellas{color:var(--dorado-texto);margin-right:6px;white-space:nowrap}
+  .resenas-linea .nota{font-weight:600;color:var(--chocolate)}
+  .resenas-linea a{border-bottom:1px solid rgba(46,32,24,.25);transition:color .2s,border-color .2s}
+  .resenas-linea a:hover{color:var(--amapola);border-color:var(--amapola)}
+  .wa-flotante{
+    position:fixed;right:32px;bottom:32px;z-index:89;
+    width:52px;height:52px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--crema);color:var(--chocolate);
+    border:1.5px solid var(--dorado);
+    box-shadow:0 8px 20px -10px rgba(46,32,24,.35);
+    opacity:0;transform:translateY(12px);pointer-events:none;
+    transition:opacity .35s ease,transform .35s ease,background .2s,color .2s;
+  }
+  .wa-flotante svg{width:24px;height:24px}
+  .wa-flotante.vis{opacity:1;transform:none;pointer-events:auto}
+  .wa-flotante:hover{background:var(--chocolate);color:var(--crema)}
+  @media(max-width:900px){.wa-flotante{right:16px;bottom:22px;width:46px;height:46px}}
+
   /* ---------- Responsive ---------- */
   @media(max-width:900px){
     .menu-btn{display:flex}
-    .header-inner{padding:12px 16px;gap:10px}
+    .header-inner{padding:10px 12px 10px 16px;gap:8px}
+    .header-right{gap:6px}
     .brand{font-size:1.12rem}
     .langs{gap:2px;padding:3px}
-    .langs button{padding:4px 7px;font-size:.68rem}
+    .langs button{padding:0 7px;min-width:32px;min-height:34px;font-size:.7rem}
     .ig-link{display:none}
     .nav-ig{display:flex;align-items:center;gap:8px;color:var(--amapola);font-weight:600}
     nav.main{
@@ -682,8 +713,9 @@
   @media(max-width:380px){
     .header-inner{padding:10px 12px;gap:6px}
     .brand{font-size:1rem}
-    .langs button{padding:3px 6px;font-size:.62rem}
+    .langs button{padding:0 5px;min-width:30px;min-height:34px;font-size:.66rem}
   }
+
 </style>
 </head>
 <body id="top">
@@ -715,19 +747,24 @@
         </svg>
       </a>
       <div class="langs">
-        <button data-lang="ca" lang="ca" aria-pressed="false" onclick="setLang('ca')">CA</button>
-        <button data-lang="es" lang="es" aria-pressed="true" class="active" onclick="setLang('es')">ES</button>
-        <button data-lang="pl" lang="pl" aria-pressed="false" onclick="setLang('pl')">PL</button>
-        <button data-lang="en" lang="en" aria-pressed="false" onclick="setLang('en')">EN</button>
+        <button data-lang="ca" lang="ca" aria-label="Català" aria-pressed="false" onclick="setLang('ca')">CA</button>
+        <button data-lang="es" lang="es" aria-label="Español" aria-pressed="true" class="active" onclick="setLang('es')">ES</button>
+        <button data-lang="pl" lang="pl" aria-label="Polski" aria-pressed="false" onclick="setLang('pl')">PL</button>
+        <button data-lang="en" lang="en" aria-label="English" aria-pressed="false" onclick="setLang('en')">EN</button>
       </div>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav" aria-label="Menú" onclick="toggleMenu()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <svg class="ico-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
           <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+        <svg class="ico-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18"/>
         </svg>
       </button>
     </div>
   </div>
 </header>
+
+<main id="contenido">
 
 <section class="hero">
   <div class="hero-text reveal">
@@ -739,8 +776,8 @@
   <div class="hero-img reveal">
     <!-- ⚠️ Si esta imagen pasa a ser el retrato de Bea (concepto original), actualiza src Y alt a la vez -->
     <picture>
-      <source srcset="images/tarta-celebracion.webp" type="image/webp">
-      <img src="images/tarta-celebracion.jpg" alt="Tarta de celebración artesanal de Delicias by Bea" fetchpriority="high" decoding="async">
+      <source srcset="images/bea-obrador.webp" type="image/webp">
+      <img src="images/bea-obrador.jpg" alt="Bea Michalak, pastelera de Delicias by Bea, junto a una tarta de fresas en su obrador" width="520" height="698" fetchpriority="high" decoding="async">
     </picture>
   </div>
 </section>
@@ -1179,6 +1216,7 @@
         <div><strong data-i18n="tel">Teléfono:</strong> +34 722 117 695</div>
         <div><strong>Email:</strong> deliciasbybea@gmail.com</div>
         <div><strong>Instagram:</strong> @delicias_by_bea</div>
+        <div class="resenas-linea"><span class="estrellas"><span class="nota">4,9</span> <span aria-hidden="true">★</span></span> <a href="https://www.google.es/maps/place/Delicias+by+Bea/@41.3875176,2.1333525,17z/data=!3m1!4b1!4m6!3m5!1s0x12a499de5378ec7d:0x6f082e186fb05f5e!8m2!3d41.3875136!4d2.1359274!16s%2Fg%2F11yw4yp13d" target="_blank" rel="noopener" data-i18n="revLink">Reseñas de clientes en Google</a></div>
       </div>
     </div>
     <div class="reveal">
@@ -1239,12 +1277,18 @@
 </section>
 ============================================================ -->
 
+</main>
+
 <footer>
   <div class="footer-inner">
     <div class="brand">delicias <em>by</em> bea</div>
     <div data-i18n="foot">©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona</div>
   </div>
 </footer>
+
+<a class="wa-flotante" id="waBtn" href="https://wa.me/34722117695?text=Hola%20Bea%2C%20me%20gustar%C3%ADa%20hacer%20un%20encargo." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.13 15.08l-.3-.18-3.1.82.83-3.03-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.4c-.2 0-.5.07-.75.35-.26.28-.98.96-.98 2.34s1 2.71 1.14 2.9c.14.19 1.95 3.1 4.8 4.22 2.37.93 2.85.75 3.36.7.52-.05 1.66-.68 1.9-1.33.23-.66.23-1.22.16-1.34-.07-.12-.26-.19-.54-.33-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.63.14-.19.28-.72.91-.88 1.1-.17.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.12.28-.33.42-.5.14-.16.19-.28.28-.47.1-.19.05-.35-.02-.5-.07-.14-.63-1.52-.86-2.08-.23-.55-.46-.47-.63-.48h-.54z"/></svg>
+</a>
 
 <!-- CTA flotante en móvil: aparece tras el hero, se oculta al llegar a Encargos -->
 <a class="cta-flotante" id="ctaFlot" href="#contacto" data-i18n="cta">Haz tu encargo</a>
@@ -1317,7 +1361,8 @@ const I = {
     algNota:"¿Tienes alguna necesidad específica? <a href=\"#contacto\">Escríbeme</a> y lo vemos.",
     nlTitle:"Novedades del obrador",nlSub:"Apúntate y recibe primero las especialidades de temporada, los dulces de fiesta polaca y cualquier novedad de Delicias by Bea.",
     nlPh:"Tu correo electrónico",nlBtn:"Apuntarme",nlPriv:"Respeto tu privacidad. Sin spam, solo dulces novedades.",nlOk:"¡Gracias! Te avisaré de las próximas novedades.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"},
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    waMsg:"Hola Bea, me gustaría hacer un encargo.",waLbl:"Escribir por WhatsApp",revLink:"Reseñas de clientes en Google"},
   ca:{nav0:"Inici",nav1:"L'obrador",nav2:"Qui sóc",nav3:"Galeria",nav4:"Encàrrecs",
     eyebrow:"Obrador artesanal · Les Corts, Barcelona",
     h1:"Sabors de Polònia, <em>enfornats</em> al cor de Barcelona",
@@ -1378,7 +1423,8 @@ const I = {
     algNota:"Tens alguna necessitat específica? <a href=\"#contacto\">Escriu-me</a> i ho veiem.",
     nlTitle:"Novetats de l'obrador",nlSub:"Apunta't i rep primer les especialitats de temporada, els dolços de festa polonesa i qualsevol novetat de Delicias by Bea.",
     nlPh:"El teu correu electrònic",nlBtn:"Apuntar-m'hi",nlPriv:"Respecto la teva privacitat. Sense spam, només dolces novetats.",nlOk:"Gràcies! T'avisaré de les pròximes novetats.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"},
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    waMsg:"Hola Bea, m'agradaria fer un encàrrec.",waLbl:"Escriure per WhatsApp",revLink:"Ressenyes de clients a Google"},
   en:{nav0:"Home",nav1:"The bakery",nav2:"About me",nav3:"Gallery",nav4:"Orders",
     eyebrow:"Artisan pâtisserie · Les Corts, Barcelona",
     h1:"Flavors of Poland, <em>baked</em> in the heart of Barcelona",
@@ -1439,7 +1485,8 @@ const I = {
     algNota:"Have a specific requirement? <a href=\"#contacto\">Get in touch</a> and we'll sort it out.",
     nlTitle:"News from the bakery",nlSub:"Sign up to be the first to hear about seasonal specials, Polish holiday treats and any news from Delicias by Bea.",
     nlPh:"Your email address",nlBtn:"Sign me up",nlPriv:"I respect your privacy. No spam, just sweet news.",nlOk:"Thank you! I'll let you know about what's next.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"},
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    waMsg:"Hi Bea, I'd like to place an order.",waLbl:"Message on WhatsApp",revLink:"Customer reviews on Google"},
   pl:{nav0:"Start",nav1:"Pracownia",nav2:"O mnie",nav3:"Galeria",nav4:"Zamówienia",
     eyebrow:"Rzemieślnicza pracownia · Les Corts, Barcelona",
     h1:"Smaki Polski, <em>wypiekane</em> w sercu Barcelony",
@@ -1500,7 +1547,8 @@ const I = {
     algNota:"Masz szczególne wymagania? <a href=\"#contacto\">Napisz do mnie</a>, a coś wymyślimy.",
     nlTitle:"Nowości z pracowni",nlSub:"Zapisz się i jako pierwszy poznawaj sezonowe specjały, polskie świąteczne wypieki i wszystkie nowości Delicias by Bea.",
     nlPh:"Twój adres e-mail",nlBtn:"Zapisz mnie",nlPriv:"Szanuję Twoją prywatność. Bez spamu, tylko słodkie nowości.",nlOk:"Dziękuję! Dam znać o kolejnych nowościach.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona"}
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    waMsg:"Cześć Bea, chcę złożyć zamówienie.",waLbl:"Napisz na WhatsApp",revLink:"Opinie klientów w Google"}
 };
 let lang='es';
 function t(k){return (I[lang][k]||I.es[k]||'').replace(/<[^>]+>/g,'')}
@@ -1521,6 +1569,10 @@ function setLang(l){
     const k=el.getAttribute('data-i18n-ph');
     if(I[l][k]!==undefined) el.placeholder=I[l][k];
   });
+  const wa=document.getElementById('waBtn');
+  if(wa&&I[l].waMsg){wa.href='https://wa.me/34722117695?text='+encodeURIComponent(I[l].waMsg);wa.setAttribute('aria-label',I[l].waLbl);}
+  const mb=document.getElementById('menuBtn');
+  if(mb) mb.setAttribute('aria-label',({es:'Menú',ca:'Menú',en:'Menu',pl:'Menu'})[l]||'Menú');
   try{localStorage.setItem('dbb-lang',l)}catch(e){}
 }
 
@@ -1532,17 +1584,40 @@ function setLang(l){
   if(l!=='es') setLang(l);
 })();
 
+/* WhatsApp flotante: aparece al bajar un poco */
+(function(){
+  const wa=document.getElementById('waBtn');
+  if(!wa) return;
+  const upd=()=>wa.classList.toggle('vis',window.scrollY>500);
+  window.addEventListener('scroll',upd,{passive:true});upd();
+})();
+
 /* Menú móvil */
+function closeMenu(){
+  const nav=document.getElementById('mainNav');
+  const btn=document.getElementById('menuBtn');
+  nav.classList.remove('open');
+  btn.setAttribute('aria-expanded','false');
+  btn.classList.remove('is-open');
+}
 function toggleMenu(){
   const nav=document.getElementById('mainNav');
   const btn=document.getElementById('menuBtn');
   const open=nav.classList.toggle('open');
   btn.setAttribute('aria-expanded',open?'true':'false');
+  btn.classList.toggle('is-open',open);
 }
-document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()=>{
-  document.getElementById('mainNav').classList.remove('open');
-  document.getElementById('menuBtn').setAttribute('aria-expanded','false');
-}));
+document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',closeMenu));
+/* Cerrar al tocar fuera, con Escape o al pasar a escritorio */
+document.addEventListener('click',e=>{
+  if(!e.target.closest('header')) closeMenu();
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.getElementById('mainNav').classList.contains('open')){
+    closeMenu();document.getElementById('menuBtn').focus();
+  }
+});
+window.matchMedia('(min-width:901px)').addEventListener('change',e=>{if(e.matches) closeMenu();});
 
 /* Zoom accesible por teclado */
 document.querySelectorAll('img[onclick^="abrirZoom"]').forEach(img=>{
