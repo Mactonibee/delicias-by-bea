@@ -1,2 +1,11 @@
 # Antiguas URLs de Wix -> página de inicio
-/*    /    301
+/blank-6                 /    301
+/blank-1                 /    301
+/copia-de-navidad-2024   /    301
+/galeria                 /    301
+/recipes                 /    301
+/contacto                /    301
+/quien-soy               /    301
+
+# Cualquier otra dirección que no exista -> página de inicio
+/*                       /    301
