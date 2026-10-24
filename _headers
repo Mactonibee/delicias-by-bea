@@ -1,0 +1,6 @@
+# Caché del navegador (Netlify). Las fuentes no cambian nunca: 1 año.
+# Las fotos: 7 días (si sustituyes una foto con el mismo nombre, los visitantes habituales la verán como mucho una semana después).
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/images/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400

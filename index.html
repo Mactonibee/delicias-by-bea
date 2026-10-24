@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Delicias by Bea — Pastelería polaca artesanal en Les Corts, Barcelona</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600&display=swap"></noscript>
+<!-- Fuentes alojadas en la propia web (fonts/): sin conexiones a Google y con precarga -->
+<link rel="preload" href="fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/karla-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- ===== SEO ===== -->
 <meta name="description" content="Obrador artesanal de pastelería polaca en Les Corts, Barcelona. Drożdżówki, sernik, szarlotka y tartas de celebración por encargo, horneadas cada mañana por Bea Michalak.">
@@ -22,6 +21,8 @@
 <meta property="og:description" content="Tradición polaca y pastelería de hoy en Les Corts: drożdżówki, sernik, szarlotka y tartas de celebración por encargo.">
 <meta property="og:url" content="https://deliciasbybea.com/">
 <meta property="og:image" content="https://deliciasbybea.com/images/bea-obrador.jpg">
+<meta property="og:image:width" content="520">
+<meta property="og:image:height" content="698">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -55,6 +56,15 @@
 }
 </script>
 <style>
+  /* ---------- Fuentes (Fraunces variable con tamaño óptico + Karla). Licencia OFL en fonts/ ---------- */
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-ext-opsz-normal.woff2) format('woff2');unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+  @font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-ext-opsz-italic.woff2) format('woff2');unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+  @font-face{font-family:'Karla';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/karla-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Karla';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/karla-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+  @font-face{font-family:'Karla';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/karla-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Karla';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/karla-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
   :root{
     --crema:#FBF6EE;
     --crema-tostada:#F2E8D8;
@@ -77,7 +87,7 @@
     overflow-x:hidden;
     max-width:100vw;
   }
-  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:400}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
 
@@ -142,8 +152,6 @@
     letter-spacing:.03em;transition:background .25s, transform .25s;
   }
   .btn:hover{background:var(--amapola);transform:translateY(-2px)}
-  .btn.ghost{background:transparent;color:var(--chocolate);border:1.5px solid var(--chocolate)}
-  .btn.ghost:hover{background:var(--chocolate);color:var(--crema)}
   .hero-img{position:relative}
   .hero-img img{
     width:84%;margin:0 auto;aspect-ratio:4/5;object-fit:cover;object-position:top;
@@ -186,10 +194,6 @@
     font-size:1.6rem;margin-bottom:6px;
   }
   .col .sub{font-style:italic;font-family:'Fraunces',serif;color:var(--amapola);margin-bottom:28px;display:block}
-  .item{padding:18px 0;border-bottom:1px solid rgba(46,32,24,.1)}
-  .item:last-child{border-bottom:none}
-  .item h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.12rem;margin-bottom:3px}
-  .item p{font-size:.92rem;color:var(--chocolate-suave)}
   .trad-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:8px}
   .dulce-card{display:flex;flex-direction:column}
   .dulce-foto{
@@ -201,13 +205,6 @@
     transition:transform .5s ease;
   }
   .dulce-foto img:hover{transform:scale(1.04)}
-  .dulce-ph{
-    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-    text-align:center;padding:16px;
-    border:1.5px dashed rgba(46,32,24,.22);border-radius:14px;
-    font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;
-    color:var(--chocolate-suave);
-  }
   .dulce-card figcaption{padding:14px 2px 0}
   .dulce-card h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.18rem;margin-bottom:4px}
   .dulce-card figcaption p{font-size:.92rem;color:var(--chocolate-suave);line-height:1.5;min-height:3em}
@@ -274,22 +271,12 @@
     width:100%;height:100%;object-fit:cover;
     transition:transform .7s ease, opacity .4s ease;cursor:zoom-in;
   }
-  .producto-foto img.hover{position:absolute;inset:0;opacity:0}
-  .producto:hover .producto-foto img.base{opacity:0}
-  .producto:hover .producto-foto img.hover{opacity:1}
   .producto:hover .producto-foto img{transform:scale(1.04)}
-  .producto-foto .ph{
-    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-    text-align:center;padding:16px;color:var(--chocolate-suave);
-    font-family:'Fraunces',serif;font-style:italic;font-size:.92rem;
-    border:1.5px dashed rgba(46,32,24,.25);
-  }
   .producto-nombre{font-family:'Fraunces',serif;font-size:1.18rem;margin:18px 0 4px;letter-spacing:.01em}
   .producto-precio{
     font-size:.92rem;font-weight:600;letter-spacing:.05em;
     color:var(--amapola);margin-bottom:8px;
   }
-  .producto-precio span{font-weight:400;color:var(--chocolate-suave);font-size:.82rem;letter-spacing:.02em}
   .producto-desc{font-size:.93rem;color:var(--chocolate-suave);line-height:1.55}
 
   /* ---------- Horario + Contacto ---------- */
@@ -378,7 +365,6 @@
     border:1px solid rgba(46,32,24,.06);
   }
   .ing-card h3{font-size:1.25rem;margin-bottom:10px}
-  .ing-card h3 .mark{color:var(--amapola);font-style:italic}
   .ing-card p{font-size:.96rem;color:var(--chocolate-suave)}
 
   /* ---------- Por qué con antelación ---------- */
@@ -833,6 +819,45 @@ if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.
 </script>
 </head>
 <body id="top">
+<!-- Iconos reutilizados (se dibujan con <use href="#...">) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-estrella" viewBox="0 0 20 20"><g fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></g></symbol>
+  <symbol id="i-rama" viewBox="0 0 150 150"><g fill="none" stroke-linecap="round">
+      <path d="M8 96Q60 40 132 14" stroke="var(--chocolate-suave)" stroke-width="1.4"/>
+      <path d="M40 66L70 78" stroke="var(--chocolate-suave)" stroke-width="1.1"/>
+      <path d="M12.6 91.2l12.4 -2.6M12.6 91.2l-6.4 -10.9M17.2 86.5l12.2 -2.2M17.2 86.5l-6.1 -10.8M21.9 81.9l11.9 -1.9M21.9 81.9l-5.7 -10.7M26.7 77.4l11.7 -1.7M26.7 77.4l-5.3 -10.5M31.6 73.1l11.4 -1.4M31.6 73.1l-5.0 -10.3M36.5 68.8l11.1 -1.1M36.5 68.8l-4.6 -10.2M41.5 64.7l10.8 -0.9M41.5 64.7l-4.3 -10.0M46.6 60.7l10.5 -0.6M46.6 60.7l-4.0 -9.8M51.8 56.8l10.3 -0.4M51.8 56.8l-3.7 -9.6M57.0 53.0l10.0 -0.2M57.0 53.0l-3.4 -9.4M62.3 49.3l9.7 0.1M62.3 49.3l-3.1 -9.1M67.7 45.7l9.3 0.2M67.7 45.7l-2.8 -8.9M73.2 42.3l9.0 0.4M73.2 42.3l-2.5 -8.7M78.7 38.9l8.7 0.6M78.7 38.9l-2.3 -8.4M84.3 35.7l8.4 0.8M84.3 35.7l-2.0 -8.2M90.0 32.6l8.1 0.9M90.0 32.6l-1.8 -7.9M95.8 29.6l7.8 1.0M95.8 29.6l-1.5 -7.7M101.6 26.7l7.4 1.1M101.6 26.7l-1.3 -7.4M107.6 24.0l7.1 1.2M107.6 24.0l-1.1 -7.1M113.6 21.3l6.8 1.3M113.6 21.3l-0.9 -6.8M119.6 18.7l6.5 1.4M119.6 18.7l-0.8 -6.6M125.8 16.3l6.1 1.5M125.8 16.3l-0.6 -6.3" stroke="#5E6B4E" stroke-width="1.6"/>
+      <path d="M43.3 67.3l4.8 7.1M43.3 67.3l5.2 -6.8M46.7 68.7l4.5 6.7M46.7 68.7l4.9 -6.5M50.0 70.0l4.3 6.4M50.0 70.0l4.6 -6.1M53.3 71.3l4.0 6.0M53.3 71.3l4.4 -5.7M56.7 72.7l3.8 5.6M56.7 72.7l4.1 -5.4M60.0 74.0l3.5 5.3M60.0 74.0l3.8 -5.0M63.3 75.3l3.3 4.9M63.3 75.3l3.6 -4.7M66.7 76.7l3.0 4.5M66.7 76.7l3.3 -4.3" stroke="#5E6B4E" stroke-width="1.4"/>
+      <path d="M86 34V56" stroke="var(--dorado)" stroke-width=".9"/>
+      <rect x="82.5" y="54" width="7" height="5" rx="1" fill="var(--dorado)"/>
+      <circle cx="86" cy="70" r="12" fill="var(--amapola)"/>
+      <path d="M77 66q9 5 18 0" stroke="var(--dorado)" stroke-width="1.1" opacity=".9"/>
+      <path d="M76.5 72q9.5 5 19 0" stroke="var(--crema)" stroke-width=".7" opacity=".6"/>
+      <circle cx="81.5" cy="65" r="2.4" fill="#fff" opacity=".35"/>
+      <g transform="translate(112 52) scale(.55)" fill="var(--dorado)" stroke="none"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/></g>
+      <circle cx="58" cy="88" r="2.6" fill="var(--amapola)"/><circle cx="63" cy="91" r="2.2" fill="var(--amapola)"/>
+  </g></symbol>
+  <symbol id="i-wycinanki" viewBox="0 0 240 26">
+    <circle cx="8" cy="13" r="2"/>
+    <rect x="16" y="12.4" width="58" height="1.2" rx=".6"/>
+    <ellipse cx="84" cy="13" rx="7" ry="2.6" transform="rotate(-18 84 13)"/>
+    <ellipse cx="100" cy="13" rx="7" ry="2.6" transform="rotate(18 100 13)"/>
+    <g transform="translate(120 13)">
+      <circle r="2.6"/>
+      <ellipse rx="2.2" ry="6.2" cy="-7.6"/>
+      <ellipse rx="2.2" ry="6.2" cy="7.6"/>
+      <ellipse rx="6.2" ry="2.2" cx="-7.6"/>
+      <ellipse rx="6.2" ry="2.2" cx="7.6"/>
+      <circle cx="-6.4" cy="-6.4" r="1.4"/>
+      <circle cx="6.4" cy="-6.4" r="1.4"/>
+      <circle cx="-6.4" cy="6.4" r="1.4"/>
+      <circle cx="6.4" cy="6.4" r="1.4"/>
+    </g>
+    <ellipse cx="140" cy="13" rx="7" ry="2.6" transform="rotate(-18 140 13)"/>
+    <ellipse cx="156" cy="13" rx="7" ry="2.6" transform="rotate(18 156 13)"/>
+    <rect x="166" y="12.4" width="58" height="1.2" rx=".6"/>
+    <circle cx="232" cy="13" r="2"/>
+  </symbol>
+</svg>
 
 <header>
   <div class="header-inner">
@@ -893,7 +918,7 @@ if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.
 <main id="contenido">
 
 <section class="hero">
-  <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:2%;top:10%;width:12px;height:12px;animation-delay:0s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:9%;top:70%;width:8px;height:8px;animation-delay:1.4s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:46%;top:6%;width:9px;height:9px;animation-delay:2.2s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:52%;top:88%;width:11px;height:11px;animation-delay:0.7s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:97%;top:14%;width:10px;height:10px;animation-delay:1.9s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:94%;top:62%;width:8px;height:8px;animation-delay:0.3s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:49%;top:48%;width:7px;height:7px;animation-delay:2.7s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span></div>
+  <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:2%;top:10%;width:12px;height:12px;animation-delay:0s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:9%;top:70%;width:8px;height:8px;animation-delay:1.4s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:46%;top:6%;width:9px;height:9px;animation-delay:2.2s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:52%;top:88%;width:11px;height:11px;animation-delay:0.7s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:97%;top:14%;width:10px;height:10px;animation-delay:1.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:94%;top:62%;width:8px;height:8px;animation-delay:0.3s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:49%;top:48%;width:7px;height:7px;animation-delay:2.7s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span></div>
   <div class="hero-text reveal">
     <div class="eyebrow" data-i18n="eyebrow">Obrador artesanal · Les Corts, Barcelona</div>
     <h1 data-i18n="h1">Sabores de Polonia, <em>horneados</em> en el corazón de Barcelona</h1>
@@ -901,20 +926,7 @@ if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.
     <a class="btn" href="#contacto" data-i18n="cta">Haz tu encargo</a>
   </div>
   <div class="hero-img reveal">
-    <svg class="hero-rama deco-navidad" viewBox="0 0 150 150" aria-hidden="true" fill="none" stroke-linecap="round">
-      <path d="M8 96Q60 40 132 14" stroke="var(--chocolate-suave)" stroke-width="1.4"/>
-      <path d="M40 66L70 78" stroke="var(--chocolate-suave)" stroke-width="1.1"/>
-      <path d="M12.6 91.2l12.4 -2.6M12.6 91.2l-6.4 -10.9M17.2 86.5l12.2 -2.2M17.2 86.5l-6.1 -10.8M21.9 81.9l11.9 -1.9M21.9 81.9l-5.7 -10.7M26.7 77.4l11.7 -1.7M26.7 77.4l-5.3 -10.5M31.6 73.1l11.4 -1.4M31.6 73.1l-5.0 -10.3M36.5 68.8l11.1 -1.1M36.5 68.8l-4.6 -10.2M41.5 64.7l10.8 -0.9M41.5 64.7l-4.3 -10.0M46.6 60.7l10.5 -0.6M46.6 60.7l-4.0 -9.8M51.8 56.8l10.3 -0.4M51.8 56.8l-3.7 -9.6M57.0 53.0l10.0 -0.2M57.0 53.0l-3.4 -9.4M62.3 49.3l9.7 0.1M62.3 49.3l-3.1 -9.1M67.7 45.7l9.3 0.2M67.7 45.7l-2.8 -8.9M73.2 42.3l9.0 0.4M73.2 42.3l-2.5 -8.7M78.7 38.9l8.7 0.6M78.7 38.9l-2.3 -8.4M84.3 35.7l8.4 0.8M84.3 35.7l-2.0 -8.2M90.0 32.6l8.1 0.9M90.0 32.6l-1.8 -7.9M95.8 29.6l7.8 1.0M95.8 29.6l-1.5 -7.7M101.6 26.7l7.4 1.1M101.6 26.7l-1.3 -7.4M107.6 24.0l7.1 1.2M107.6 24.0l-1.1 -7.1M113.6 21.3l6.8 1.3M113.6 21.3l-0.9 -6.8M119.6 18.7l6.5 1.4M119.6 18.7l-0.8 -6.6M125.8 16.3l6.1 1.5M125.8 16.3l-0.6 -6.3" stroke="#5E6B4E" stroke-width="1.6"/>
-      <path d="M43.3 67.3l4.8 7.1M43.3 67.3l5.2 -6.8M46.7 68.7l4.5 6.7M46.7 68.7l4.9 -6.5M50.0 70.0l4.3 6.4M50.0 70.0l4.6 -6.1M53.3 71.3l4.0 6.0M53.3 71.3l4.4 -5.7M56.7 72.7l3.8 5.6M56.7 72.7l4.1 -5.4M60.0 74.0l3.5 5.3M60.0 74.0l3.8 -5.0M63.3 75.3l3.3 4.9M63.3 75.3l3.6 -4.7M66.7 76.7l3.0 4.5M66.7 76.7l3.3 -4.3" stroke="#5E6B4E" stroke-width="1.4"/>
-      <path d="M86 34V56" stroke="var(--dorado)" stroke-width=".9"/>
-      <rect x="82.5" y="54" width="7" height="5" rx="1" fill="var(--dorado)"/>
-      <circle cx="86" cy="70" r="12" fill="var(--amapola)"/>
-      <path d="M77 66q9 5 18 0" stroke="var(--dorado)" stroke-width="1.1" opacity=".9"/>
-      <path d="M76.5 72q9.5 5 19 0" stroke="var(--crema)" stroke-width=".7" opacity=".6"/>
-      <circle cx="81.5" cy="65" r="2.4" fill="#fff" opacity=".35"/>
-      <g transform="translate(112 52) scale(.55)" fill="var(--dorado)" stroke="none"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/></g>
-      <circle cx="58" cy="88" r="2.6" fill="var(--amapola)"/><circle cx="63" cy="91" r="2.2" fill="var(--amapola)"/>
-    </svg>
+    <svg class="hero-rama deco-navidad" viewBox="0 0 150 150" aria-hidden="true"><use href="#i-rama"/></svg>
     <!-- ⚠️ Si esta imagen pasa a ser el retrato de Bea (concepto original), actualiza src Y alt a la vez -->
     <picture>
       <source srcset="images/bea-obrador.webp" type="image/webp">
@@ -933,7 +945,7 @@ if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.
 <section class="cinematica" id="cinematica" aria-label="El obrador">
   <div class="cinematica-marco">
     <div class="cinematica-img" id="cineImg"
-         style="background-image:url('images/obrador.jpg');background-image:image-set(url('images/obrador.webp') type('image/webp'), url('images/obrador.jpg') type('image/jpeg'))"></div>
+         data-fondo></div>
     <div class="cinematica-ph" data-i18n="cinePh">Tu foto: el obrador en acción</div>
     <div class="cinematica-velo"></div>
   </div>
@@ -953,20 +965,20 @@ if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.
      ============================================================ -->
 <section class="temporada" id="navidad" aria-labelledby="navTitle">
   <div class="temporada-cielo" aria-hidden="true">
-    <span style="left:4%;top:6%;width:14px;height:14px;animation-delay:0s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:12%;top:22%;width:9px;height:9px;animation-delay:1.2s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:20%;top:4%;width:7px;height:7px;animation-delay:2.1s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:29%;top:15%;width:11px;height:11px;animation-delay:0.6s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:71%;top:8%;width:12px;height:12px;animation-delay:1.7s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:80%;top:20%;width:8px;height:8px;animation-delay:0.3s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:88%;top:5%;width:15px;height:15px;animation-delay:2.6s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:95%;top:17%;width:9px;height:9px;animation-delay:1.1s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:3%;top:48%;width:8px;height:8px;animation-delay:2.3s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:97%;top:44%;width:10px;height:10px;animation-delay:0.9s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:2%;top:78%;width:12px;height:12px;animation-delay:1.5s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:98%;top:72%;width:8px;height:8px;animation-delay:2.8s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:8%;top:92%;width:9px;height:9px;animation-delay:0.4s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
-    <span style="left:93%;top:90%;width:13px;height:13px;animation-delay:1.9s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span>
+    <span style="left:4%;top:6%;width:14px;height:14px;animation-delay:0s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:12%;top:22%;width:9px;height:9px;animation-delay:1.2s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:20%;top:4%;width:7px;height:7px;animation-delay:2.1s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:29%;top:15%;width:11px;height:11px;animation-delay:0.6s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:71%;top:8%;width:12px;height:12px;animation-delay:1.7s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:80%;top:20%;width:8px;height:8px;animation-delay:0.3s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:88%;top:5%;width:15px;height:15px;animation-delay:2.6s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:95%;top:17%;width:9px;height:9px;animation-delay:1.1s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:3%;top:48%;width:8px;height:8px;animation-delay:2.3s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:97%;top:44%;width:10px;height:10px;animation-delay:0.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:2%;top:78%;width:12px;height:12px;animation-delay:1.5s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:98%;top:72%;width:8px;height:8px;animation-delay:2.8s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:8%;top:92%;width:9px;height:9px;animation-delay:0.4s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:93%;top:90%;width:13px;height:13px;animation-delay:1.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
   </div>
   <div class="temporada-head reveal">
     <div class="temporada-estrella" aria-hidden="true">
@@ -985,20 +997,7 @@ if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.
   </div>
 
   <div class="carta reveal">
-    <svg class="carta-rama" viewBox="0 0 150 150" aria-hidden="true" fill="none" stroke-linecap="round">
-      <path d="M8 96Q60 40 132 14" stroke="var(--chocolate-suave)" stroke-width="1.4"/>
-      <path d="M40 66L70 78" stroke="var(--chocolate-suave)" stroke-width="1.1"/>
-      <path d="M12.6 91.2l12.4 -2.6M12.6 91.2l-6.4 -10.9M17.2 86.5l12.2 -2.2M17.2 86.5l-6.1 -10.8M21.9 81.9l11.9 -1.9M21.9 81.9l-5.7 -10.7M26.7 77.4l11.7 -1.7M26.7 77.4l-5.3 -10.5M31.6 73.1l11.4 -1.4M31.6 73.1l-5.0 -10.3M36.5 68.8l11.1 -1.1M36.5 68.8l-4.6 -10.2M41.5 64.7l10.8 -0.9M41.5 64.7l-4.3 -10.0M46.6 60.7l10.5 -0.6M46.6 60.7l-4.0 -9.8M51.8 56.8l10.3 -0.4M51.8 56.8l-3.7 -9.6M57.0 53.0l10.0 -0.2M57.0 53.0l-3.4 -9.4M62.3 49.3l9.7 0.1M62.3 49.3l-3.1 -9.1M67.7 45.7l9.3 0.2M67.7 45.7l-2.8 -8.9M73.2 42.3l9.0 0.4M73.2 42.3l-2.5 -8.7M78.7 38.9l8.7 0.6M78.7 38.9l-2.3 -8.4M84.3 35.7l8.4 0.8M84.3 35.7l-2.0 -8.2M90.0 32.6l8.1 0.9M90.0 32.6l-1.8 -7.9M95.8 29.6l7.8 1.0M95.8 29.6l-1.5 -7.7M101.6 26.7l7.4 1.1M101.6 26.7l-1.3 -7.4M107.6 24.0l7.1 1.2M107.6 24.0l-1.1 -7.1M113.6 21.3l6.8 1.3M113.6 21.3l-0.9 -6.8M119.6 18.7l6.5 1.4M119.6 18.7l-0.8 -6.6M125.8 16.3l6.1 1.5M125.8 16.3l-0.6 -6.3" stroke="#5E6B4E" stroke-width="1.6"/>
-      <path d="M43.3 67.3l4.8 7.1M43.3 67.3l5.2 -6.8M46.7 68.7l4.5 6.7M46.7 68.7l4.9 -6.5M50.0 70.0l4.3 6.4M50.0 70.0l4.6 -6.1M53.3 71.3l4.0 6.0M53.3 71.3l4.4 -5.7M56.7 72.7l3.8 5.6M56.7 72.7l4.1 -5.4M60.0 74.0l3.5 5.3M60.0 74.0l3.8 -5.0M63.3 75.3l3.3 4.9M63.3 75.3l3.6 -4.7M66.7 76.7l3.0 4.5M66.7 76.7l3.3 -4.3" stroke="#5E6B4E" stroke-width="1.4"/>
-      <path d="M86 34V56" stroke="var(--dorado)" stroke-width=".9"/>
-      <rect x="82.5" y="54" width="7" height="5" rx="1" fill="var(--dorado)"/>
-      <circle cx="86" cy="70" r="12" fill="var(--amapola)"/>
-      <path d="M77 66q9 5 18 0" stroke="var(--dorado)" stroke-width="1.1" opacity=".9"/>
-      <path d="M76.5 72q9.5 5 19 0" stroke="var(--crema)" stroke-width=".7" opacity=".6"/>
-      <circle cx="81.5" cy="65" r="2.4" fill="#fff" opacity=".35"/>
-      <g transform="translate(112 52) scale(.55)" fill="var(--dorado)" stroke="none"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/></g>
-      <circle cx="58" cy="88" r="2.6" fill="var(--amapola)"/><circle cx="63" cy="91" r="2.2" fill="var(--amapola)"/>
-    </svg>
+    <svg class="carta-rama" viewBox="0 0 150 150" aria-hidden="true"><use href="#i-rama"/></svg>
     <div class="carta-grupo">
       <div class="carta-cab">
         <h3 data-i18n="navGrp1">Tartas y babki</h3>
@@ -1128,27 +1127,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
 
 <!-- Separador wycinanki: guiño al arte popular polaco de papel recortado -->
 <div class="wycinanki" aria-hidden="true">
-  <svg viewBox="0 0 240 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="8" cy="13" r="2"/>
-    <rect x="16" y="12.4" width="58" height="1.2" rx=".6"/>
-    <ellipse cx="84" cy="13" rx="7" ry="2.6" transform="rotate(-18 84 13)"/>
-    <ellipse cx="100" cy="13" rx="7" ry="2.6" transform="rotate(18 100 13)"/>
-    <g transform="translate(120 13)">
-      <circle r="2.6"/>
-      <ellipse rx="2.2" ry="6.2" cy="-7.6"/>
-      <ellipse rx="2.2" ry="6.2" cy="7.6"/>
-      <ellipse rx="6.2" ry="2.2" cx="-7.6"/>
-      <ellipse rx="6.2" ry="2.2" cx="7.6"/>
-      <circle cx="-6.4" cy="-6.4" r="1.4"/>
-      <circle cx="6.4" cy="-6.4" r="1.4"/>
-      <circle cx="-6.4" cy="6.4" r="1.4"/>
-      <circle cx="6.4" cy="6.4" r="1.4"/>
-    </g>
-    <ellipse cx="140" cy="13" rx="7" ry="2.6" transform="rotate(-18 140 13)"/>
-    <ellipse cx="156" cy="13" rx="7" ry="2.6" transform="rotate(18 156 13)"/>
-    <rect x="166" y="12.4" width="58" height="1.2" rx=".6"/>
-    <circle cx="232" cy="13" r="2"/>
-  </svg>
+  <svg viewBox="0 0 240 26" fill="currentColor"><use href="#i-wycinanki"/></svg>
 </div>
 
 <section class="tradhoy" id="tradhoy">
@@ -1251,7 +1230,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
 </section>
 
 <section class="sobre" id="sobre">
-  <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:6%;top:14%;width:12px;height:12px;animation-delay:0.2s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:14%;top:74%;width:8px;height:8px;animation-delay:1.6s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:88%;top:10%;width:10px;height:10px;animation-delay:2.4s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:93%;top:58%;width:14px;height:14px;animation-delay:0.9s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:80%;top:88%;width:8px;height:8px;animation-delay:1.2s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:4%;top:46%;width:7px;height:7px;animation-delay:2.9s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span></div>
+  <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:6%;top:14%;width:12px;height:12px;animation-delay:0.2s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:14%;top:74%;width:8px;height:8px;animation-delay:1.6s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:88%;top:10%;width:10px;height:10px;animation-delay:2.4s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:93%;top:58%;width:14px;height:14px;animation-delay:0.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:80%;top:88%;width:8px;height:8px;animation-delay:1.2s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:4%;top:46%;width:7px;height:7px;animation-delay:2.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span></div>
   <div class="sobre-inner">
     <div class="reveal">
       <div class="eyebrow" data-i18n="sEye">Quién soy</div>
@@ -1307,7 +1286,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
         <div class="producto-foto">
           <picture>
             <source srcset="images/sernik.webp" type="image/webp">
-            <img class="base" src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre">Sernik</h4>
@@ -1318,7 +1297,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
         <div class="producto-foto">
           <picture>
             <source srcset="images/charlota.webp" type="image/webp">
-            <img class="base" src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre">Szarlotka</h4>
@@ -1329,7 +1308,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
         <div class="producto-foto">
           <picture>
             <source srcset="images/queso.webp" type="image/webp">
-            <img class="base" src="images/queso.jpg" alt="Tarta de queso" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/queso.jpg" alt="Tarta de queso" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnQueso">Tarta de queso</h4>
@@ -1340,7 +1319,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
         <div class="producto-foto">
           <picture>
             <source srcset="images/ceremonia2.webp" type="image/webp">
-            <img class="base" src="images/ceremonia2.jpg" alt="Tarta de ceremonia" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/ceremonia2.jpg" alt="Tarta de ceremonia" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnCeremonia">Tarta de ceremonia</h4>
@@ -1363,7 +1342,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
         <div class="producto-foto">
           <picture>
             <source srcset="images/vitrina.webp" type="image/webp">
-            <img class="base" src="images/vitrina.jpg" alt="Postre de vitrina" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/vitrina.jpg" alt="Postre de vitrina" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnVitrina">Postre de vitrina</h4>
@@ -1375,7 +1354,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
         <div class="producto-foto">
           <picture>
             <source srcset="images/surtido.webp" type="image/webp">
-            <img class="base" src="images/surtido.jpg" alt="Caja surtida" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/surtido.jpg" alt="Caja surtida" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnSurtida">Caja surtida</h4>
@@ -1387,7 +1366,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
         <div class="producto-foto">
           <picture>
             <source srcset="images/ruibarbo.webp" type="image/webp">
-            <img class="base" src="images/ruibarbo.jpg" alt="Postres de temporada" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/ruibarbo.jpg" alt="Postres de temporada" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnTemporada">Postres de temporada</h4>
@@ -1399,7 +1378,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
         <div class="producto-foto">
           <picture>
             <source srcset="images/catering.webp" type="image/webp">
-            <img class="base" src="images/catering.jpg" alt="Catering y Eventos" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/catering.jpg" alt="Catering y Eventos" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnCatering">Catering y Eventos</h4>
@@ -1418,27 +1397,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
      Borra o ajusta los puntos según lo que Bea confirme. Traducciones: claves alg*.
      ============================================================ -->
 <div class="wycinanki" aria-hidden="true">
-  <svg viewBox="0 0 240 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="8" cy="13" r="2"/>
-    <rect x="16" y="12.4" width="58" height="1.2" rx=".6"/>
-    <ellipse cx="84" cy="13" rx="7" ry="2.6" transform="rotate(-18 84 13)"/>
-    <ellipse cx="100" cy="13" rx="7" ry="2.6" transform="rotate(18 100 13)"/>
-    <g transform="translate(120 13)">
-      <circle r="2.6"/>
-      <ellipse rx="2.2" ry="6.2" cy="-7.6"/>
-      <ellipse rx="2.2" ry="6.2" cy="7.6"/>
-      <ellipse rx="6.2" ry="2.2" cx="-7.6"/>
-      <ellipse rx="6.2" ry="2.2" cx="7.6"/>
-      <circle cx="-6.4" cy="-6.4" r="1.4"/>
-      <circle cx="6.4" cy="-6.4" r="1.4"/>
-      <circle cx="-6.4" cy="6.4" r="1.4"/>
-      <circle cx="6.4" cy="6.4" r="1.4"/>
-    </g>
-    <ellipse cx="140" cy="13" rx="7" ry="2.6" transform="rotate(-18 140 13)"/>
-    <ellipse cx="156" cy="13" rx="7" ry="2.6" transform="rotate(18 156 13)"/>
-    <rect x="166" y="12.4" width="58" height="1.2" rx=".6"/>
-    <circle cx="232" cy="13" r="2"/>
-  </svg>
+  <svg viewBox="0 0 240 26" fill="currentColor"><use href="#i-wycinanki"/></svg>
 </div>
 
 <section class="alergias" id="alergias">
@@ -1541,7 +1500,7 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
 </main>
 
 <footer>
-  <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:30%;top:30%;width:8px;height:8px;animation-delay:0.5s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:42%;top:64%;width:6px;height:6px;animation-delay:1.8s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:58%;top:26%;width:9px;height:9px;animation-delay:2.6s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span><span style="left:70%;top:70%;width:7px;height:7px;animation-delay:1.1s"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></svg></span></div>
+  <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:30%;top:30%;width:8px;height:8px;animation-delay:0.5s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:42%;top:64%;width:6px;height:6px;animation-delay:1.8s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:58%;top:26%;width:9px;height:9px;animation-delay:2.6s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:70%;top:70%;width:7px;height:7px;animation-delay:1.1s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span></div>
   <div class="footer-inner">
     <div class="brand">delicias <em>by</em> bea</div>
     <div data-i18n="foot">©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona</div>
@@ -1588,7 +1547,7 @@ const I = {
     gIntro:"Recetas tradicionales polacas junto a postres de actualidad. Todo artesano, horneado en el obrador de Les Corts. Los precios son orientativos: el encargo se ajusta a tamaño y ocasión.",
     gcTartas:"Tartas",gcDulces:"Dulces y postres",
     gNotaTartas:"Precio a determinar en función del peso y la medida.",
-    pUnidPorcion:"/ por porción o tarta",pUnidEncargo:"/ por encargo",pConsultar:"Según temporada",pUnidBlaszka:"/ por bandeja",pUnidTortownica:"/ por molde",
+    pConsultar:"Según temporada",
     gnQueso:"Tarta de queso",gnCeremonia:"Tarta de ceremonia",gnVitrina:"Postre de vitrina",gnSurtida:"Caja surtida",gnTemporada:"Postres de temporada",gnCatering:"Catering y Eventos",
     pPresupuesto:"Precio a determinar",
     gpCatering:"Mesas dulces y surtidos para celebraciones, empresas y eventos. Cuéntame tu ocasión y lo preparamos a medida.",
@@ -1666,7 +1625,7 @@ const I = {
     gIntro:"Receptes tradicionals poloneses al costat de postres d'actualitat. Tot artesà, fornejat a l'obrador de Les Corts. Els preus són orientatius: l'encàrrec s'ajusta a la mida i l'ocasió.",
     gcTartas:"Pastissos",gcDulces:"Dolços i postres",
     gNotaTartas:"Preu a determinar en funció del pes i la mida.",
-    pUnidPorcion:"/ per porció o pastís",pUnidEncargo:"/ per encàrrec",pConsultar:"Segons temporada",pUnidBlaszka:"/ per safata",pUnidTortownica:"/ per motlle",
+    pConsultar:"Segons temporada",
     gnQueso:"Pastís de formatge",gnCeremonia:"Pastís de cerimònia",gnVitrina:"Postre de vitrina",gnSurtida:"Capsa assortida",gnTemporada:"Postres de temporada",gnCatering:"Càtering i Esdeveniments",
     pPresupuesto:"Preu a determinar",
     gpCatering:"Taules dolces i assortits per a celebracions, empreses i esdeveniments. Explica'm la teva ocasió i ho preparem a mida.",
@@ -1744,7 +1703,7 @@ const I = {
     gIntro:"Traditional Polish recipes alongside contemporary desserts. All handmade, baked in the Les Corts bakery. Prices are a guide: each order is tailored to size and occasion.",
     gcTartas:"Cakes",gcDulces:"Treats & desserts",
     gNotaTartas:"Price to be determined based on weight and size.",
-    pUnidPorcion:"/ per slice or cake",pUnidEncargo:"/ to order",pConsultar:"Seasonal",pUnidBlaszka:"/ per tray",pUnidTortownica:"/ per tin",
+    pConsultar:"Seasonal",
     gnQueso:"Cheesecake",gnCeremonia:"Celebration cake",gnVitrina:"Counter dessert",gnSurtida:"Assorted box",gnTemporada:"Seasonal desserts",gnCatering:"Catering & Events",
     pPresupuesto:"Price on request",
     gpCatering:"Dessert tables and assortments for celebrations, companies and events. Tell me about your occasion and we'll tailor it.",
@@ -1822,7 +1781,7 @@ const I = {
     gIntro:"Tradycyjne polskie receptury obok nowoczesnych deserów. Wszystko rzemieślnicze, wypiekane w pracowni w Les Corts. Ceny są orientacyjne: każde zamówienie dostosowujemy do rozmiaru i okazji.",
     gcTartas:"Torty",gcDulces:"Słodycze i desery",
     gNotaTartas:"Cena do ustalenia w zależności od wagi i rozmiaru.",
-    pUnidPorcion:"/ za porcję lub tort",pUnidEncargo:"/ na zamówienie",pConsultar:"Sezonowo",pUnidBlaszka:"/ blaszka",pUnidTortownica:"/ tortownica",
+    pConsultar:"Sezonowo",
     gnQueso:"Sernik baskijski",gnCeremonia:"Tort okolicznościowy",gnVitrina:"Deser z witryny",gnSurtida:"Pudełko mieszane",gnTemporada:"Desery sezonowe",gnCatering:"Catering i Eventy",
     pPresupuesto:"Cena do ustalenia",
     gpCatering:"Słodkie stoły i zestawy na uroczystości, firmy i eventy. Opowiedz mi o swojej okazji, a przygotujemy ją na miarę.",
@@ -1964,6 +1923,14 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   const img=document.getElementById('cineImg');
   if(!sec||!img) return;
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Carga diferida de la foto: se pide cuando la banda está a punto de entrar en pantalla
+  const cargaFondo=new IntersectionObserver(es=>{
+    if(!es[0].isIntersecting) return;
+    img.style.backgroundImage="url('images/obrador.jpg')";
+    img.style.backgroundImage="image-set(url('images/obrador.webp') type('image/webp'), url('images/obrador.jpg') type('image/jpeg'))";
+    cargaFondo.disconnect();
+  },{rootMargin:'300px 0px'});
+  cargaFondo.observe(sec);
   // Revelar el texto cuando la sección entra en pantalla
   const ioCine=new IntersectionObserver(es=>{
     es.forEach(e=>{if(e.isIntersecting){sec.classList.add('in');ioCine.unobserve(e.target)}});
