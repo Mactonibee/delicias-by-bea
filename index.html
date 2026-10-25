@@ -444,6 +444,9 @@
   .carta-precio{font-weight:600;color:var(--amapola);letter-spacing:.04em;white-space:nowrap}
   .carta-desc{font-size:.92rem;color:var(--chocolate-suave);line-height:1.5;margin-top:3px}
   .carta-medida{color:var(--dorado-texto);font-weight:600;font-size:.82rem;white-space:nowrap;margin-left:4px}
+  .carta-ast{color:var(--dorado-texto);margin-left:1px}
+  .carta-nota{margin-top:22px;font-size:.84rem;font-style:italic;color:var(--dorado-texto)}
+  html[lang="pl"] .carta-cab .pl{display:none} /* en polaco el subtítulo repetiría el título */
   .temporada-cta{text-align:center;margin-top:44px}
   /* Toque navideño: estrella polaca y marco de tarjeta en dorado */
   .temporada-estrella{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;color:var(--dorado)}
@@ -1000,50 +1003,43 @@ if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.
     <svg class="carta-rama" viewBox="0 0 150 150" aria-hidden="true"><use href="#i-rama"/></svg>
     <div class="carta-grupo">
       <div class="carta-cab">
-        <h3 data-i18n="navGrp1">Tartas y babki</h3>
-        <span class="pl" lang="pl">Ciasta i babki</span>
+        <h3 data-i18n="navGrp1">Clásicos de Navidad</h3>
+        <span class="pl" lang="pl">Świąteczne klasyki</span>
       </div>
       <ul class="carta-lista">
         <li>
-          <div class="carta-fila"><span class="carta-nombre" lang="pl">Mazurek kajmakowy</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">35&nbsp;€</span></div>
-          <p class="carta-desc"><span data-i18n="navD1">Base de masa quebrada con crema de kajmak (dulce de leche).</span> <span class="carta-medida">20×29 cm</span></p>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Rolada makowa</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">35&nbsp;€<span class="carta-ast" aria-hidden="true">*</span></span></div>
+          <p class="carta-desc"><span data-i18n="navD1">Rollo brioche con semillas de amapola.</span> <span class="carta-medida">30 cm</span></p>
         </li>
         <li>
-          <div class="carta-fila"><span class="carta-nombre" lang="pl">Sernik baskijski</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">30&nbsp;€</span></div>
-          <p class="carta-desc"><span data-i18n="navD2">Tarta de queso al estilo vasco: cremosa por dentro y tostada por fuera.</span> <span class="carta-medida">Ø 21 cm</span></p>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Sernik baskijski</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">30&nbsp;€<span class="carta-ast" aria-hidden="true">*</span></span></div>
+          <p class="carta-desc"><span data-i18n="navD2">Tarta de queso vasca.</span> <span class="carta-medida">Ø 21 cm</span></p>
         </li>
         <li>
-          <div class="carta-fila"><span class="carta-nombre" lang="pl">Babka cytrynowa</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">30&nbsp;€</span></div>
-          <p class="carta-desc" data-i18n="navD3">Bizcocho polaco tierno con aroma de limón.</p>
-        </li>
-        <li>
-          <div class="carta-fila"><span class="carta-nombre" lang="pl">Babka piaskowa dwukolorowa</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">30&nbsp;€</span></div>
-          <p class="carta-desc" data-i18n="navD4">Bizcocho polaco de mantequilla, en dos colores.</p>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Piernik staropolski</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">20&nbsp;€ / 40&nbsp;€<span class="carta-ast" aria-hidden="true">*</span></span></div>
+          <p class="carta-desc"><span data-i18n="navD3">Gingerbread polaco.</span> <span class="carta-medida">14 cm / 28 cm</span></p>
         </li>
       </ul>
+      <p class="carta-nota" data-i18n="navLim">* Unidades limitadas</p>
     </div>
 
     <div class="carta-grupo">
       <div class="carta-cab">
-        <h3 data-i18n="navGrp2">Bandejas grandes</h3>
-        <span class="pl" lang="pl">Ciasta z blaszki · 24×36 cm</span>
+        <h3 data-i18n="navGrp2">Tartas para compartir</h3>
+        <span class="pl" lang="pl">Ciasta na wspólny stół</span>
       </div>
       <ul class="carta-lista">
         <li>
-          <div class="carta-fila"><span class="carta-nombre" lang="pl">Orzechowiec</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">55&nbsp;€</span></div>
-          <p class="carta-desc" data-i18n="navD5">Pastel de nueces.</p>
-        </li>
-        <li>
-          <div class="carta-fila"><span class="carta-nombre" lang="pl">Jabłecznik z kruszonką</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">55&nbsp;€</span></div>
-          <p class="carta-desc" data-i18n="navD6">Pastel de manzana con crumble crujiente por encima.</p>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Orzechowiec</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">60&nbsp;€</span></div>
+          <p class="carta-desc"><span data-i18n="navD4">Tarta de nueces caramelizadas.</span> <span class="carta-medida">24×35 cm</span></p>
         </li>
         <li>
           <div class="carta-fila"><span class="carta-nombre" lang="pl">Sernik krakowski</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">60&nbsp;€</span></div>
-          <p class="carta-desc" data-i18n="navD7">La tarta de queso tradicional de Cracovia.</p>
+          <p class="carta-desc"><span data-i18n="navD5">Tarta de queso estilo Cracovia.</span> <span class="carta-medida">24×35 cm</span></p>
         </li>
         <li>
-          <div class="carta-fila"><span class="carta-nombre" lang="pl">Sernik z musem owocowym</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">60&nbsp;€</span></div>
-          <p class="carta-desc" data-i18n="navD8">Tarta de queso con una capa de mousse de fruta.</p>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Biszkopt czekoladowy z musem czekoladowym</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio"><span data-i18n="navDesde">desde</span>&nbsp;18&nbsp;€</span></div>
+          <p class="carta-desc"><span data-i18n="navD6">Bizcocho de chocolate con mousse de chocolate.</span> <span class="carta-medida" data-i18n="navM6">4 porciones</span></p>
         </li>
       </ul>
     </div>
@@ -1569,15 +1565,14 @@ const I = {
     navEye:"Navidad 2026",navTitle:"Navidad polaca, horneada en Les Corts",
     navIntro:"Este año, tu mesa de Navidad también puede saber a Polonia. Elige tus dulces y encárgalos con al menos dos semanas de antelación.",
     navInfo1:"Encargos con 2 semanas de antelación",navInfo2:"Últimas entregas: 24 de diciembre, hasta las 14:00",
-    navGrp1:"Tartas y babki",navGrp2:"Bandejas grandes",
-    navD1:"Base de masa quebrada con crema de kajmak (dulce de leche).",
-    navD2:"Tarta de queso al estilo vasco: cremosa por dentro y tostada por fuera.",
-    navD3:"Bizcocho polaco tierno con aroma de limón.",
-    navD4:"Bizcocho polaco de mantequilla, en dos colores.",
-    navD5:"Pastel de nueces.",
-    navD6:"Pastel de manzana con crumble crujiente por encima.",
-    navD7:"La tarta de queso tradicional de Cracovia.",
-    navD8:"Tarta de queso con una capa de mousse de fruta.",
+    navGrp1:"Clásicos de Navidad",navGrp2:"Tartas para compartir",
+    navD1:"Rollo brioche con semillas de amapola.",
+    navD2:"Tarta de queso vasca.",
+    navD3:"Gingerbread polaco.",
+    navD4:"Tarta de nueces caramelizadas.",
+    navD5:"Tarta de queso estilo Cracovia.",
+    navD6:"Bizcocho de chocolate con mousse de chocolate.",
+    navM6:"4 porciones",navLim:"* Unidades limitadas",navDesde:"desde",
     navCta:"Encarga tu Navidad",navClosed:"Los encargos de Navidad ya están cerrados. ¡Gracias!",
     fTypeNav:"Pedido de Navidad",
     fDateNav:"Los pedidos de Navidad se encargan con 2 semanas de antelación. Última entrega: 24 de diciembre, hasta las 14:00.",
@@ -1647,15 +1642,14 @@ const I = {
     navEye:"Nadal 2026",navTitle:"Nadal polonès, enfornat a Les Corts",
     navIntro:"Aquest any, la teva taula de Nadal també pot tenir gust de Polònia. Tria els teus dolços i encarrega'ls amb almenys dues setmanes d'antelació.",
     navInfo1:"Encàrrecs amb 2 setmanes d'antelació",navInfo2:"Últimes entregues: 24 de desembre, fins a les 14:00",
-    navGrp1:"Pastissos i babki",navGrp2:"Safates grans",
-    navD1:"Base de pasta trencada amb crema de kajmak (dolç de llet).",
-    navD2:"Pastís de formatge a l'estil basc: cremós per dins i torrat per fora.",
-    navD3:"Pa de pessic polonès tendre amb aroma de llimona.",
-    navD4:"Pa de pessic polonès de mantega, en dos colors.",
-    navD5:"Pastís de nous.",
-    navD6:"Pastís de poma amb crumble cruixent per sobre.",
-    navD7:"El pastís de formatge tradicional de Cracòvia.",
-    navD8:"Pastís de formatge amb una capa de mousse de fruita.",
+    navGrp1:"Clàssics de Nadal",navGrp2:"Pastissos per compartir",
+    navD1:"Rotlle de brioix amb llavors de rosella.",
+    navD2:"Pastís de formatge basc.",
+    navD3:"Pa d'espècies polonès (gingerbread).",
+    navD4:"Pastís de nous caramel·litzades.",
+    navD5:"Pastís de formatge estil Cracòvia.",
+    navD6:"Pa de pessic de xocolata amb mousse de xocolata.",
+    navM6:"4 porcions",navLim:"* Unitats limitades",navDesde:"des de",
     navCta:"Encarrega el teu Nadal",navClosed:"Els encàrrecs de Nadal ja estan tancats. Gràcies!",
     fTypeNav:"Comanda de Nadal",
     fDateNav:"Les comandes de Nadal es fan amb 2 setmanes d'antelació. Última entrega: 24 de desembre, fins a les 14:00.",
@@ -1725,15 +1719,14 @@ const I = {
     navEye:"Christmas 2026",navTitle:"A Polish Christmas, baked in Les Corts",
     navIntro:"This year, your Christmas table can taste of Poland too. Choose your treats and order them at least two weeks in advance.",
     navInfo1:"Order 2 weeks in advance",navInfo2:"Last pick-ups: 24 December, by 2 pm",
-    navGrp1:"Cakes & babkas",navGrp2:"Large trays",
-    navD1:"Shortcrust base topped with kajmak (dulce de leche) cream.",
-    navD2:"Basque-style cheesecake: creamy inside, toasted on top.",
-    navD3:"Soft Polish bundt cake with a lemon aroma.",
-    navD4:"Polish butter sponge cake, in two colours.",
-    navD5:"Nut cake.",
-    navD6:"Apple cake with a crunchy crumble topping.",
-    navD7:"The traditional Kraków cheesecake.",
-    navD8:"Cheesecake with a layer of fruit mousse.",
+    navGrp1:"Christmas classics",navGrp2:"Cakes to share",
+    navD1:"Brioche roll with poppy seeds.",
+    navD2:"Basque cheesecake.",
+    navD3:"Polish gingerbread.",
+    navD4:"Caramelised nut cake.",
+    navD5:"Kraków-style cheesecake.",
+    navD6:"Chocolate sponge with chocolate mousse.",
+    navM6:"4 servings",navLim:"* Limited quantities",navDesde:"from",
     navCta:"Order for Christmas",navClosed:"Christmas orders are now closed. Thank you!",
     fTypeNav:"Christmas order",
     fDateNav:"Christmas orders need 2 weeks' notice. Last pick-up: 24 December, by 2 pm.",
@@ -1803,15 +1796,14 @@ const I = {
     navEye:"Święta 2026",navTitle:"Smak polskich Świąt w Les Corts",
     navIntro:"W tym roku Twój świąteczny stół może smakować jak w Polsce. Wybierz wypieki i zamów je z co najmniej dwutygodniowym wyprzedzeniem.",
     navInfo1:"Zamówienia z 2-tygodniowym wyprzedzeniem",navInfo2:"Ostatnie odbiory: 24 grudnia, do 14:00",
-    navGrp1:"Ciasta i babki",navGrp2:"Ciasta z blaszki",
-    navD1:"Kruche ciasto z masą kajmakową.",
-    navD2:"Kremowy w środku, z przypieczonym wierzchem.",
-    navD3:"Puszysta babka o cytrynowym aromacie.",
-    navD4:"Klasyczna babka piaskowa w dwóch kolorach.",
-    navD5:"Ciasto orzechowe.",
-    navD6:"Ciasto z jabłkami pod chrupiącą kruszonką.",
-    navD7:"Tradycyjny sernik krakowski.",
-    navD8:"Sernik z warstwą musu owocowego.",
+    navGrp1:"Świąteczne klasyki",navGrp2:"Ciasta na wspólny stół",
+    navD1:"Drożdżowa rolada z makiem.",
+    navD2:"Sernik po baskijsku.",
+    navD3:"Piernik według staropolskiej receptury.",
+    navD4:"Ciasto z karmelizowanymi orzechami.",
+    navD5:"Sernik w stylu krakowskim.",
+    navD6:"Biszkopt czekoladowy przełożony musem czekoladowym.",
+    navM6:"4 porcje",navLim:"* Ilość ograniczona",navDesde:"od",
     navCta:"Zamów na Święta",navClosed:"Zamówienia świąteczne są już zamknięte. Dziękuję!",
     fTypeNav:"Zamówienie świąteczne",
     fDateNav:"Zamówienia świąteczne przyjmujemy z 2-tygodniowym wyprzedzeniem. Ostatni odbiór: 24 grudnia, do 14:00.",
