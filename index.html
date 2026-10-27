@@ -303,6 +303,9 @@
   input:focus,textarea:focus{outline:none;border-color:var(--amapola)}
   textarea{min-height:110px;resize:vertical}
   form .btn{border:none;cursor:pointer;justify-self:start;font-family:'Karla',sans-serif}
+  .consent{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:var(--chocolate-suave);line-height:1.5;cursor:pointer}
+  .consent input{width:18px;height:18px;min-height:0;flex:0 0 18px;margin-top:2px;padding:0;accent-color:var(--amapola);cursor:pointer}
+  .consent a{color:var(--amapola);font-weight:600;text-decoration:underline}
   .form-empresas{
     font-size:.92rem;color:var(--chocolate-suave);
     background:var(--crema);border:1px solid rgba(46,32,24,.1);
@@ -319,6 +322,8 @@
   footer .brand{color:var(--crema);font-size:1.1rem}
   footer .brand em{color:var(--dorado)} /* "by" en dorado: el amapola sobre chocolate no tenía contraste suficiente */
   footer a{color:var(--dorado)}
+  .footer-legal{margin-top:4px}
+  .footer-legal a{border-bottom:1px solid rgba(201,154,91,.4)}
 
   /* ---------- Selector de fecha ---------- */
   select{
@@ -1465,6 +1470,10 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
 
         <label class="sr-only" for="fMensaje" data-i18n="fMsg">Cuéntame qué dulce deseas y para cuándo*</label>
         <textarea name="mensaje" id="fMensaje" data-i18n-ph="fMsg" placeholder="Cuéntame qué dulce deseas y para cuándo*" required></textarea>
+        <label class="consent">
+          <input type="checkbox" name="privacidad" value="Acepta la política de privacidad" required>
+          <span data-i18n="fConsent">He leído y acepto la <a href="legal.html#privacidad" target="_blank" rel="noopener">política de privacidad</a>.*</span>
+        </label>
         <button class="btn" type="submit" data-i18n="fBtn">Enviar encargo</button>
         <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
       </form>
@@ -1499,7 +1508,10 @@ if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad'
   <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:30%;top:30%;width:8px;height:8px;animation-delay:0.5s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:42%;top:64%;width:6px;height:6px;animation-delay:1.8s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:58%;top:26%;width:9px;height:9px;animation-delay:2.6s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:70%;top:70%;width:7px;height:7px;animation-delay:1.1s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span></div>
   <div class="footer-inner">
     <div class="brand">delicias <em>by</em> bea</div>
-    <div data-i18n="foot">©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona</div>
+    <div>
+      <div data-i18n="foot">©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona</div>
+      <div class="footer-legal"><a href="legal.html" data-i18n="footLegal">Aviso legal y privacidad</a></div>
+    </div>
   </div>
 </footer>
 
@@ -1555,7 +1567,7 @@ const I = {
     gpSurtida:"Una selección de nuestros dulces para llevar o regalar.",
     gpTemporada:"Especialidades del calendario, como la coca de Sant Joan. Pregunta por las de cada época.",
     cTitle:"Horario y encargos",d1:"Lunes",d2:"Martes",d3:"Miércoles",d4:"Jueves",d5:"Viernes",d6:"Sábado",d7:"Domingo",closed:"Cerrado",tel:"Teléfono:",addrLbl:"Dirección:",gMaps:"Cómo llegar (Google Maps) →",
-    fTitle:"¿Quieres un pedido?",fName:"Nombre*",fPhone:"Teléfono",fMsg:"Cuéntame qué dulce deseas y para cuándo*",fBtn:"Enviar encargo",
+    fTitle:"¿Quieres un pedido?",fName:"Nombre*",fPhone:"Teléfono",fMsg:"Cuéntame qué dulce deseas y para cuándo*",fBtn:"Enviar encargo",fConsent:"He leído y acepto la <a href=\"legal.html#privacidad\" target=\"_blank\" rel=\"noopener\">política de privacidad</a>.*",
     fTypeDef:"¿Qué tipo de encargo?*",fTypeCustom:"Tarta personalizada (boda, cumpleaños…)",fTypeOther:"Repostería tradicional / de vitrina",fTypeBiz:"Empresas / eventos",fEmpresas:"¿Eres una empresa? También preparo encargos para eventos, reuniones y celebraciones de empresa. Cuéntamelo y lo organizamos.",
     fDateLbl:"Fecha deseada de recogida*",fDateHelp:"Elige primero el tipo de encargo.",
     fDate7:"Las tartas personalizadas se piden con 1 semana de antelación mínima.",
@@ -1593,7 +1605,7 @@ const I = {
     algNota:"¿Tienes alguna necesidad específica? <a href=\"#contacto\">Escríbeme</a> y lo vemos.",
     nlTitle:"Novedades del obrador",nlSub:"Apúntate y recibe primero las especialidades de temporada, los dulces de fiesta polaca y cualquier novedad de Delicias by Bea.",
     nlPh:"Tu correo electrónico",nlBtn:"Apuntarme",nlPriv:"Respeto tu privacidad. Sin spam, solo dulces novedades.",nlOk:"¡Gracias! Te avisaré de las próximas novedades.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",footLegal:"Aviso legal y privacidad",
     waMsg:"Hola Bea, me gustaría hacer un encargo.",waLbl:"Escribir por WhatsApp",revLink:"Reseñas de clientes en Google"},
   ca:{nav0:"Inici",nav1:"L'obrador",nav2:"Qui sóc",nav3:"Galeria",nav4:"Encàrrecs",
     eyebrow:"Obrador artesanal · Les Corts, Barcelona",
@@ -1632,7 +1644,7 @@ const I = {
     gpSurtida:"Una selecció dels nostres dolços per emportar o regalar.",
     gpTemporada:"Especialitats del calendari, com la coca de Sant Joan. Pregunta per les de cada època.",
     cTitle:"Horari i encàrrecs",d1:"Dilluns",d2:"Dimarts",d3:"Dimecres",d4:"Dijous",d5:"Divendres",d6:"Dissabte",d7:"Diumenge",closed:"Tancat",tel:"Telèfon:",addrLbl:"Adreça:",gMaps:"Com arribar-hi (Google Maps) →",
-    fTitle:"Vols fer una comanda?",fName:"Nom*",fPhone:"Telèfon",fMsg:"Explica'm quin dolç desitges i per a quan*",fBtn:"Envia l'encàrrec",
+    fTitle:"Vols fer una comanda?",fName:"Nom*",fPhone:"Telèfon",fMsg:"Explica'm quin dolç desitges i per a quan*",fBtn:"Envia l'encàrrec",fConsent:"He llegit i accepto la <a href=\"legal.html#privacidad\" target=\"_blank\" rel=\"noopener\">política de privacitat</a>.*",
     fTypeDef:"Quin tipus d'encàrrec?*",fTypeCustom:"Pastís personalitzat (casament, aniversari…)",fTypeOther:"Pastisseria tradicional / de vitrina",fTypeBiz:"Empreses / esdeveniments",fEmpresas:"Ets una empresa? També preparo encàrrecs per a esdeveniments, reunions i celebracions d'empresa. Explica'm i ho organitzem.",
     fDateLbl:"Data desitjada de recollida*",fDateHelp:"Tria primer el tipus d'encàrrec.",
     fDate7:"Els pastissos personalitzats es demanen amb 1 setmana d'antelació mínima.",
@@ -1670,7 +1682,7 @@ const I = {
     algNota:"Tens alguna necessitat específica? <a href=\"#contacto\">Escriu-me</a> i ho veiem.",
     nlTitle:"Novetats de l'obrador",nlSub:"Apunta't i rep primer les especialitats de temporada, els dolços de festa polonesa i qualsevol novetat de Delicias by Bea.",
     nlPh:"El teu correu electrònic",nlBtn:"Apuntar-m'hi",nlPriv:"Respecto la teva privacitat. Sense spam, només dolces novetats.",nlOk:"Gràcies! T'avisaré de les pròximes novetats.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",footLegal:"Avís legal i privacitat",
     waMsg:"Hola Bea, m'agradaria fer un encàrrec.",waLbl:"Escriure per WhatsApp",revLink:"Ressenyes de clients a Google"},
   en:{nav0:"Home",nav1:"The bakery",nav2:"About me",nav3:"Gallery",nav4:"Orders",
     eyebrow:"Artisan pâtisserie · Les Corts, Barcelona",
@@ -1709,7 +1721,7 @@ const I = {
     gpSurtida:"A selection of our treats to take away or gift.",
     gpTemporada:"Calendar specialities, like the Sant Joan coca. Ask for each season's.",
     cTitle:"Hours & orders",d1:"Monday",d2:"Tuesday",d3:"Wednesday",d4:"Thursday",d5:"Friday",d6:"Saturday",d7:"Sunday",closed:"Closed",tel:"Phone:",addrLbl:"Address:",gMaps:"Get directions (Google Maps) →",
-    fTitle:"Want to place an order?",fName:"Name*",fPhone:"Phone",fMsg:"Tell me what sweet you wish for and when*",fBtn:"Send order",
+    fTitle:"Want to place an order?",fName:"Name*",fPhone:"Phone",fMsg:"Tell me what sweet you wish for and when*",fBtn:"Send order",fConsent:"I have read and accept the <a href=\"legal.html#privacidad\" target=\"_blank\" rel=\"noopener\">privacy policy</a>.*",
     fTypeDef:"What kind of order?*",fTypeCustom:"Custom cake (wedding, birthday…)",fTypeOther:"Traditional / counter pastry",fTypeBiz:"Companies / events",fEmpresas:"Are you a company? I also prepare orders for events, meetings and corporate celebrations. Tell me about it and we'll organise it.",
     fDateLbl:"Preferred pickup date*",fDateHelp:"Choose the type of order first.",
     fDate7:"Custom cakes must be ordered at least 1 week in advance.",
@@ -1747,7 +1759,7 @@ const I = {
     algNota:"Have a specific requirement? <a href=\"#contacto\">Get in touch</a> and we'll sort it out.",
     nlTitle:"News from the bakery",nlSub:"Sign up to be the first to hear about seasonal specials, Polish holiday treats and any news from Delicias by Bea.",
     nlPh:"Your email address",nlBtn:"Sign me up",nlPriv:"I respect your privacy. No spam, just sweet news.",nlOk:"Thank you! I'll let you know about what's next.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",footLegal:"Legal notice & privacy",
     waMsg:"Hi Bea, I'd like to place an order.",waLbl:"Message on WhatsApp",revLink:"Customer reviews on Google"},
   pl:{nav0:"Start",nav1:"Pracownia",nav2:"O mnie",nav3:"Galeria",nav4:"Zamówienia",
     eyebrow:"Rzemieślnicza pracownia · Les Corts, Barcelona",
@@ -1786,7 +1798,7 @@ const I = {
     gpSurtida:"Wybór naszych słodkości na wynos lub na prezent.",
     gpTemporada:"Specjały z kalendarza, jak coca de Sant Joan. Zapytaj o sezonowe.",
     cTitle:"Godziny i zamówienia",d1:"Poniedziałek",d2:"Wtorek",d3:"Środa",d4:"Czwartek",d5:"Piątek",d6:"Sobota",d7:"Niedziela",closed:"Zamknięte",tel:"Telefon:",addrLbl:"Adres:",gMaps:"Jak dojechać (Google Maps) →",
-    fTitle:"Chcesz złożyć zamówienie?",fName:"Imię*",fPhone:"Telefon",fMsg:"Napisz, o jakim wypieku marzysz i na kiedy*",fBtn:"Wyślij zamówienie",
+    fTitle:"Chcesz złożyć zamówienie?",fName:"Imię*",fPhone:"Telefon",fMsg:"Napisz, o jakim wypieku marzysz i na kiedy*",fBtn:"Wyślij zamówienie",fConsent:"Przeczytałem/am i akceptuję <a href=\"legal.html#privacidad\" target=\"_blank\" rel=\"noopener\">politykę prywatności</a>.*",
     fTypeDef:"Jaki rodzaj zamówienia?*",fTypeCustom:"Tort personalizowany (ślub, urodziny…)",fTypeOther:"Tradycyjne wypieki / z witryny",fTypeBiz:"Firmy / wydarzenia",fEmpresas:"Reprezentujesz firmę? Przygotowuję też zamówienia na wydarzenia, spotkania i uroczystości firmowe. Napisz, a wszystko zorganizujemy.",
     fDateLbl:"Preferowana data odbioru*",fDateHelp:"Najpierw wybierz rodzaj zamówienia.",
     fDate7:"Torty personalizowane zamawiamy z min. tygodniowym wyprzedzeniem.",
@@ -1824,7 +1836,7 @@ const I = {
     algNota:"Masz szczególne wymagania? <a href=\"#contacto\">Napisz do mnie</a>, a coś wymyślimy.",
     nlTitle:"Nowości z pracowni",nlSub:"Zapisz się i jako pierwszy poznawaj sezonowe specjały, polskie świąteczne wypieki i wszystkie nowości Delicias by Bea.",
     nlPh:"Twój adres e-mail",nlBtn:"Zapisz mnie",nlPriv:"Szanuję Twoją prywatność. Bez spamu, tylko słodkie nowości.",nlOk:"Dziękuję! Dam znać o kolejnych nowościach.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",footLegal:"Nota prawna i prywatność",
     waMsg:"Cześć Bea, chcę złożyć zamówienie.",waLbl:"Napisz na WhatsApp",revLink:"Opinie klientów w Google"}
 };
 let lang='es';
@@ -2001,6 +2013,7 @@ function ajustarFechaMin(){
   if(tipo==='navidad') campo.max=TEMPORADA.ultimaFecha; else campo.removeAttribute('max');
   if(!dias){campo.removeAttribute('min');txt.textContent=t('fDateHelp');return;}
   const min=new Date();min.setDate(min.getDate()+dias);
+  if(min.getDay()===3) min.setDate(min.getDate()+1); // miércoles cerrado: el primer día posible pasa al jueves
   campo.min=fechaISO(min);
   if(campo.value && (campo.value < campo.min || (campo.max && campo.value > campo.max))) campo.value='';
   txt.textContent = tipo==='navidad' ? t('fDateNav') : dias===7 ? t('fDate7') : t('fDate2');
