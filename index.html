@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Delicias by Bea — Pastelería polaca artesanal en Les Corts, Barcelona</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600&display=swap"></noscript>
+<!-- Fuentes alojadas en la propia web (fonts/): sin conexiones a Google y con precarga -->
+<link rel="preload" href="fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/karla-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- ===== SEO ===== -->
 <meta name="description" content="Obrador artesanal de pastelería polaca en Les Corts, Barcelona. Drożdżówki, sernik, szarlotka y tartas de celebración por encargo, horneadas cada mañana por Bea Michalak.">
@@ -22,6 +21,8 @@
 <meta property="og:description" content="Tradición polaca y pastelería de hoy en Les Corts: drożdżówki, sernik, szarlotka y tartas de celebración por encargo.">
 <meta property="og:url" content="https://deliciasbybea.com/">
 <meta property="og:image" content="https://deliciasbybea.com/images/bea-obrador.jpg">
+<meta property="og:image:width" content="520">
+<meta property="og:image:height" content="698">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -55,6 +56,15 @@
 }
 </script>
 <style>
+  /* ---------- Fuentes (Fraunces variable con tamaño óptico + Karla). Licencia OFL en fonts/ ---------- */
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-ext-opsz-normal.woff2) format('woff2');unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+  @font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-ext-opsz-italic.woff2) format('woff2');unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+  @font-face{font-family:'Karla';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/karla-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Karla';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/karla-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+  @font-face{font-family:'Karla';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/karla-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Karla';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/karla-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
   :root{
     --crema:#FBF6EE;
     --crema-tostada:#F2E8D8;
@@ -65,6 +75,7 @@
     --dorado-texto:#8A6329; /* dorado oscuro para texto sobre fondos claros (contraste AA) */
   }
   *{margin:0;padding:0;box-sizing:border-box}
+  [hidden]{display:none !important}
   html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:72px}
   body{
     background:var(--crema);
@@ -76,7 +87,7 @@
     overflow-x:hidden;
     max-width:100vw;
   }
-  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:400}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
 
@@ -141,8 +152,6 @@
     letter-spacing:.03em;transition:background .25s, transform .25s;
   }
   .btn:hover{background:var(--amapola);transform:translateY(-2px)}
-  .btn.ghost{background:transparent;color:var(--chocolate);border:1.5px solid var(--chocolate)}
-  .btn.ghost:hover{background:var(--chocolate);color:var(--crema)}
   .hero-img{position:relative}
   .hero-img img{
     width:84%;margin:0 auto;aspect-ratio:4/5;object-fit:cover;object-position:top;
@@ -185,10 +194,6 @@
     font-size:1.6rem;margin-bottom:6px;
   }
   .col .sub{font-style:italic;font-family:'Fraunces',serif;color:var(--amapola);margin-bottom:28px;display:block}
-  .item{padding:18px 0;border-bottom:1px solid rgba(46,32,24,.1)}
-  .item:last-child{border-bottom:none}
-  .item h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.12rem;margin-bottom:3px}
-  .item p{font-size:.92rem;color:var(--chocolate-suave)}
   .trad-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:8px}
   .dulce-card{display:flex;flex-direction:column}
   .dulce-foto{
@@ -200,13 +205,6 @@
     transition:transform .5s ease;
   }
   .dulce-foto img:hover{transform:scale(1.04)}
-  .dulce-ph{
-    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-    text-align:center;padding:16px;
-    border:1.5px dashed rgba(46,32,24,.22);border-radius:14px;
-    font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;
-    color:var(--chocolate-suave);
-  }
   .dulce-card figcaption{padding:14px 2px 0}
   .dulce-card h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.18rem;margin-bottom:4px}
   .dulce-card figcaption p{font-size:.92rem;color:var(--chocolate-suave);line-height:1.5;min-height:3em}
@@ -273,22 +271,12 @@
     width:100%;height:100%;object-fit:cover;
     transition:transform .7s ease, opacity .4s ease;cursor:zoom-in;
   }
-  .producto-foto img.hover{position:absolute;inset:0;opacity:0}
-  .producto:hover .producto-foto img.base{opacity:0}
-  .producto:hover .producto-foto img.hover{opacity:1}
   .producto:hover .producto-foto img{transform:scale(1.04)}
-  .producto-foto .ph{
-    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-    text-align:center;padding:16px;color:var(--chocolate-suave);
-    font-family:'Fraunces',serif;font-style:italic;font-size:.92rem;
-    border:1.5px dashed rgba(46,32,24,.25);
-  }
   .producto-nombre{font-family:'Fraunces',serif;font-size:1.18rem;margin:18px 0 4px;letter-spacing:.01em}
   .producto-precio{
     font-size:.92rem;font-weight:600;letter-spacing:.05em;
     color:var(--amapola);margin-bottom:8px;
   }
-  .producto-precio span{font-weight:400;color:var(--chocolate-suave);font-size:.82rem;letter-spacing:.02em}
   .producto-desc{font-size:.93rem;color:var(--chocolate-suave);line-height:1.55}
 
   /* ---------- Horario + Contacto ---------- */
@@ -315,6 +303,9 @@
   input:focus,textarea:focus{outline:none;border-color:var(--amapola)}
   textarea{min-height:110px;resize:vertical}
   form .btn{border:none;cursor:pointer;justify-self:start;font-family:'Karla',sans-serif}
+  .consent{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:var(--chocolate-suave);line-height:1.5;cursor:pointer}
+  .consent input{width:18px;height:18px;min-height:0;flex:0 0 18px;margin-top:2px;padding:0;accent-color:var(--amapola);cursor:pointer}
+  .consent a{color:var(--amapola);font-weight:600;text-decoration:underline}
   .form-empresas{
     font-size:.92rem;color:var(--chocolate-suave);
     background:var(--crema);border:1px solid rgba(46,32,24,.1);
@@ -329,7 +320,10 @@
     font-size:.88rem;
   }
   footer .brand{color:var(--crema);font-size:1.1rem}
+  footer .brand em{color:var(--dorado)} /* "by" en dorado: el amapola sobre chocolate no tenía contraste suficiente */
   footer a{color:var(--dorado)}
+  .footer-legal{margin-top:4px}
+  .footer-legal a{border-bottom:1px solid rgba(201,154,91,.4)}
 
   /* ---------- Selector de fecha ---------- */
   select{
@@ -376,7 +370,6 @@
     border:1px solid rgba(46,32,24,.06);
   }
   .ing-card h3{font-size:1.25rem;margin-bottom:10px}
-  .ing-card h3 .mark{color:var(--amapola);font-style:italic}
   .ing-card p{font-size:.96rem;color:var(--chocolate-suave)}
 
   /* ---------- Por qué con antelación ---------- */
@@ -417,6 +410,79 @@
     margin-top:32px;font-size:.95rem;color:var(--chocolate-suave);font-style:italic;
   }
   .alergias-nota a{color:var(--amapola);font-weight:600;font-style:normal}
+
+  /* ---------- Oferta de temporada (Navidad) ---------- */
+  /* Sección reutilizable: para Pascua, Sant Joan, etc. solo cambian textos, carta y fechas (TEMPORADA en el script). */
+  .temporada{max-width:1200px;margin:0 auto;padding:96px 24px}
+  .temporada-head{text-align:center;max-width:62ch;margin:0 auto 72px}
+  .temporada-head .eyebrow{
+    font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--amapola);font-weight:600;margin-bottom:6px;
+  }
+  .temporada-head .sub{
+    display:block;font-family:'Fraunces',serif;font-style:italic;
+    color:var(--dorado-texto);margin-bottom:14px;
+  }
+  .temporada-head h2{font-size:clamp(1.9rem,3.5vw,2.7rem);line-height:1.15}
+  .temporada-intro{font-size:1.05rem;color:var(--chocolate-suave);max-width:56ch;margin:18px auto 0}
+  .temporada-info{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px}
+  .temporada-info span{
+    font-size:.88rem;font-weight:600;color:var(--chocolate);
+    background:var(--crema-tostada);border:1px solid rgba(201,154,91,.45);
+    border-radius:999px;padding:8px 16px;
+  }
+  .carta{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;
+    background:var(--crema-tostada);border:1px solid rgba(46,32,24,.06);
+    border-radius:16px;padding:48px 52px;
+  }
+  .carta-lista{list-style:none;display:grid;gap:22px}
+  .carta-fila{display:flex;align-items:baseline;gap:10px}
+  .carta-nombre{font-family:'Fraunces',serif;font-weight:500;font-size:1.14rem;line-height:1.3}
+  .carta-puntos{flex:1;min-width:16px;border-bottom:1.5px dotted rgba(46,32,24,.3);transform:translateY(-4px)}
+  .carta-precio{font-weight:600;color:var(--amapola);letter-spacing:.04em;white-space:nowrap}
+  .carta-desc{font-size:.92rem;color:var(--chocolate-suave);line-height:1.5;margin-top:3px}
+  .carta-medida{color:var(--dorado-texto);font-weight:600;font-size:.82rem;white-space:nowrap;margin-left:4px}
+  .carta-bandeja{margin-top:4px;font-size:.84rem;font-style:italic;color:var(--dorado-texto);line-height:1.45}
+  html[lang="pl"] .carta-desc [data-i18n^="navD"]{display:none} /* en polaco el nombre ya describe el postre */
+  html[lang="pl"] .carta-desc .carta-medida{margin-left:0}
+  .carta-ast{color:var(--dorado-texto);margin-left:1px}
+  .carta-nota{grid-column:1/-1;margin:-26px 0 0;font-size:.84rem;font-style:italic;color:var(--dorado-texto)}
+  .temporada-cta{text-align:center;margin-top:44px}
+  /* Toque navideño: estrella polaca y marco de tarjeta en dorado */
+  .temporada-estrella{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;color:var(--dorado)}
+  .temporada-estrella .linea{width:56px;height:1px;background:linear-gradient(to right,transparent,var(--dorado))}
+  .temporada-estrella .linea:last-child{background:linear-gradient(to left,transparent,var(--dorado))}
+  .temporada-estrella svg{width:30px;height:30px;animation:destello 5s ease-in-out infinite}
+  @keyframes destello{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+  .carta{position:relative}
+  .carta::before{
+    content:'';position:absolute;inset:10px;pointer-events:none;
+    border:1px solid rgba(201,154,91,.45);border-radius:10px;
+  }
+  .carta::after{
+    content:'';position:absolute;inset:3px;pointer-events:none;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='%23C99A5B'%3E%3Cpath d='M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z'/%3E%3Cpath d='M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z' transform='rotate(45 10 10)' opacity='.55'/%3E%3C/g%3E%3C/svg%3E") no-repeat left top/14px,
+               url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='%23C99A5B'%3E%3Cpath d='M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z'/%3E%3Cpath d='M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z' transform='rotate(45 10 10)' opacity='.55'/%3E%3C/g%3E%3C/svg%3E") no-repeat right top/14px,
+               url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='%23C99A5B'%3E%3Cpath d='M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z'/%3E%3Cpath d='M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z' transform='rotate(45 10 10)' opacity='.55'/%3E%3C/g%3E%3C/svg%3E") no-repeat left bottom/14px,
+               url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='%23C99A5B'%3E%3Cpath d='M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z'/%3E%3Cpath d='M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z' transform='rotate(45 10 10)' opacity='.55'/%3E%3C/g%3E%3C/svg%3E") no-repeat right bottom/14px;
+  }
+  @media (prefers-reduced-motion: reduce){.temporada-estrella svg{animation:none}}
+  /* Navidad II: cielo estrellado, ramita de abeto, sello y estrellas-icono */
+  .temporada{position:relative}
+  .temporada > *:not(.temporada-cielo){position:relative;z-index:1}
+  .temporada-cielo{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .temporada-cielo span{position:absolute;color:var(--dorado);opacity:.35;animation:titilar 4.5s ease-in-out infinite}
+  .temporada-cielo svg{width:100%;height:100%;display:block}
+  @keyframes titilar{0%,100%{opacity:.3;transform:scale(.85)}50%{opacity:.8;transform:scale(1)}}
+  .carta-rama{position:absolute;left:-40px;top:-70px;width:176px;height:176px;z-index:2;pointer-events:none;transform:rotate(-6deg)}
+  .temporada-info span::before{content:'\2726';color:var(--dorado);margin-right:8px;font-size:.9em}
+  @media(max-width:900px){
+    .carta-nota{margin-top:6px}
+    .carta-rama{left:-16px;top:-62px;width:128px;height:128px}
+  }
+  @media (prefers-reduced-motion: reduce){.temporada-cielo span{animation:none}}
+  .temporada-cerrado{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--amapola)}
 
   /* ---------- Newsletter (footer) ---------- */
   .newsletter{background:#241813;border-top:1px solid rgba(201,154,91,.18)}
@@ -526,6 +592,30 @@
     .cinematica-img{animation:none;transform:scale(1.0)!important}
   }
 
+
+  /* ---------- Decoración navideña de toda la web (solo con <html class="navidad">) ---------- */
+  .deco-navidad{display:none}
+  .navidad .deco-navidad{display:block}
+  .hero,.sobre,footer{position:relative}
+  .hero > *:not(.deco-cielo),.sobre-inner,.footer-inner{position:relative;z-index:1}
+  .deco-cielo{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .deco-cielo span{position:absolute;color:var(--dorado);opacity:.35;animation:titilar 4.5s ease-in-out infinite}
+  .deco-cielo svg{width:100%;height:100%;display:block}
+  .hero-rama{position:absolute;right:2%;top:-34px;width:150px;height:150px;z-index:2;pointer-events:none;transform:scaleX(-1) rotate(-8deg)}
+  .navidad .brand em::after{content:'\2726';font-style:normal;font-size:.5em;color:var(--dorado);margin-left:1px;vertical-align:.9em}
+  @media(max-width:900px){.hero-rama{right:4%;top:-30px;width:112px;height:112px}}
+  @media (prefers-reduced-motion: reduce){.deco-cielo span{animation:none}}
+  /* Adornos colgando de la cabecera (Navidad): corazón de piernik y estrella */
+  .header-inner{position:relative}
+  .header-deco{position:absolute;left:204px;top:100%;height:0;pointer-events:none;z-index:40}
+  .colgante{position:absolute;top:0;transform-origin:top center;animation:balanceo 6s ease-in-out infinite;overflow:visible}
+  .colgante-corazon{left:0;width:26px;height:49px}
+  .colgante-estrella{left:30px;width:15px;height:50px;animation-delay:-2.5s;animation-duration:7s}
+  @keyframes balanceo{0%,100%{transform:rotate(3deg)}50%{transform:rotate(-3deg)}}
+  .header-inner:has(nav.main.open) .header-deco{display:none}
+  @media(max-width:900px){.header-deco{left:118px}.colgante-corazon{width:20px;height:38px}.colgante-estrella{left:24px;width:12px;height:40px}}
+  @media(max-width:380px){.header-deco{left:100px}}
+  @media (prefers-reduced-motion: reduce){.colgante{animation:none}}
   /* ---------- Animaciones ---------- */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
@@ -707,6 +797,8 @@
     .sobre-inner,.contacto-inner{grid-template-columns:1fr;gap:40px}
     .gal-rejilla{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:28px 16px}
     .ing-grid{grid-template-columns:1fr;gap:18px}
+    .temporada{padding:72px 16px}
+    .carta{grid-template-columns:1fr;gap:22px;padding:32px 22px}
     .newsletter form{flex-direction:column}
     .newsletter input,.newsletter button{width:100%}
   }
@@ -717,12 +809,74 @@
   }
 
 </style>
+<script>
+/* ===== FECHAS DE LA CAMPAÑA DE NAVIDAD — cambia solo esto =====
+   cierreEncargos: último día en que se aceptan pedidos de Navidad
+   completo:       ponlo a true si el obrador se llena antes: cierra los encargos al momento
+   ultimaFecha:    día de entrega de los encargos de Navidad (el único que se puede elegir)
+   finCampana:     a partir de este momento la sección de Navidad desaparece
+   abiertoExtra:   días que normalmente se cierra (miércoles) pero esta vez se abre
+   decoHasta:      hasta esta fecha se ve la decoración navideña de toda la web */
+var TEMPORADA={cierreEncargos:'2026-11-30',completo:false,ultimaFecha:'2026-12-23',finCampana:'2026-12-23T17:00:00',abiertoExtra:['2026-12-23'],decoHasta:'2027-01-07T00:00:00'};
+if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.add('navidad');
+</script>
 </head>
 <body id="top">
+<!-- Iconos reutilizados (se dibujan con <use href="#...">) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-estrella" viewBox="0 0 20 20"><g fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></g></symbol>
+  <symbol id="i-rama" viewBox="0 0 150 150"><g fill="none" stroke-linecap="round">
+      <path d="M8 96Q60 40 132 14" stroke="var(--chocolate-suave)" stroke-width="1.4"/>
+      <path d="M40 66L70 78" stroke="var(--chocolate-suave)" stroke-width="1.1"/>
+      <path d="M12.6 91.2l12.4 -2.6M12.6 91.2l-6.4 -10.9M17.2 86.5l12.2 -2.2M17.2 86.5l-6.1 -10.8M21.9 81.9l11.9 -1.9M21.9 81.9l-5.7 -10.7M26.7 77.4l11.7 -1.7M26.7 77.4l-5.3 -10.5M31.6 73.1l11.4 -1.4M31.6 73.1l-5.0 -10.3M36.5 68.8l11.1 -1.1M36.5 68.8l-4.6 -10.2M41.5 64.7l10.8 -0.9M41.5 64.7l-4.3 -10.0M46.6 60.7l10.5 -0.6M46.6 60.7l-4.0 -9.8M51.8 56.8l10.3 -0.4M51.8 56.8l-3.7 -9.6M57.0 53.0l10.0 -0.2M57.0 53.0l-3.4 -9.4M62.3 49.3l9.7 0.1M62.3 49.3l-3.1 -9.1M67.7 45.7l9.3 0.2M67.7 45.7l-2.8 -8.9M73.2 42.3l9.0 0.4M73.2 42.3l-2.5 -8.7M78.7 38.9l8.7 0.6M78.7 38.9l-2.3 -8.4M84.3 35.7l8.4 0.8M84.3 35.7l-2.0 -8.2M90.0 32.6l8.1 0.9M90.0 32.6l-1.8 -7.9M95.8 29.6l7.8 1.0M95.8 29.6l-1.5 -7.7M101.6 26.7l7.4 1.1M101.6 26.7l-1.3 -7.4M107.6 24.0l7.1 1.2M107.6 24.0l-1.1 -7.1M113.6 21.3l6.8 1.3M113.6 21.3l-0.9 -6.8M119.6 18.7l6.5 1.4M119.6 18.7l-0.8 -6.6M125.8 16.3l6.1 1.5M125.8 16.3l-0.6 -6.3" stroke="#5E6B4E" stroke-width="1.6"/>
+      <path d="M43.3 67.3l4.8 7.1M43.3 67.3l5.2 -6.8M46.7 68.7l4.5 6.7M46.7 68.7l4.9 -6.5M50.0 70.0l4.3 6.4M50.0 70.0l4.6 -6.1M53.3 71.3l4.0 6.0M53.3 71.3l4.4 -5.7M56.7 72.7l3.8 5.6M56.7 72.7l4.1 -5.4M60.0 74.0l3.5 5.3M60.0 74.0l3.8 -5.0M63.3 75.3l3.3 4.9M63.3 75.3l3.6 -4.7M66.7 76.7l3.0 4.5M66.7 76.7l3.3 -4.3" stroke="#5E6B4E" stroke-width="1.4"/>
+      <path d="M86 34V56" stroke="var(--dorado)" stroke-width=".9"/>
+      <rect x="82.5" y="54" width="7" height="5" rx="1" fill="var(--dorado)"/>
+      <circle cx="86" cy="70" r="12" fill="var(--amapola)"/>
+      <path d="M77 66q9 5 18 0" stroke="var(--dorado)" stroke-width="1.1" opacity=".9"/>
+      <path d="M76.5 72q9.5 5 19 0" stroke="var(--crema)" stroke-width=".7" opacity=".6"/>
+      <circle cx="81.5" cy="65" r="2.4" fill="#fff" opacity=".35"/>
+      <g transform="translate(112 52) scale(.55)" fill="var(--dorado)" stroke="none"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/></g>
+      <circle cx="58" cy="88" r="2.6" fill="var(--amapola)"/><circle cx="63" cy="91" r="2.2" fill="var(--amapola)"/>
+  </g></symbol>
+  <symbol id="i-wycinanki" viewBox="0 0 240 26">
+    <circle cx="8" cy="13" r="2"/>
+    <rect x="16" y="12.4" width="58" height="1.2" rx=".6"/>
+    <ellipse cx="84" cy="13" rx="7" ry="2.6" transform="rotate(-18 84 13)"/>
+    <ellipse cx="100" cy="13" rx="7" ry="2.6" transform="rotate(18 100 13)"/>
+    <g transform="translate(120 13)">
+      <circle r="2.6"/>
+      <ellipse rx="2.2" ry="6.2" cy="-7.6"/>
+      <ellipse rx="2.2" ry="6.2" cy="7.6"/>
+      <ellipse rx="6.2" ry="2.2" cx="-7.6"/>
+      <ellipse rx="6.2" ry="2.2" cx="7.6"/>
+      <circle cx="-6.4" cy="-6.4" r="1.4"/>
+      <circle cx="6.4" cy="-6.4" r="1.4"/>
+      <circle cx="-6.4" cy="6.4" r="1.4"/>
+      <circle cx="6.4" cy="6.4" r="1.4"/>
+    </g>
+    <ellipse cx="140" cy="13" rx="7" ry="2.6" transform="rotate(-18 140 13)"/>
+    <ellipse cx="156" cy="13" rx="7" ry="2.6" transform="rotate(18 156 13)"/>
+    <rect x="166" y="12.4" width="58" height="1.2" rx=".6"/>
+    <circle cx="232" cy="13" r="2"/>
+  </symbol>
+</svg>
 
 <header>
   <div class="header-inner">
     <a class="brand" href="#top">delicias <em>by</em> bea</a>
+    <div class="header-deco deco-navidad" aria-hidden="true">
+      <svg class="colgante colgante-corazon" viewBox="0 0 30 56">
+        <path d="M15 0V27" stroke="var(--dorado)" stroke-width="1"/>
+        <path d="M15 52C6 45 2 40 2 34.5 2 30.4 5.1 27.5 8.8 27.5c2.6 0 4.8 1.4 6.2 3.6 1.4-2.2 3.6-3.6 6.2-3.6 3.7 0 6.8 2.9 6.8 7 0 5.5-4 10.5-13 17.5z" fill="var(--amapola)"/>
+        <path d="M15 47.5C8.6 42.5 5.6 38.8 5.6 34.8c0-2.4 1.6-4 3.4-4 1.9 0 3.4 1.2 4.4 3M15 47.5c6.4-5 9.4-8.7 9.4-12.7 0-2.4-1.6-4-3.4-4-1.9 0-3.4 1.2-4.4 3" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="1.6 1.6" opacity=".85"/>
+        <circle cx="11.5" cy="38" r="1" fill="#fff" opacity=".9"/><circle cx="18.5" cy="38" r="1" fill="#fff" opacity=".9"/><circle cx="15" cy="42" r="1" fill="#fff" opacity=".9"/>
+      </svg>
+      <svg class="colgante colgante-estrella" viewBox="0 0 20 66">
+        <path d="M10 0V46" stroke="var(--dorado)" stroke-width="1"/>
+        <g transform="translate(0 46)" fill="var(--dorado)"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/></g>
+      </svg>
+    </div>
     <nav class="main" id="mainNav">
       <a href="#top" data-i18n="nav0">Inicio</a>
       <a href="#tradhoy" data-i18n="nav1">El obrador</a>
@@ -767,6 +921,7 @@
 <main id="contenido">
 
 <section class="hero">
+  <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:2%;top:10%;width:12px;height:12px;animation-delay:0s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:9%;top:70%;width:8px;height:8px;animation-delay:1.4s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:46%;top:6%;width:9px;height:9px;animation-delay:2.2s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:52%;top:88%;width:11px;height:11px;animation-delay:0.7s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:97%;top:14%;width:10px;height:10px;animation-delay:1.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:94%;top:62%;width:8px;height:8px;animation-delay:0.3s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:49%;top:48%;width:7px;height:7px;animation-delay:2.7s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span></div>
   <div class="hero-text reveal">
     <div class="eyebrow" data-i18n="eyebrow">Obrador artesanal · Les Corts, Barcelona</div>
     <h1 data-i18n="h1">Sabores de Polonia, <em>horneados</em> en el corazón de Barcelona</h1>
@@ -774,6 +929,7 @@
     <a class="btn" href="#contacto" data-i18n="cta">Haz tu encargo</a>
   </div>
   <div class="hero-img reveal">
+    <svg class="hero-rama deco-navidad" viewBox="0 0 150 150" aria-hidden="true"><use href="#i-rama"/></svg>
     <!-- ⚠️ Si esta imagen pasa a ser el retrato de Bea (concepto original), actualiza src Y alt a la vez -->
     <picture>
       <source srcset="images/bea-obrador.webp" type="image/webp">
@@ -792,7 +948,7 @@
 <section class="cinematica" id="cinematica" aria-label="El obrador">
   <div class="cinematica-marco">
     <div class="cinematica-img" id="cineImg"
-         style="background-image:url('images/obrador.jpg');background-image:image-set(url('images/obrador.webp') type('image/webp'), url('images/obrador.jpg') type('image/jpeg'))"></div>
+         data-fondo></div>
     <div class="cinematica-ph" data-i18n="cinePh">Tu foto: el obrador en acción</div>
     <div class="cinematica-velo"></div>
   </div>
@@ -801,6 +957,97 @@
     <h2 data-i18n="cineTitle">Cada mañana empieza aquí</h2>
   </div>
 </section>
+
+<!-- ============================================================
+     OFERTA DE TEMPORADA · NAVIDAD 2026
+     ➜ Se oculta SOLA al terminar la campaña y el formulario deja de
+       aceptar pedidos de Navidad al pasar la fecha límite.
+       Fechas: objeto TEMPORADA en el script de justo debajo.
+     ➜ Para reutilizarla (Pascua, Sant Joan…): cambia textos (claves nav*),
+       la carta y las fechas de TEMPORADA.
+     ============================================================ -->
+<section class="temporada" id="navidad" aria-labelledby="navTitle">
+  <div class="temporada-cielo" aria-hidden="true">
+    <span style="left:4%;top:6%;width:14px;height:14px;animation-delay:0s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:12%;top:22%;width:9px;height:9px;animation-delay:1.2s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:20%;top:4%;width:7px;height:7px;animation-delay:2.1s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:29%;top:15%;width:11px;height:11px;animation-delay:0.6s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:71%;top:8%;width:12px;height:12px;animation-delay:1.7s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:80%;top:20%;width:8px;height:8px;animation-delay:0.3s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:88%;top:5%;width:15px;height:15px;animation-delay:2.6s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:95%;top:17%;width:9px;height:9px;animation-delay:1.1s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:3%;top:48%;width:8px;height:8px;animation-delay:2.3s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:97%;top:44%;width:10px;height:10px;animation-delay:0.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:2%;top:78%;width:12px;height:12px;animation-delay:1.5s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:98%;top:72%;width:8px;height:8px;animation-delay:2.8s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:8%;top:92%;width:9px;height:9px;animation-delay:0.4s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+    <span style="left:93%;top:90%;width:13px;height:13px;animation-delay:1.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span>
+  </div>
+  <div class="temporada-head reveal">
+    <div class="temporada-estrella" aria-hidden="true">
+      <span class="linea"></span>
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z"/><path d="M10 3.5l1 5.5 5.5 1-5.5 1-1 5.5-1-5.5L3.5 10l5.5-1z" transform="rotate(45 10 10)" opacity=".55"/><circle cx="10" cy="10" r="1.4" fill="var(--crema)"/></svg>
+      <span class="linea"></span>
+    </div>
+    <div class="eyebrow" data-i18n="navEye">Navidad 2026</div>
+    <span class="sub" lang="pl">Boże Narodzenie</span>
+    <h2 id="navTitle" data-i18n="navTitle">Navidad polaca, horneada en Les Corts</h2>
+    <p class="temporada-intro" data-i18n="navIntro">Este año, tu mesa de Navidad también puede saber a Polonia. Horneamos cada especialidad por encargo y en pequeñas cantidades, con el mismo cariño de siempre.</p>
+    <div class="temporada-info">
+      <span data-i18n="navInfo1">Encargos hasta el 30 de noviembre o hasta completar la capacidad de producción del obrador</span>
+      <span data-i18n="navInfo2">Entregas el 23 de diciembre, de 11:00 a 17:00</span>
+    </div>
+  </div>
+
+  <div class="carta reveal">
+    <svg class="carta-rama" viewBox="0 0 150 150" aria-hidden="true"><use href="#i-rama"/></svg>
+    <div class="carta-grupo">
+      <ul class="carta-lista">
+        <li>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Rolada makowa</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">35&nbsp;€<span class="carta-ast" aria-hidden="true">*</span></span></div>
+          <p class="carta-desc"><span data-i18n="navD1">Rollo brioche con semillas de amapola.</span> <span class="carta-medida">30 cm</span></p>
+        </li>
+        <li>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Piernik staropolski</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">20&nbsp;€ / 40&nbsp;€<span class="carta-ast" aria-hidden="true">*</span></span></div>
+          <p class="carta-desc"><span data-i18n="navD3">Gingerbread polaco.</span> <span class="carta-medida">14 cm / 28 cm</span></p>
+        </li>
+        <li>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Orzechowiec</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">60&nbsp;€</span></div>
+          <p class="carta-desc"><span data-i18n="navD4">Tarta de nueces caramelizadas.</span> <span class="carta-medida">24×35 cm</span></p>
+          <p class="carta-bandeja" data-i18n="navBandeja">Precio por bandeja, para unas 16–20 porciones. También en media bandeja o en cuartos.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="carta-grupo">
+      <ul class="carta-lista">
+        <li>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Sernik krakowski</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">60&nbsp;€</span></div>
+          <p class="carta-desc"><span data-i18n="navD5">Tarta de queso estilo Cracovia.</span> <span class="carta-medida">24×35 cm</span></p>
+          <p class="carta-bandeja" data-i18n="navBandeja">Precio por bandeja, para unas 16–20 porciones. También en media bandeja o en cuartos.</p>
+        </li>
+        <li>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Biszkopt czekoladowy z musem czekoladowym</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio"><span data-i18n="navDesde">desde</span>&nbsp;18&nbsp;€</span></div>
+          <p class="carta-desc"><span data-i18n="navD6">Bizcocho de chocolate con mousse de chocolate.</span> <span class="carta-medida" data-i18n="navM6">4 porciones</span></p>
+        </li>
+        <li>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Biszkopt z bitą śmietaną, malinami i galaretką</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio"><span data-i18n="navDesde">desde</span>&nbsp;17&nbsp;€</span></div>
+          <p class="carta-desc"><span data-i18n="navD7">Bizcocho con nata y frambuesas en gelatina.</span> <span class="carta-medida" data-i18n="navM6">4 porciones</span></p>
+        </li>
+      </ul>
+    </div>
+    <p class="carta-nota" data-i18n="navLim">* Unidades limitadas</p>
+  </div>
+
+  <div class="temporada-cta reveal">
+    <a class="btn" id="navCta" href="#contacto" onclick="pedirTemporada()" data-i18n="navCta">Encarga tu Navidad</a>
+    <p class="temporada-cerrado" id="navCerrado" data-i18n="navClosed" hidden>Los encargos de Navidad ya están cerrados. ¡Gracias!</p>
+  </div>
+</section>
+<script>
+/* Fechas de la campaña: objeto TEMPORADA en el <head> */
+if(new Date()>=new Date(TEMPORADA.finCampana)) document.getElementById('navidad').hidden=true;
+</script>
 
 <section class="valores">
   <div class="valores-inner">
@@ -870,27 +1117,7 @@
 
 <!-- Separador wycinanki: guiño al arte popular polaco de papel recortado -->
 <div class="wycinanki" aria-hidden="true">
-  <svg viewBox="0 0 240 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="8" cy="13" r="2"/>
-    <rect x="16" y="12.4" width="58" height="1.2" rx=".6"/>
-    <ellipse cx="84" cy="13" rx="7" ry="2.6" transform="rotate(-18 84 13)"/>
-    <ellipse cx="100" cy="13" rx="7" ry="2.6" transform="rotate(18 100 13)"/>
-    <g transform="translate(120 13)">
-      <circle r="2.6"/>
-      <ellipse rx="2.2" ry="6.2" cy="-7.6"/>
-      <ellipse rx="2.2" ry="6.2" cy="7.6"/>
-      <ellipse rx="6.2" ry="2.2" cx="-7.6"/>
-      <ellipse rx="6.2" ry="2.2" cx="7.6"/>
-      <circle cx="-6.4" cy="-6.4" r="1.4"/>
-      <circle cx="6.4" cy="-6.4" r="1.4"/>
-      <circle cx="-6.4" cy="6.4" r="1.4"/>
-      <circle cx="6.4" cy="6.4" r="1.4"/>
-    </g>
-    <ellipse cx="140" cy="13" rx="7" ry="2.6" transform="rotate(-18 140 13)"/>
-    <ellipse cx="156" cy="13" rx="7" ry="2.6" transform="rotate(18 156 13)"/>
-    <rect x="166" y="12.4" width="58" height="1.2" rx=".6"/>
-    <circle cx="232" cy="13" r="2"/>
-  </svg>
+  <svg viewBox="0 0 240 26" fill="currentColor"><use href="#i-wycinanki"/></svg>
 </div>
 
 <section class="tradhoy" id="tradhoy">
@@ -993,6 +1220,7 @@
 </section>
 
 <section class="sobre" id="sobre">
+  <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:6%;top:14%;width:12px;height:12px;animation-delay:0.2s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:14%;top:74%;width:8px;height:8px;animation-delay:1.6s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:88%;top:10%;width:10px;height:10px;animation-delay:2.4s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:93%;top:58%;width:14px;height:14px;animation-delay:0.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:80%;top:88%;width:8px;height:8px;animation-delay:1.2s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:4%;top:46%;width:7px;height:7px;animation-delay:2.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span></div>
   <div class="sobre-inner">
     <div class="reveal">
       <div class="eyebrow" data-i18n="sEye">Quién soy</div>
@@ -1048,7 +1276,7 @@
         <div class="producto-foto">
           <picture>
             <source srcset="images/sernik.webp" type="image/webp">
-            <img class="base" src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/sernik.jpg" alt="Sernik" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre">Sernik</h4>
@@ -1059,7 +1287,7 @@
         <div class="producto-foto">
           <picture>
             <source srcset="images/charlota.webp" type="image/webp">
-            <img class="base" src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/charlota.jpg" alt="Szarlotka" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre">Szarlotka</h4>
@@ -1070,7 +1298,7 @@
         <div class="producto-foto">
           <picture>
             <source srcset="images/queso.webp" type="image/webp">
-            <img class="base" src="images/queso.jpg" alt="Tarta de queso" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/queso.jpg" alt="Tarta de queso" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnQueso">Tarta de queso</h4>
@@ -1081,7 +1309,7 @@
         <div class="producto-foto">
           <picture>
             <source srcset="images/ceremonia2.webp" type="image/webp">
-            <img class="base" src="images/ceremonia2.jpg" alt="Tarta de ceremonia" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/ceremonia2.jpg" alt="Tarta de ceremonia" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnCeremonia">Tarta de ceremonia</h4>
@@ -1104,7 +1332,7 @@
         <div class="producto-foto">
           <picture>
             <source srcset="images/vitrina.webp" type="image/webp">
-            <img class="base" src="images/vitrina.jpg" alt="Postre de vitrina" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/vitrina.jpg" alt="Postre de vitrina" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnVitrina">Postre de vitrina</h4>
@@ -1116,7 +1344,7 @@
         <div class="producto-foto">
           <picture>
             <source srcset="images/surtido.webp" type="image/webp">
-            <img class="base" src="images/surtido.jpg" alt="Caja surtida" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/surtido.jpg" alt="Caja surtida" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnSurtida">Caja surtida</h4>
@@ -1128,7 +1356,7 @@
         <div class="producto-foto">
           <picture>
             <source srcset="images/ruibarbo.webp" type="image/webp">
-            <img class="base" src="images/ruibarbo.jpg" alt="Postres de temporada" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/ruibarbo.jpg" alt="Postres de temporada" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnTemporada">Postres de temporada</h4>
@@ -1140,7 +1368,7 @@
         <div class="producto-foto">
           <picture>
             <source srcset="images/catering.webp" type="image/webp">
-            <img class="base" src="images/catering.jpg" alt="Catering y Eventos" loading="lazy" onclick="abrirZoom(this)">
+            <img src="images/catering.jpg" alt="Catering y Eventos" loading="lazy" onclick="abrirZoom(this)">
           </picture>
         </div>
         <h4 class="producto-nombre" data-i18n="gnCatering">Catering y Eventos</h4>
@@ -1159,27 +1387,7 @@
      Borra o ajusta los puntos según lo que Bea confirme. Traducciones: claves alg*.
      ============================================================ -->
 <div class="wycinanki" aria-hidden="true">
-  <svg viewBox="0 0 240 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="8" cy="13" r="2"/>
-    <rect x="16" y="12.4" width="58" height="1.2" rx=".6"/>
-    <ellipse cx="84" cy="13" rx="7" ry="2.6" transform="rotate(-18 84 13)"/>
-    <ellipse cx="100" cy="13" rx="7" ry="2.6" transform="rotate(18 100 13)"/>
-    <g transform="translate(120 13)">
-      <circle r="2.6"/>
-      <ellipse rx="2.2" ry="6.2" cy="-7.6"/>
-      <ellipse rx="2.2" ry="6.2" cy="7.6"/>
-      <ellipse rx="6.2" ry="2.2" cx="-7.6"/>
-      <ellipse rx="6.2" ry="2.2" cx="7.6"/>
-      <circle cx="-6.4" cy="-6.4" r="1.4"/>
-      <circle cx="6.4" cy="-6.4" r="1.4"/>
-      <circle cx="-6.4" cy="6.4" r="1.4"/>
-      <circle cx="6.4" cy="6.4" r="1.4"/>
-    </g>
-    <ellipse cx="140" cy="13" rx="7" ry="2.6" transform="rotate(-18 140 13)"/>
-    <ellipse cx="156" cy="13" rx="7" ry="2.6" transform="rotate(18 156 13)"/>
-    <rect x="166" y="12.4" width="58" height="1.2" rx=".6"/>
-    <circle cx="232" cy="13" r="2"/>
-  </svg>
+  <svg viewBox="0 0 240 26" fill="currentColor"><use href="#i-wycinanki"/></svg>
 </div>
 
 <section class="alergias" id="alergias">
@@ -1235,6 +1443,8 @@
         <label class="sr-only" for="tipoEncargo" data-i18n="fTypeDef">¿Qué tipo de encargo?*</label>
         <select name="tipo" id="tipoEncargo" onchange="ajustarFechaMin()" required>
           <option value="" disabled selected data-i18n="fTypeDef">¿Qué tipo de encargo?*</option>
+          <!-- Opción de campaña: se elimina sola al pasar la fecha límite (ver TEMPORADA) -->
+          <option value="navidad" data-i18n="fTypeNav">Pedido de Navidad</option>
           <option value="personalizada" data-i18n="fTypeCustom">Tarta personalizada (boda, cumpleaños…)</option>
           <option value="reposteria" data-i18n="fTypeOther">Repostería tradicional / de vitrina</option>
           <option value="empresa" data-i18n="fTypeBiz">Empresas / eventos</option>
@@ -1249,6 +1459,10 @@
 
         <label class="sr-only" for="fMensaje" data-i18n="fMsg">Cuéntame qué dulce deseas y para cuándo*</label>
         <textarea name="mensaje" id="fMensaje" data-i18n-ph="fMsg" placeholder="Cuéntame qué dulce deseas y para cuándo*" required></textarea>
+        <label class="consent">
+          <input type="checkbox" name="privacidad" value="Acepta la política de privacidad" required>
+          <span data-i18n="fConsent">He leído y acepto la <a href="legal.html#privacidad" target="_blank" rel="noopener">política de privacidad</a>.*</span>
+        </label>
         <button class="btn" type="submit" data-i18n="fBtn">Enviar encargo</button>
         <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
       </form>
@@ -1280,9 +1494,13 @@
 </main>
 
 <footer>
+  <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:30%;top:30%;width:8px;height:8px;animation-delay:0.5s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:42%;top:64%;width:6px;height:6px;animation-delay:1.8s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:58%;top:26%;width:9px;height:9px;animation-delay:2.6s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:70%;top:70%;width:7px;height:7px;animation-delay:1.1s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span></div>
   <div class="footer-inner">
     <div class="brand">delicias <em>by</em> bea</div>
-    <div data-i18n="foot">©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona</div>
+    <div>
+      <div data-i18n="foot">©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona</div>
+      <div class="footer-legal"><a href="legal.html" data-i18n="footLegal">Aviso legal y privacidad</a></div>
+    </div>
   </div>
 </footer>
 
@@ -1326,7 +1544,7 @@ const I = {
     gIntro:"Recetas tradicionales polacas junto a postres de actualidad. Todo artesano, horneado en el obrador de Les Corts. Los precios son orientativos: el encargo se ajusta a tamaño y ocasión.",
     gcTartas:"Tartas",gcDulces:"Dulces y postres",
     gNotaTartas:"Precio a determinar en función del peso y la medida.",
-    pUnidPorcion:"/ por porción o tarta",pUnidEncargo:"/ por encargo",pConsultar:"Según temporada",pUnidBlaszka:"/ por bandeja",pUnidTortownica:"/ por molde",
+    pConsultar:"Según temporada",
     gnQueso:"Tarta de queso",gnCeremonia:"Tarta de ceremonia",gnVitrina:"Postre de vitrina",gnSurtida:"Caja surtida",gnTemporada:"Postres de temporada",gnCatering:"Catering y Eventos",
     pPresupuesto:"Precio a determinar",
     gpCatering:"Mesas dulces y surtidos para celebraciones, empresas y eventos. Cuéntame tu ocasión y lo preparamos a medida.",
@@ -1338,13 +1556,27 @@ const I = {
     gpSurtida:"Una selección de nuestros dulces para llevar o regalar.",
     gpTemporada:"Especialidades del calendario, como la coca de Sant Joan. Pregunta por las de cada época.",
     cTitle:"Horario y encargos",d1:"Lunes",d2:"Martes",d3:"Miércoles",d4:"Jueves",d5:"Viernes",d6:"Sábado",d7:"Domingo",closed:"Cerrado",tel:"Teléfono:",addrLbl:"Dirección:",gMaps:"Cómo llegar (Google Maps) →",
-    fTitle:"¿Quieres un pedido?",fName:"Nombre*",fPhone:"Teléfono",fMsg:"Cuéntame qué dulce deseas y para cuándo*",fBtn:"Enviar encargo",
+    fTitle:"¿Quieres un pedido?",fName:"Nombre*",fPhone:"Teléfono",fMsg:"Cuéntame qué dulce deseas y para cuándo*",fBtn:"Enviar encargo",fConsent:"He leído y acepto la <a href=\"legal.html#privacidad\" target=\"_blank\" rel=\"noopener\">política de privacidad</a>.*",
     fTypeDef:"¿Qué tipo de encargo?*",fTypeCustom:"Tarta personalizada (boda, cumpleaños…)",fTypeOther:"Repostería tradicional / de vitrina",fTypeBiz:"Empresas / eventos",fEmpresas:"¿Eres una empresa? También preparo encargos para eventos, reuniones y celebraciones de empresa. Cuéntamelo y lo organizamos.",
     fDateLbl:"Fecha deseada de recogida*",fDateHelp:"Elige primero el tipo de encargo.",
     fDate7:"Las tartas personalizadas se piden con 1 semana de antelación mínima.",
     fDate2:"La repostería se pide con 2 días de antelación mínima.",
     fDateWed:"Los miércoles cerramos — elige otro día, por favor.",
     formOk:"¡Gracias! He recibido tu encargo y te responderé muy pronto.",fSending:"Enviando…",fErr:"No se ha podido enviar. Inténtalo de nuevo o escríbeme a deliciasbybea@gmail.com.",
+    navEye:"Navidad 2026",navTitle:"Navidad polaca, horneada en Les Corts",
+    navIntro:"Este año, tu mesa de Navidad también puede saber a Polonia. Horneamos cada especialidad por encargo y en pequeñas cantidades, con el mismo cariño de siempre.",
+    navInfo1:"Encargos hasta el 30 de noviembre o hasta completar la capacidad de producción del obrador",navInfo2:"Entregas el 23 de diciembre, de 11:00 a 17:00",
+    navD1:"Rollo brioche con semillas de amapola.",
+    navD3:"Gingerbread polaco.",
+    navD4:"Tarta de nueces caramelizadas.",
+    navD5:"Tarta de queso estilo Cracovia.",
+    navD6:"Bizcocho de chocolate con mousse de chocolate.",
+    navD7:"Bizcocho con nata y frambuesas en gelatina.",
+    navM6:"4 porciones",navLim:"* Unidades limitadas",navBandeja:"Precio por bandeja, para unas 16–20 porciones. También en media bandeja o en cuartos.",navDesde:"desde",
+    navCta:"Encarga tu Navidad",navClosed:"Los encargos de Navidad ya están cerrados. ¡Gracias!",navFull:"Hemos completado la capacidad de producción del obrador. ¡Gracias por vuestra confianza!",
+    fTypeNav:"Pedido de Navidad",
+    fDateNav:"Encargos hasta el 30 de noviembre. Entrega: 23 de diciembre, de 11:00 a 17:00.",
+    fDateNavMax:"Los encargos de Navidad se entregan solo el 23 de diciembre.",
     ingEye:"De dónde viene cada bocado",ingTitle:"Ingredientes con nombre y apellidos",
     ingIntro:"Crecí viendo a mi madre elegir cada ingrediente con cuidado, y esa manía buena se me quedó. Por eso compro cerca, de temporada, y no escondo nada detrás de un atajo industrial: lo bueno se nota en el primer bocado.",
     ing1t:"Mantequilla y lácteos",ing1p:"Mantequilla y derivados de la leche de verdad: naturales, sin aditivos ni variantes.",
@@ -1361,7 +1593,7 @@ const I = {
     algNota:"¿Tienes alguna necesidad específica? <a href=\"#contacto\">Escríbeme</a> y lo vemos.",
     nlTitle:"Novedades del obrador",nlSub:"Apúntate y recibe primero las especialidades de temporada, los dulces de fiesta polaca y cualquier novedad de Delicias by Bea.",
     nlPh:"Tu correo electrónico",nlBtn:"Apuntarme",nlPriv:"Respeto tu privacidad. Sin spam, solo dulces novedades.",nlOk:"¡Gracias! Te avisaré de las próximas novedades.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",footLegal:"Aviso legal y privacidad",
     waMsg:"Hola Bea, me gustaría hacer un encargo.",waLbl:"Escribir por WhatsApp",revLink:"Reseñas de clientes en Google"},
   ca:{nav0:"Inici",nav1:"L'obrador",nav2:"Qui sóc",nav3:"Galeria",nav4:"Encàrrecs",
     eyebrow:"Obrador artesanal · Les Corts, Barcelona",
@@ -1388,7 +1620,7 @@ const I = {
     gIntro:"Receptes tradicionals poloneses al costat de postres d'actualitat. Tot artesà, fornejat a l'obrador de Les Corts. Els preus són orientatius: l'encàrrec s'ajusta a la mida i l'ocasió.",
     gcTartas:"Pastissos",gcDulces:"Dolços i postres",
     gNotaTartas:"Preu a determinar en funció del pes i la mida.",
-    pUnidPorcion:"/ per porció o pastís",pUnidEncargo:"/ per encàrrec",pConsultar:"Segons temporada",pUnidBlaszka:"/ per safata",pUnidTortownica:"/ per motlle",
+    pConsultar:"Segons temporada",
     gnQueso:"Pastís de formatge",gnCeremonia:"Pastís de cerimònia",gnVitrina:"Postre de vitrina",gnSurtida:"Capsa assortida",gnTemporada:"Postres de temporada",gnCatering:"Càtering i Esdeveniments",
     pPresupuesto:"Preu a determinar",
     gpCatering:"Taules dolces i assortits per a celebracions, empreses i esdeveniments. Explica'm la teva ocasió i ho preparem a mida.",
@@ -1400,13 +1632,27 @@ const I = {
     gpSurtida:"Una selecció dels nostres dolços per emportar o regalar.",
     gpTemporada:"Especialitats del calendari, com la coca de Sant Joan. Pregunta per les de cada època.",
     cTitle:"Horari i encàrrecs",d1:"Dilluns",d2:"Dimarts",d3:"Dimecres",d4:"Dijous",d5:"Divendres",d6:"Dissabte",d7:"Diumenge",closed:"Tancat",tel:"Telèfon:",addrLbl:"Adreça:",gMaps:"Com arribar-hi (Google Maps) →",
-    fTitle:"Vols fer una comanda?",fName:"Nom*",fPhone:"Telèfon",fMsg:"Explica'm quin dolç desitges i per a quan*",fBtn:"Envia l'encàrrec",
+    fTitle:"Vols fer una comanda?",fName:"Nom*",fPhone:"Telèfon",fMsg:"Explica'm quin dolç desitges i per a quan*",fBtn:"Envia l'encàrrec",fConsent:"He llegit i accepto la <a href=\"legal.html#privacidad\" target=\"_blank\" rel=\"noopener\">política de privacitat</a>.*",
     fTypeDef:"Quin tipus d'encàrrec?*",fTypeCustom:"Pastís personalitzat (casament, aniversari…)",fTypeOther:"Pastisseria tradicional / de vitrina",fTypeBiz:"Empreses / esdeveniments",fEmpresas:"Ets una empresa? També preparo encàrrecs per a esdeveniments, reunions i celebracions d'empresa. Explica'm i ho organitzem.",
     fDateLbl:"Data desitjada de recollida*",fDateHelp:"Tria primer el tipus d'encàrrec.",
     fDate7:"Els pastissos personalitzats es demanen amb 1 setmana d'antelació mínima.",
     fDate2:"La pastisseria es demana amb 2 dies d'antelació mínima.",
     fDateWed:"Els dimecres tanquem — tria un altre dia, si us plau.",
     formOk:"Gràcies! He rebut el teu encàrrec i et respondré ben aviat.",fSending:"Enviant…",fErr:"No s'ha pogut enviar. Torna-ho a provar o escriu-me a deliciasbybea@gmail.com.",
+    navEye:"Nadal 2026",navTitle:"Nadal polonès, enfornat a Les Corts",
+    navIntro:"Aquest any, la teva taula de Nadal també pot tenir gust de Polònia. Enfornem cada especialitat per encàrrec i en petites quantitats, amb el mateix afecte de sempre.",
+    navInfo1:"Encàrrecs fins al 30 de novembre o fins a completar la capacitat de producció de l'obrador",navInfo2:"Entregues el 23 de desembre, d'11:00 a 17:00",
+    navD1:"Rotlle de brioix amb llavors de rosella.",
+    navD3:"Pa d'espècies polonès (gingerbread).",
+    navD4:"Pastís de nous caramel·litzades.",
+    navD5:"Pastís de formatge estil Cracòvia.",
+    navD6:"Pa de pessic de xocolata amb mousse de xocolata.",
+    navD7:"Pa de pessic amb nata i gerds en gelatina.",
+    navM6:"4 porcions",navLim:"* Unitats limitades",navBandeja:"Preu per safata, per a unes 16–20 porcions. També en mitja safata o en quarts.",navDesde:"des de",
+    navCta:"Encarrega el teu Nadal",navClosed:"Els encàrrecs de Nadal ja estan tancats. Gràcies!",navFull:"Hem completat la capacitat de producció de l'obrador. Gràcies per la vostra confiança!",
+    fTypeNav:"Comanda de Nadal",
+    fDateNav:"Encàrrecs fins al 30 de novembre. Entrega: 23 de desembre, d'11:00 a 17:00.",
+    fDateNavMax:"Els encàrrecs de Nadal s'entreguen només el 23 de desembre.",
     ingEye:"D'on ve cada mos",ingTitle:"Ingredients amb nom i cognoms",
     ingIntro:"Vaig créixer veient la meva mare triar cada ingredient amb cura, i aquesta bona mania se'm va quedar. Per això compro a prop, de temporada, i no amago res darrere d'una drecera industrial: el que és bo es nota a la primera mossegada.",
     ing1t:"Mantega i lactis",ing1p:"Mantega i derivats de la llet de veritat: naturals, sense additius ni variants.",
@@ -1423,7 +1669,7 @@ const I = {
     algNota:"Tens alguna necessitat específica? <a href=\"#contacto\">Escriu-me</a> i ho veiem.",
     nlTitle:"Novetats de l'obrador",nlSub:"Apunta't i rep primer les especialitats de temporada, els dolços de festa polonesa i qualsevol novetat de Delicias by Bea.",
     nlPh:"El teu correu electrònic",nlBtn:"Apuntar-m'hi",nlPriv:"Respecto la teva privacitat. Sense spam, només dolces novetats.",nlOk:"Gràcies! T'avisaré de les pròximes novetats.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",footLegal:"Avís legal i privacitat",
     waMsg:"Hola Bea, m'agradaria fer un encàrrec.",waLbl:"Escriure per WhatsApp",revLink:"Ressenyes de clients a Google"},
   en:{nav0:"Home",nav1:"The bakery",nav2:"About me",nav3:"Gallery",nav4:"Orders",
     eyebrow:"Artisan pâtisserie · Les Corts, Barcelona",
@@ -1450,7 +1696,7 @@ const I = {
     gIntro:"Traditional Polish recipes alongside contemporary desserts. All handmade, baked in the Les Corts bakery. Prices are a guide: each order is tailored to size and occasion.",
     gcTartas:"Cakes",gcDulces:"Treats & desserts",
     gNotaTartas:"Price to be determined based on weight and size.",
-    pUnidPorcion:"/ per slice or cake",pUnidEncargo:"/ to order",pConsultar:"Seasonal",pUnidBlaszka:"/ per tray",pUnidTortownica:"/ per tin",
+    pConsultar:"Seasonal",
     gnQueso:"Cheesecake",gnCeremonia:"Celebration cake",gnVitrina:"Counter dessert",gnSurtida:"Assorted box",gnTemporada:"Seasonal desserts",gnCatering:"Catering & Events",
     pPresupuesto:"Price on request",
     gpCatering:"Dessert tables and assortments for celebrations, companies and events. Tell me about your occasion and we'll tailor it.",
@@ -1462,13 +1708,27 @@ const I = {
     gpSurtida:"A selection of our treats to take away or gift.",
     gpTemporada:"Calendar specialities, like the Sant Joan coca. Ask for each season's.",
     cTitle:"Hours & orders",d1:"Monday",d2:"Tuesday",d3:"Wednesday",d4:"Thursday",d5:"Friday",d6:"Saturday",d7:"Sunday",closed:"Closed",tel:"Phone:",addrLbl:"Address:",gMaps:"Get directions (Google Maps) →",
-    fTitle:"Want to place an order?",fName:"Name*",fPhone:"Phone",fMsg:"Tell me what sweet you wish for and when*",fBtn:"Send order",
+    fTitle:"Want to place an order?",fName:"Name*",fPhone:"Phone",fMsg:"Tell me what sweet you wish for and when*",fBtn:"Send order",fConsent:"I have read and accept the <a href=\"legal.html#privacidad\" target=\"_blank\" rel=\"noopener\">privacy policy</a>.*",
     fTypeDef:"What kind of order?*",fTypeCustom:"Custom cake (wedding, birthday…)",fTypeOther:"Traditional / counter pastry",fTypeBiz:"Companies / events",fEmpresas:"Are you a company? I also prepare orders for events, meetings and corporate celebrations. Tell me about it and we'll organise it.",
     fDateLbl:"Preferred pickup date*",fDateHelp:"Choose the type of order first.",
     fDate7:"Custom cakes must be ordered at least 1 week in advance.",
     fDate2:"Pastries must be ordered at least 2 days in advance.",
     fDateWed:"We're closed on Wednesdays — please choose another day.",
     formOk:"Thank you! I've received your order and will reply very soon.",fSending:"Sending…",fErr:"Something went wrong. Please try again or email me at deliciasbybea@gmail.com.",
+    navEye:"Christmas 2026",navTitle:"A Polish Christmas, baked in Les Corts",
+    navIntro:"This year, your Christmas table can taste of Poland too. Every speciality is baked to order in small batches, with the same love as always.",
+    navInfo1:"Orders until 30 November, or until the bakery's production capacity is full",navInfo2:"Pick-up on 23 December, 11 am – 5 pm",
+    navD1:"Brioche roll with poppy seeds.",
+    navD3:"Polish gingerbread.",
+    navD4:"Caramelised nut cake.",
+    navD5:"Kraków-style cheesecake.",
+    navD6:"Chocolate sponge with chocolate mousse.",
+    navD7:"Sponge cake with cream and raspberries in jelly.",
+    navM6:"4 servings",navLim:"* Limited quantities",navBandeja:"Price per tray, serves about 16–20. Also available as a half or quarter tray.",navDesde:"from",
+    navCta:"Order for Christmas",navClosed:"Christmas orders are now closed. Thank you!",navFull:"The bakery's production capacity is now full. Thank you for your support!",
+    fTypeNav:"Christmas order",
+    fDateNav:"Orders until 30 November. Pick-up: 23 December, 11 am – 5 pm.",
+    fDateNavMax:"Christmas orders can only be collected on 23 December.",
     ingEye:"Where every bite comes from",ingTitle:"Ingredients with a name and a story",
     ingIntro:"I grew up watching my mother choose every ingredient with care, and that good habit stuck with me. That's why I buy locally, in season, and hide nothing behind an industrial shortcut: you can taste the difference in the first bite.",
     ing1t:"Butter & dairy",ing1p:"Real butter and milk products: natural, with no additives or substitutes.",
@@ -1485,7 +1745,7 @@ const I = {
     algNota:"Have a specific requirement? <a href=\"#contacto\">Get in touch</a> and we'll sort it out.",
     nlTitle:"News from the bakery",nlSub:"Sign up to be the first to hear about seasonal specials, Polish holiday treats and any news from Delicias by Bea.",
     nlPh:"Your email address",nlBtn:"Sign me up",nlPriv:"I respect your privacy. No spam, just sweet news.",nlOk:"Thank you! I'll let you know about what's next.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",footLegal:"Legal notice & privacy",
     waMsg:"Hi Bea, I'd like to place an order.",waLbl:"Message on WhatsApp",revLink:"Customer reviews on Google"},
   pl:{nav0:"Start",nav1:"Pracownia",nav2:"O mnie",nav3:"Galeria",nav4:"Zamówienia",
     eyebrow:"Rzemieślnicza pracownia · Les Corts, Barcelona",
@@ -1512,7 +1772,7 @@ const I = {
     gIntro:"Tradycyjne polskie receptury obok nowoczesnych deserów. Wszystko rzemieślnicze, wypiekane w pracowni w Les Corts. Ceny są orientacyjne: każde zamówienie dostosowujemy do rozmiaru i okazji.",
     gcTartas:"Torty",gcDulces:"Słodycze i desery",
     gNotaTartas:"Cena do ustalenia w zależności od wagi i rozmiaru.",
-    pUnidPorcion:"/ za porcję lub tort",pUnidEncargo:"/ na zamówienie",pConsultar:"Sezonowo",pUnidBlaszka:"/ blaszka",pUnidTortownica:"/ tortownica",
+    pConsultar:"Sezonowo",
     gnQueso:"Sernik baskijski",gnCeremonia:"Tort okolicznościowy",gnVitrina:"Deser z witryny",gnSurtida:"Pudełko mieszane",gnTemporada:"Desery sezonowe",gnCatering:"Catering i Eventy",
     pPresupuesto:"Cena do ustalenia",
     gpCatering:"Słodkie stoły i zestawy na uroczystości, firmy i eventy. Opowiedz mi o swojej okazji, a przygotujemy ją na miarę.",
@@ -1524,13 +1784,27 @@ const I = {
     gpSurtida:"Wybór naszych słodkości na wynos lub na prezent.",
     gpTemporada:"Specjały z kalendarza, jak coca de Sant Joan. Zapytaj o sezonowe.",
     cTitle:"Godziny i zamówienia",d1:"Poniedziałek",d2:"Wtorek",d3:"Środa",d4:"Czwartek",d5:"Piątek",d6:"Sobota",d7:"Niedziela",closed:"Zamknięte",tel:"Telefon:",addrLbl:"Adres:",gMaps:"Jak dojechać (Google Maps) →",
-    fTitle:"Chcesz złożyć zamówienie?",fName:"Imię*",fPhone:"Telefon",fMsg:"Napisz, o jakim wypieku marzysz i na kiedy*",fBtn:"Wyślij zamówienie",
+    fTitle:"Chcesz złożyć zamówienie?",fName:"Imię*",fPhone:"Telefon",fMsg:"Napisz, o jakim wypieku marzysz i na kiedy*",fBtn:"Wyślij zamówienie",fConsent:"Przeczytałem/am i akceptuję <a href=\"legal.html#privacidad\" target=\"_blank\" rel=\"noopener\">politykę prywatności</a>.*",
     fTypeDef:"Jaki rodzaj zamówienia?*",fTypeCustom:"Tort personalizowany (ślub, urodziny…)",fTypeOther:"Tradycyjne wypieki / z witryny",fTypeBiz:"Firmy / wydarzenia",fEmpresas:"Reprezentujesz firmę? Przygotowuję też zamówienia na wydarzenia, spotkania i uroczystości firmowe. Napisz, a wszystko zorganizujemy.",
     fDateLbl:"Preferowana data odbioru*",fDateHelp:"Najpierw wybierz rodzaj zamówienia.",
     fDate7:"Torty personalizowane zamawiamy z min. tygodniowym wyprzedzeniem.",
     fDate2:"Wypieki zamawiamy z min. 2-dniowym wyprzedzeniem.",
     fDateWed:"W środy jest zamknięte — wybierz inny dzień.",
     formOk:"Dziękuję! Otrzymałam Twoje zamówienie i wkrótce odpowiem.",fSending:"Wysyłanie…",fErr:"Nie udało się wysłać. Spróbuj ponownie lub napisz na deliciasbybea@gmail.com.",
+    navEye:"Święta 2026",navTitle:"Smak polskich Świąt w Les Corts",
+    navIntro:"W tym roku Twój świąteczny stół może smakować jak w Polsce. Każdy wypiek przygotowujemy na zamówienie, w małych ilościach i z tą samą miłością co zawsze.",
+    navInfo1:"Zamówienia do 30 listopada lub do wyczerpania mocy przerobowych",navInfo2:"Odbiór 23 grudnia, w godz. 11:00–17:00",
+    navD1:"Drożdżowa rolada z makiem.",
+    navD3:"Piernik według staropolskiej receptury.",
+    navD4:"Ciasto z karmelizowanymi orzechami.",
+    navD5:"Sernik w stylu krakowskim.",
+    navD6:"Biszkopt czekoladowy przełożony musem czekoladowym.",
+    navD7:"Biszkopt ze śmietaną i malinami w galaretce.",
+    navM6:"4 porcje",navLim:"* Ilość ograniczona",navBandeja:"Cena za blachę, ok. 16–20 porcji. Dostępne także pół lub ćwierć blachy.",navDesde:"od",
+    navCta:"Zamów na Święta",navClosed:"Zamówienia świąteczne są już zamknięte. Dziękuję!",navFull:"Nasze moce przerobowe są już wyczerpane. Dziękujemy za zaufanie!",
+    fTypeNav:"Zamówienie świąteczne",
+    fDateNav:"Zamówienia do 30 listopada. Odbiór: 23 grudnia, w godz. 11:00–17:00.",
+    fDateNavMax:"Zamówienia świąteczne można odebrać tylko 23 grudnia.",
     ingEye:"Skąd pochodzi każdy kęs",ingTitle:"Starannie wybrane składniki",
     ingIntro:"Dorastałam, patrząc, jak mama starannie wybiera każdy składnik, i ten dobry nawyk został we mnie. Dlatego kupuję lokalnie, sezonowo i niczego nie ukrywam za przemysłowym skrótem: to, co dobre, czuć już przy pierwszym kęsie.",
     ing1t:"Masło i nabiał",ing1p:"Prawdziwe masło i produkty mleczne: naturalne, bez dodatków i zamienników.",
@@ -1547,7 +1821,7 @@ const I = {
     algNota:"Masz szczególne wymagania? <a href=\"#contacto\">Napisz do mnie</a>, a coś wymyślimy.",
     nlTitle:"Nowości z pracowni",nlSub:"Zapisz się i jako pierwszy poznawaj sezonowe specjały, polskie świąteczne wypieki i wszystkie nowości Delicias by Bea.",
     nlPh:"Twój adres e-mail",nlBtn:"Zapisz mnie",nlPriv:"Szanuję Twoją prywatność. Bez spamu, tylko słodkie nowości.",nlOk:"Dziękuję! Dam znać o kolejnych nowościach.",
-    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",
+    foot:"©2026 Delicias by Bea · Travessera de les Corts 303 · Barcelona",footLegal:"Nota prawna i prywatność",
     waMsg:"Cześć Bea, chcę złożyć zamówienie.",waLbl:"Napisz na WhatsApp",revLink:"Opinie klientów w Google"}
 };
 let lang='es';
@@ -1638,6 +1912,14 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   const img=document.getElementById('cineImg');
   if(!sec||!img) return;
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Carga diferida de la foto: se pide cuando la banda está a punto de entrar en pantalla
+  const cargaFondo=new IntersectionObserver(es=>{
+    if(!es[0].isIntersecting) return;
+    img.style.backgroundImage="url('images/obrador.jpg')";
+    img.style.backgroundImage="image-set(url('images/obrador.webp') type('image/webp'), url('images/obrador.jpg') type('image/jpeg'))";
+    cargaFondo.disconnect();
+  },{rootMargin:'300px 0px'});
+  cargaFondo.observe(sec);
   // Revelar el texto cuando la sección entra en pantalla
   const ioCine=new IntersectionObserver(es=>{
     es.forEach(e=>{if(e.isIntersecting){sec.classList.add('in');ioCine.unobserve(e.target)}});
@@ -1678,6 +1960,34 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   updateCta();
 })();
 
+/* Fecha local en formato AAAA-MM-DD (evita desfases de zona horaria) */
+function fechaISO(d){
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+
+/* Campaña de temporada: cierra encargos al pasar la fecha límite */
+function temporadaAbierta(){
+  return !TEMPORADA.completo && fechaISO(new Date())<=TEMPORADA.cierreEncargos;
+}
+(function(){
+  const sec=document.getElementById('navidad');
+  if(!sec) return;
+  const opt=document.querySelector('#tipoEncargo option[value="navidad"]');
+  if(sec.hidden){if(opt) opt.remove();return;}
+  if(!temporadaAbierta()){
+    if(opt) opt.remove();
+    document.getElementById('navCta').hidden=true;
+    const cerrado=document.getElementById('navCerrado');
+    if(TEMPORADA.completo){cerrado.setAttribute('data-i18n','navFull');cerrado.textContent=t('navFull');}
+    cerrado.hidden=false;
+  }
+})();
+/* Botón de la sección: lleva al formulario con "Pedido de Navidad" ya elegido */
+function pedirTemporada(){
+  const sel=document.getElementById('tipoEncargo');
+  if(sel.querySelector('option[value="navidad"]')){sel.value='navidad';ajustarFechaMin();}
+}
+
 function ajustarFechaMin(){
   const tipo=document.getElementById('tipoEncargo').value;
   const campo=document.getElementById('fechaRecogida');
@@ -1685,10 +1995,16 @@ function ajustarFechaMin(){
   const txt=aviso.querySelector('.fecha-aviso-txt');
   const dias = tipo==='personalizada' ? 7 : (tipo==='reposteria'||tipo==='empresa') ? 2 : 0;
   aviso.classList.remove('alerta');
+  if(tipo==='navidad'){ // los encargos de Navidad se entregan un único día
+    campo.min=campo.max=TEMPORADA.ultimaFecha; campo.value=TEMPORADA.ultimaFecha;
+    txt.textContent=t('fDateNav'); return;
+  }
+  campo.removeAttribute('max');
   if(!dias){campo.removeAttribute('min');txt.textContent=t('fDateHelp');return;}
   const min=new Date();min.setDate(min.getDate()+dias);
-  campo.min=min.toISOString().split('T')[0];
-  if(campo.value && campo.value < campo.min) campo.value='';
+  if(min.getDay()===3 && !TEMPORADA.abiertoExtra.includes(fechaISO(min))) min.setDate(min.getDate()+1); // miércoles cerrado: el primer día posible pasa al jueves
+  campo.min=fechaISO(min);
+  if(campo.value && (campo.value < campo.min || (campo.max && campo.value > campo.max))) campo.value='';
   txt.textContent = dias===7 ? t('fDate7') : t('fDate2');
 }
 
@@ -1699,8 +2015,13 @@ function validarFecha(){
   const txt=aviso.querySelector('.fecha-aviso-txt');
   if(!campo.value) return true;
   const d=new Date(campo.value+'T12:00:00');
-  if(d.getDay()===3){ // miércoles: día de cierre de Bea
+  if(d.getDay()===3 && !TEMPORADA.abiertoExtra.includes(campo.value)){ // miércoles: día de cierre de Bea (salvo aperturas especiales)
     txt.textContent=t('fDateWed');
+    aviso.classList.add('alerta');
+    return false;
+  }
+  if(document.getElementById('tipoEncargo').value==='navidad' && campo.value!==TEMPORADA.ultimaFecha){
+    txt.textContent=t('fDateNavMax');
     aviso.classList.add('alerta');
     return false;
   }
