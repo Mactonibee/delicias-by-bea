@@ -436,12 +436,6 @@
     background:var(--crema-tostada);border:1px solid rgba(46,32,24,.06);
     border-radius:16px;padding:48px 52px;
   }
-  .carta-cab{margin-bottom:26px;padding-bottom:12px;border-bottom:1px solid rgba(46,32,24,.14)}
-  .carta-cab h3{font-size:1.55rem;line-height:1.2}
-  .carta-cab .pl{
-    display:block;font-family:'Fraunces',serif;font-style:italic;font-size:.9rem;
-    letter-spacing:.06em;color:var(--dorado-texto);margin-top:2px;
-  }
   .carta-lista{list-style:none;display:grid;gap:22px}
   .carta-fila{display:flex;align-items:baseline;gap:10px}
   .carta-nombre{font-family:'Fraunces',serif;font-weight:500;font-size:1.14rem;line-height:1.3}
@@ -449,9 +443,11 @@
   .carta-precio{font-weight:600;color:var(--amapola);letter-spacing:.04em;white-space:nowrap}
   .carta-desc{font-size:.92rem;color:var(--chocolate-suave);line-height:1.5;margin-top:3px}
   .carta-medida{color:var(--dorado-texto);font-weight:600;font-size:.82rem;white-space:nowrap;margin-left:4px}
+  .carta-bandeja{margin-top:4px;font-size:.84rem;font-style:italic;color:var(--dorado-texto);line-height:1.45}
+  html[lang="pl"] .carta-desc [data-i18n^="navD"]{display:none} /* en polaco el nombre ya describe el postre */
+  html[lang="pl"] .carta-desc .carta-medida{margin-left:0}
   .carta-ast{color:var(--dorado-texto);margin-left:1px}
-  .carta-nota{margin-top:22px;font-size:.84rem;font-style:italic;color:var(--dorado-texto)}
-  html[lang="pl"] .carta-cab .pl{display:none} /* en polaco el subtítulo repetiría el título */
+  .carta-nota{grid-column:1/-1;margin:-26px 0 0;font-size:.84rem;font-style:italic;color:var(--dorado-texto)}
   .temporada-cta{text-align:center;margin-top:44px}
   /* Toque navideño: estrella polaca y marco de tarjeta en dorado */
   .temporada-estrella{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;color:var(--dorado)}
@@ -480,12 +476,9 @@
   .temporada-cielo svg{width:100%;height:100%;display:block}
   @keyframes titilar{0%,100%{opacity:.3;transform:scale(.85)}50%{opacity:.8;transform:scale(1)}}
   .carta-rama{position:absolute;left:-40px;top:-70px;width:176px;height:176px;z-index:2;pointer-events:none;transform:rotate(-6deg)}
-  .carta-cab h3::before{
-    content:'';display:inline-block;width:.62em;height:.62em;margin-right:.45em;vertical-align:.08em;
-    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23C99A5B' d='M10 0l1.6 8.4L20 10l-8.4 1.6L10 20l-1.6-8.4L0 10l8.4-1.6z'/%3E%3C/svg%3E") no-repeat center/contain;
-  }
   .temporada-info span::before{content:'\2726';color:var(--dorado);margin-right:8px;font-size:.9em}
   @media(max-width:900px){
+    .carta-nota{margin-top:6px}
     .carta-rama{left:-16px;top:-62px;width:128px;height:128px}
   }
   @media (prefers-reduced-motion: reduce){.temporada-cielo span{animation:none}}
@@ -805,7 +798,7 @@
     .gal-rejilla{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:28px 16px}
     .ing-grid{grid-template-columns:1fr;gap:18px}
     .temporada{padding:72px 16px}
-    .carta{grid-template-columns:1fr;gap:40px;padding:32px 22px}
+    .carta{grid-template-columns:1fr;gap:22px;padding:32px 22px}
     .newsletter form{flex-direction:column}
     .newsletter input,.newsletter button{width:100%}
   }
@@ -818,11 +811,13 @@
 </style>
 <script>
 /* ===== FECHAS DE LA CAMPAÑA DE NAVIDAD — cambia solo esto =====
-   ultimaFecha: último día de recogida/entrega
-   finCampana:  a partir de este momento la sección de Navidad desaparece
-   antelacion:  días mínimos entre el encargo y la recogida
-   decoHasta:   hasta esta fecha se ve la decoración navideña de toda la web */
-var TEMPORADA={ultimaFecha:'2026-12-24',finCampana:'2026-12-24T14:00:00',antelacion:14,decoHasta:'2027-01-07T00:00:00'};
+   cierreEncargos: último día en que se aceptan pedidos de Navidad
+   completo:       ponlo a true si el obrador se llena antes: cierra los encargos al momento
+   ultimaFecha:    día de entrega de los encargos de Navidad (el único que se puede elegir)
+   finCampana:     a partir de este momento la sección de Navidad desaparece
+   abiertoExtra:   días que normalmente se cierra (miércoles) pero esta vez se abre
+   decoHasta:      hasta esta fecha se ve la decoración navideña de toda la web */
+var TEMPORADA={cierreEncargos:'2026-11-30',completo:false,ultimaFecha:'2026-12-23',finCampana:'2026-12-23T17:00:00',abiertoExtra:['2026-12-23'],decoHasta:'2027-01-07T00:00:00'};
 if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.add('navidad');
 </script>
 </head>
@@ -997,57 +992,51 @@ if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.
     <div class="eyebrow" data-i18n="navEye">Navidad 2026</div>
     <span class="sub" lang="pl">Boże Narodzenie</span>
     <h2 id="navTitle" data-i18n="navTitle">Navidad polaca, horneada en Les Corts</h2>
-    <p class="temporada-intro" data-i18n="navIntro">Este año, tu mesa de Navidad también puede saber a Polonia. Elige tus especialidades y encárgalas con al menos dos semanas de antelación.</p>
+    <p class="temporada-intro" data-i18n="navIntro">Este año, tu mesa de Navidad también puede saber a Polonia. Horneamos cada especialidad por encargo y en pequeñas cantidades, con el mismo cariño de siempre.</p>
     <div class="temporada-info">
-      <span data-i18n="navInfo1">Encargos con 2 semanas de antelación</span>
-      <span data-i18n="navInfo2">Últimas entregas: 24 de diciembre, hasta las 14:00</span>
+      <span data-i18n="navInfo1">Encargos hasta el 30 de noviembre o hasta completar la capacidad de producción del obrador</span>
+      <span data-i18n="navInfo2">Entregas el 23 de diciembre, de 11:00 a 17:00</span>
     </div>
   </div>
 
   <div class="carta reveal">
     <svg class="carta-rama" viewBox="0 0 150 150" aria-hidden="true"><use href="#i-rama"/></svg>
     <div class="carta-grupo">
-      <div class="carta-cab">
-        <h3 data-i18n="navGrp1">Clásicos de Navidad</h3>
-        <span class="pl" lang="pl">Świąteczne klasyki</span>
-      </div>
       <ul class="carta-lista">
         <li>
           <div class="carta-fila"><span class="carta-nombre" lang="pl">Rolada makowa</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">35&nbsp;€<span class="carta-ast" aria-hidden="true">*</span></span></div>
           <p class="carta-desc"><span data-i18n="navD1">Rollo brioche con semillas de amapola.</span> <span class="carta-medida">30 cm</span></p>
         </li>
         <li>
-          <div class="carta-fila"><span class="carta-nombre" lang="pl">Sernik baskijski</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">30&nbsp;€<span class="carta-ast" aria-hidden="true">*</span></span></div>
-          <p class="carta-desc"><span data-i18n="navD2">Tarta de queso vasca.</span> <span class="carta-medida">Ø 21 cm</span></p>
-        </li>
-        <li>
           <div class="carta-fila"><span class="carta-nombre" lang="pl">Piernik staropolski</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">20&nbsp;€ / 40&nbsp;€<span class="carta-ast" aria-hidden="true">*</span></span></div>
           <p class="carta-desc"><span data-i18n="navD3">Gingerbread polaco.</span> <span class="carta-medida">14 cm / 28 cm</span></p>
         </li>
-      </ul>
-      <p class="carta-nota" data-i18n="navLim">* Unidades limitadas</p>
-    </div>
-
-    <div class="carta-grupo">
-      <div class="carta-cab">
-        <h3 data-i18n="navGrp2">Tartas para compartir</h3>
-        <span class="pl" lang="pl">Ciasta na wspólny stół</span>
-      </div>
-      <ul class="carta-lista">
         <li>
           <div class="carta-fila"><span class="carta-nombre" lang="pl">Orzechowiec</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">60&nbsp;€</span></div>
           <p class="carta-desc"><span data-i18n="navD4">Tarta de nueces caramelizadas.</span> <span class="carta-medida">24×35 cm</span></p>
+          <p class="carta-bandeja" data-i18n="navBandeja">Precio por bandeja, para unas 16–20 porciones. También en media bandeja o en cuartos.</p>
         </li>
+      </ul>
+    </div>
+
+    <div class="carta-grupo">
+      <ul class="carta-lista">
         <li>
           <div class="carta-fila"><span class="carta-nombre" lang="pl">Sernik krakowski</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio">60&nbsp;€</span></div>
           <p class="carta-desc"><span data-i18n="navD5">Tarta de queso estilo Cracovia.</span> <span class="carta-medida">24×35 cm</span></p>
+          <p class="carta-bandeja" data-i18n="navBandeja">Precio por bandeja, para unas 16–20 porciones. También en media bandeja o en cuartos.</p>
         </li>
         <li>
           <div class="carta-fila"><span class="carta-nombre" lang="pl">Biszkopt czekoladowy z musem czekoladowym</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio"><span data-i18n="navDesde">desde</span>&nbsp;18&nbsp;€</span></div>
           <p class="carta-desc"><span data-i18n="navD6">Bizcocho de chocolate con mousse de chocolate.</span> <span class="carta-medida" data-i18n="navM6">4 porciones</span></p>
         </li>
+        <li>
+          <div class="carta-fila"><span class="carta-nombre" lang="pl">Biszkopt z bitą śmietaną, malinami i galaretką</span><span class="carta-puntos" aria-hidden="true"></span><span class="carta-precio"><span data-i18n="navDesde">desde</span>&nbsp;17&nbsp;€</span></div>
+          <p class="carta-desc"><span data-i18n="navD7">Bizcocho con nata y frambuesas en gelatina.</span> <span class="carta-medida" data-i18n="navM6">4 porciones</span></p>
+        </li>
       </ul>
     </div>
+    <p class="carta-nota" data-i18n="navLim">* Unidades limitadas</p>
   </div>
 
   <div class="temporada-cta reveal">
@@ -1575,20 +1564,19 @@ const I = {
     fDateWed:"Los miércoles cerramos — elige otro día, por favor.",
     formOk:"¡Gracias! He recibido tu encargo y te responderé muy pronto.",fSending:"Enviando…",fErr:"No se ha podido enviar. Inténtalo de nuevo o escríbeme a deliciasbybea@gmail.com.",
     navEye:"Navidad 2026",navTitle:"Navidad polaca, horneada en Les Corts",
-    navIntro:"Este año, tu mesa de Navidad también puede saber a Polonia. Elige tus especialidades y encárgalas con al menos dos semanas de antelación.",
-    navInfo1:"Encargos con 2 semanas de antelación",navInfo2:"Últimas entregas: 24 de diciembre, hasta las 14:00",
-    navGrp1:"Clásicos de Navidad",navGrp2:"Tartas para compartir",
+    navIntro:"Este año, tu mesa de Navidad también puede saber a Polonia. Horneamos cada especialidad por encargo y en pequeñas cantidades, con el mismo cariño de siempre.",
+    navInfo1:"Encargos hasta el 30 de noviembre o hasta completar la capacidad de producción del obrador",navInfo2:"Entregas el 23 de diciembre, de 11:00 a 17:00",
     navD1:"Rollo brioche con semillas de amapola.",
-    navD2:"Tarta de queso vasca.",
     navD3:"Gingerbread polaco.",
     navD4:"Tarta de nueces caramelizadas.",
     navD5:"Tarta de queso estilo Cracovia.",
     navD6:"Bizcocho de chocolate con mousse de chocolate.",
-    navM6:"4 porciones",navLim:"* Unidades limitadas",navDesde:"desde",
-    navCta:"Encarga tu Navidad",navClosed:"Los encargos de Navidad ya están cerrados. ¡Gracias!",
+    navD7:"Bizcocho con nata y frambuesas en gelatina.",
+    navM6:"4 porciones",navLim:"* Unidades limitadas",navBandeja:"Precio por bandeja, para unas 16–20 porciones. También en media bandeja o en cuartos.",navDesde:"desde",
+    navCta:"Encarga tu Navidad",navClosed:"Los encargos de Navidad ya están cerrados. ¡Gracias!",navFull:"Hemos completado la capacidad de producción del obrador. ¡Gracias por vuestra confianza!",
     fTypeNav:"Pedido de Navidad",
-    fDateNav:"Los pedidos de Navidad se encargan con 2 semanas de antelación. Última entrega: 24 de diciembre, hasta las 14:00.",
-    fDateNavMax:"Para Navidad, la última fecha de entrega es el 24 de diciembre.",
+    fDateNav:"Encargos hasta el 30 de noviembre. Entrega: 23 de diciembre, de 11:00 a 17:00.",
+    fDateNavMax:"Los encargos de Navidad se entregan solo el 23 de diciembre.",
     ingEye:"De dónde viene cada bocado",ingTitle:"Ingredientes con nombre y apellidos",
     ingIntro:"Crecí viendo a mi madre elegir cada ingrediente con cuidado, y esa manía buena se me quedó. Por eso compro cerca, de temporada, y no escondo nada detrás de un atajo industrial: lo bueno se nota en el primer bocado.",
     ing1t:"Mantequilla y lácteos",ing1p:"Mantequilla y derivados de la leche de verdad: naturales, sin aditivos ni variantes.",
@@ -1652,20 +1640,19 @@ const I = {
     fDateWed:"Els dimecres tanquem — tria un altre dia, si us plau.",
     formOk:"Gràcies! He rebut el teu encàrrec i et respondré ben aviat.",fSending:"Enviant…",fErr:"No s'ha pogut enviar. Torna-ho a provar o escriu-me a deliciasbybea@gmail.com.",
     navEye:"Nadal 2026",navTitle:"Nadal polonès, enfornat a Les Corts",
-    navIntro:"Aquest any, la teva taula de Nadal també pot tenir gust de Polònia. Tria les teves especialitats i encarrega-les amb almenys dues setmanes d'antelació.",
-    navInfo1:"Encàrrecs amb 2 setmanes d'antelació",navInfo2:"Últimes entregues: 24 de desembre, fins a les 14:00",
-    navGrp1:"Clàssics de Nadal",navGrp2:"Pastissos per compartir",
+    navIntro:"Aquest any, la teva taula de Nadal també pot tenir gust de Polònia. Enfornem cada especialitat per encàrrec i en petites quantitats, amb el mateix afecte de sempre.",
+    navInfo1:"Encàrrecs fins al 30 de novembre o fins a completar la capacitat de producció de l'obrador",navInfo2:"Entregues el 23 de desembre, d'11:00 a 17:00",
     navD1:"Rotlle de brioix amb llavors de rosella.",
-    navD2:"Pastís de formatge basc.",
     navD3:"Pa d'espècies polonès (gingerbread).",
     navD4:"Pastís de nous caramel·litzades.",
     navD5:"Pastís de formatge estil Cracòvia.",
     navD6:"Pa de pessic de xocolata amb mousse de xocolata.",
-    navM6:"4 porcions",navLim:"* Unitats limitades",navDesde:"des de",
-    navCta:"Encarrega el teu Nadal",navClosed:"Els encàrrecs de Nadal ja estan tancats. Gràcies!",
+    navD7:"Pa de pessic amb nata i gerds en gelatina.",
+    navM6:"4 porcions",navLim:"* Unitats limitades",navBandeja:"Preu per safata, per a unes 16–20 porcions. També en mitja safata o en quarts.",navDesde:"des de",
+    navCta:"Encarrega el teu Nadal",navClosed:"Els encàrrecs de Nadal ja estan tancats. Gràcies!",navFull:"Hem completat la capacitat de producció de l'obrador. Gràcies per la vostra confiança!",
     fTypeNav:"Comanda de Nadal",
-    fDateNav:"Les comandes de Nadal es fan amb 2 setmanes d'antelació. Última entrega: 24 de desembre, fins a les 14:00.",
-    fDateNavMax:"Per Nadal, l'última data d'entrega és el 24 de desembre.",
+    fDateNav:"Encàrrecs fins al 30 de novembre. Entrega: 23 de desembre, d'11:00 a 17:00.",
+    fDateNavMax:"Els encàrrecs de Nadal s'entreguen només el 23 de desembre.",
     ingEye:"D'on ve cada mos",ingTitle:"Ingredients amb nom i cognoms",
     ingIntro:"Vaig créixer veient la meva mare triar cada ingredient amb cura, i aquesta bona mania se'm va quedar. Per això compro a prop, de temporada, i no amago res darrere d'una drecera industrial: el que és bo es nota a la primera mossegada.",
     ing1t:"Mantega i lactis",ing1p:"Mantega i derivats de la llet de veritat: naturals, sense additius ni variants.",
@@ -1729,20 +1716,19 @@ const I = {
     fDateWed:"We're closed on Wednesdays — please choose another day.",
     formOk:"Thank you! I've received your order and will reply very soon.",fSending:"Sending…",fErr:"Something went wrong. Please try again or email me at deliciasbybea@gmail.com.",
     navEye:"Christmas 2026",navTitle:"A Polish Christmas, baked in Les Corts",
-    navIntro:"This year, your Christmas table can taste of Poland too. Choose your Christmas specialities and order them at least two weeks in advance.",
-    navInfo1:"Order 2 weeks in advance",navInfo2:"Last pick-ups: 24 December, by 2 pm",
-    navGrp1:"Christmas classics",navGrp2:"Cakes to share",
+    navIntro:"This year, your Christmas table can taste of Poland too. Every speciality is baked to order in small batches, with the same love as always.",
+    navInfo1:"Orders until 30 November, or until the bakery's production capacity is full",navInfo2:"Pick-up on 23 December, 11 am – 5 pm",
     navD1:"Brioche roll with poppy seeds.",
-    navD2:"Basque cheesecake.",
     navD3:"Polish gingerbread.",
     navD4:"Caramelised nut cake.",
     navD5:"Kraków-style cheesecake.",
     navD6:"Chocolate sponge with chocolate mousse.",
-    navM6:"4 servings",navLim:"* Limited quantities",navDesde:"from",
-    navCta:"Order for Christmas",navClosed:"Christmas orders are now closed. Thank you!",
+    navD7:"Sponge cake with cream and raspberries in jelly.",
+    navM6:"4 servings",navLim:"* Limited quantities",navBandeja:"Price per tray, serves about 16–20. Also available as a half or quarter tray.",navDesde:"from",
+    navCta:"Order for Christmas",navClosed:"Christmas orders are now closed. Thank you!",navFull:"The bakery's production capacity is now full. Thank you for your support!",
     fTypeNav:"Christmas order",
-    fDateNav:"Christmas orders need 2 weeks' notice. Last pick-up: 24 December, by 2 pm.",
-    fDateNavMax:"For Christmas, the last pick-up date is 24 December.",
+    fDateNav:"Orders until 30 November. Pick-up: 23 December, 11 am – 5 pm.",
+    fDateNavMax:"Christmas orders can only be collected on 23 December.",
     ingEye:"Where every bite comes from",ingTitle:"Ingredients with a name and a story",
     ingIntro:"I grew up watching my mother choose every ingredient with care, and that good habit stuck with me. That's why I buy locally, in season, and hide nothing behind an industrial shortcut: you can taste the difference in the first bite.",
     ing1t:"Butter & dairy",ing1p:"Real butter and milk products: natural, with no additives or substitutes.",
@@ -1806,20 +1792,19 @@ const I = {
     fDateWed:"W środy jest zamknięte — wybierz inny dzień.",
     formOk:"Dziękuję! Otrzymałam Twoje zamówienie i wkrótce odpowiem.",fSending:"Wysyłanie…",fErr:"Nie udało się wysłać. Spróbuj ponownie lub napisz na deliciasbybea@gmail.com.",
     navEye:"Święta 2026",navTitle:"Smak polskich Świąt w Les Corts",
-    navIntro:"W tym roku Twój świąteczny stół może smakować jak w Polsce. Wybierz wypieki i zamów je z co najmniej dwutygodniowym wyprzedzeniem.",
-    navInfo1:"Zamówienia z 2-tygodniowym wyprzedzeniem",navInfo2:"Ostatnie odbiory: 24 grudnia, do 14:00",
-    navGrp1:"Świąteczne klasyki",navGrp2:"Ciasta na wspólny stół",
+    navIntro:"W tym roku Twój świąteczny stół może smakować jak w Polsce. Każdy wypiek przygotowujemy na zamówienie, w małych ilościach i z tą samą miłością co zawsze.",
+    navInfo1:"Zamówienia do 30 listopada lub do wyczerpania mocy przerobowych",navInfo2:"Odbiór 23 grudnia, w godz. 11:00–17:00",
     navD1:"Drożdżowa rolada z makiem.",
-    navD2:"Sernik po baskijsku.",
     navD3:"Piernik według staropolskiej receptury.",
     navD4:"Ciasto z karmelizowanymi orzechami.",
     navD5:"Sernik w stylu krakowskim.",
     navD6:"Biszkopt czekoladowy przełożony musem czekoladowym.",
-    navM6:"4 porcje",navLim:"* Ilość ograniczona",navDesde:"od",
-    navCta:"Zamów na Święta",navClosed:"Zamówienia świąteczne są już zamknięte. Dziękuję!",
+    navD7:"Biszkopt ze śmietaną i malinami w galaretce.",
+    navM6:"4 porcje",navLim:"* Ilość ograniczona",navBandeja:"Cena za blachę, ok. 16–20 porcji. Dostępne także pół lub ćwierć blachy.",navDesde:"od",
+    navCta:"Zamów na Święta",navClosed:"Zamówienia świąteczne są już zamknięte. Dziękuję!",navFull:"Nasze moce przerobowe są już wyczerpane. Dziękujemy za zaufanie!",
     fTypeNav:"Zamówienie świąteczne",
-    fDateNav:"Zamówienia świąteczne przyjmujemy z 2-tygodniowym wyprzedzeniem. Ostatni odbiór: 24 grudnia, do 14:00.",
-    fDateNavMax:"Na Święta ostatni termin odbioru to 24 grudnia.",
+    fDateNav:"Zamówienia do 30 listopada. Odbiór: 23 grudnia, w godz. 11:00–17:00.",
+    fDateNavMax:"Zamówienia świąteczne można odebrać tylko 23 grudnia.",
     ingEye:"Skąd pochodzi każdy kęs",ingTitle:"Starannie wybrane składniki",
     ingIntro:"Dorastałam, patrząc, jak mama starannie wybiera każdy składnik, i ten dobry nawyk został we mnie. Dlatego kupuję lokalnie, sezonowo i niczego nie ukrywam za przemysłowym skrótem: to, co dobre, czuć już przy pierwszym kęsie.",
     ing1t:"Masło i nabiał",ing1p:"Prawdziwe masło i produkty mleczne: naturalne, bez dodatków i zamienników.",
@@ -1982,9 +1967,7 @@ function fechaISO(d){
 
 /* Campaña de temporada: cierra encargos al pasar la fecha límite */
 function temporadaAbierta(){
-  const ultimo=new Date(TEMPORADA.ultimaFecha+'T12:00:00');
-  ultimo.setDate(ultimo.getDate()-TEMPORADA.antelacion); // último día para encargar
-  return fechaISO(new Date())<=fechaISO(ultimo);
+  return !TEMPORADA.completo && fechaISO(new Date())<=TEMPORADA.cierreEncargos;
 }
 (function(){
   const sec=document.getElementById('navidad');
@@ -1994,7 +1977,9 @@ function temporadaAbierta(){
   if(!temporadaAbierta()){
     if(opt) opt.remove();
     document.getElementById('navCta').hidden=true;
-    document.getElementById('navCerrado').hidden=false;
+    const cerrado=document.getElementById('navCerrado');
+    if(TEMPORADA.completo){cerrado.setAttribute('data-i18n','navFull');cerrado.textContent=t('navFull');}
+    cerrado.hidden=false;
   }
 })();
 /* Botón de la sección: lleva al formulario con "Pedido de Navidad" ya elegido */
@@ -2008,15 +1993,19 @@ function ajustarFechaMin(){
   const campo=document.getElementById('fechaRecogida');
   const aviso=document.getElementById('fechaAviso');
   const txt=aviso.querySelector('.fecha-aviso-txt');
-  const dias = tipo==='navidad' ? TEMPORADA.antelacion : tipo==='personalizada' ? 7 : (tipo==='reposteria'||tipo==='empresa') ? 2 : 0;
+  const dias = tipo==='personalizada' ? 7 : (tipo==='reposteria'||tipo==='empresa') ? 2 : 0;
   aviso.classList.remove('alerta');
-  if(tipo==='navidad') campo.max=TEMPORADA.ultimaFecha; else campo.removeAttribute('max');
+  if(tipo==='navidad'){ // los encargos de Navidad se entregan un único día
+    campo.min=campo.max=TEMPORADA.ultimaFecha; campo.value=TEMPORADA.ultimaFecha;
+    txt.textContent=t('fDateNav'); return;
+  }
+  campo.removeAttribute('max');
   if(!dias){campo.removeAttribute('min');txt.textContent=t('fDateHelp');return;}
   const min=new Date();min.setDate(min.getDate()+dias);
-  if(min.getDay()===3) min.setDate(min.getDate()+1); // miércoles cerrado: el primer día posible pasa al jueves
+  if(min.getDay()===3 && !TEMPORADA.abiertoExtra.includes(fechaISO(min))) min.setDate(min.getDate()+1); // miércoles cerrado: el primer día posible pasa al jueves
   campo.min=fechaISO(min);
   if(campo.value && (campo.value < campo.min || (campo.max && campo.value > campo.max))) campo.value='';
-  txt.textContent = tipo==='navidad' ? t('fDateNav') : dias===7 ? t('fDate7') : t('fDate2');
+  txt.textContent = dias===7 ? t('fDate7') : t('fDate2');
 }
 
 /* Avisa del cierre de los miércoles en el momento de elegir la fecha */
@@ -2026,12 +2015,12 @@ function validarFecha(){
   const txt=aviso.querySelector('.fecha-aviso-txt');
   if(!campo.value) return true;
   const d=new Date(campo.value+'T12:00:00');
-  if(d.getDay()===3){ // miércoles: día de cierre de Bea
+  if(d.getDay()===3 && !TEMPORADA.abiertoExtra.includes(campo.value)){ // miércoles: día de cierre de Bea (salvo aperturas especiales)
     txt.textContent=t('fDateWed');
     aviso.classList.add('alerta');
     return false;
   }
-  if(document.getElementById('tipoEncargo').value==='navidad' && campo.value>TEMPORADA.ultimaFecha){
+  if(document.getElementById('tipoEncargo').value==='navidad' && campo.value!==TEMPORADA.ultimaFecha){
     txt.textContent=t('fDateNavMax');
     aviso.classList.add('alerta');
     return false;
