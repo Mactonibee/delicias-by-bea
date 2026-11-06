@@ -670,12 +670,12 @@
   }
 
   /* ---------- Entrada coreografiada del hero ---------- */
-  .hero-text .eyebrow,.hero-text h1,.hero-text p,.hero-text .btn{
+  /* El h1 queda fuera: es candidato a LCP y debe verse desde el primer pintado */
+  .hero-text .eyebrow,.hero-text p,.hero-text .btn{
     opacity:0;transform:translateY(18px);
     transition:opacity .8s ease,transform .8s ease;
   }
   .hero-text.in .eyebrow{opacity:1;transform:none;transition-delay:.05s}
-  .hero-text.in h1{opacity:1;transform:none;transition-delay:.22s}
   .hero-text.in p{opacity:1;transform:none;transition-delay:.42s}
   .hero-text.in .btn{opacity:1;transform:none;transition-delay:.58s}
   /* Subrayado dibujado a mano bajo la palabra en itálica */
@@ -922,13 +922,13 @@ if(new Date()<new Date(TEMPORADA.decoHasta)) document.documentElement.classList.
 
 <section class="hero">
   <div class="deco-cielo deco-navidad" aria-hidden="true"><span style="left:2%;top:10%;width:12px;height:12px;animation-delay:0s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:9%;top:70%;width:8px;height:8px;animation-delay:1.4s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:46%;top:6%;width:9px;height:9px;animation-delay:2.2s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:52%;top:88%;width:11px;height:11px;animation-delay:0.7s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:97%;top:14%;width:10px;height:10px;animation-delay:1.9s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:94%;top:62%;width:8px;height:8px;animation-delay:0.3s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span><span style="left:49%;top:48%;width:7px;height:7px;animation-delay:2.7s"><svg viewBox="0 0 20 20"><use href="#i-estrella"/></svg></span></div>
-  <div class="hero-text reveal">
+  <div class="hero-text">
     <div class="eyebrow" data-i18n="eyebrow">Obrador artesanal · Les Corts, Barcelona</div>
     <h1 data-i18n="h1">Sabores de Polonia, <em>horneados</em> en el corazón de Barcelona</h1>
     <p data-i18n="hsub">Pastelería tradicional polaca y postres de hoy, horneados cada mañana con ingredientes de proximidad.</p>
     <a class="btn" href="#contacto" data-i18n="cta">Haz tu encargo</a>
   </div>
-  <div class="hero-img reveal">
+  <div class="hero-img">
     <svg class="hero-rama deco-navidad" viewBox="0 0 150 150" aria-hidden="true"><use href="#i-rama"/></svg>
     <!-- ⚠️ Si esta imagen pasa a ser el retrato de Bea (concepto original), actualiza src Y alt a la vez -->
     <picture>
@@ -1905,6 +1905,8 @@ const io=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+/* Hero: animación de entrada sin esperar al observer (mejor LCP) */
+requestAnimationFrame(()=>document.querySelector('.hero-text')?.classList.add('in'));
 
 /* Banda cinemática: revelado del texto + parallax al hacer scroll */
 (function(){
